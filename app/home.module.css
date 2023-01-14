@@ -1,0 +1,33 @@
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #f8f8f8, #f8f8f8);
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+.lg\:block {
+    display: block;
+}
+
+.relative {
+    position: relative;
+}
+
+.h-400px {
+    height: 400px;
+}
+
+.w-80\% {
+    width: 80%;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
