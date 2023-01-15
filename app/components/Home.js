@@ -3,14 +3,13 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-
-
+import Counter_tsbeh from './Counter_tsbeh'
+import DateAndDay from "./DateAndDay";
 
 
 export default function Home() {
 
     const [prayTimeState, SetPrayTimeState] = useState({})
-    const [prayaddressState, SetPrayaddressState] = useState({})
 
     const date = new Date();
     let year = date.getFullYear();
@@ -42,60 +41,50 @@ export default function Home() {
                     Imsak: item.timings.Imsak,
                 })
 
-                SetPrayaddressState({
-                    timezone: item.meta.timezone,
-                    gregorian: item.date.gregorian.date,
-                    hijri: item.date.hijri.date,
-                    dayName: item.date.gregorian.weekday.en,
-                })
+
             }
         })
     }
 
+
+
     return (
-        <section on={prayTimes()} className="bg-white place-content-center">
 
-            <section className="flex md:container md:mx-auto scroll-my-1.5">
-                <table className="table-auto bg-white w-[60%] text-center text-black">
+        <section on={prayTimes()} className="flex md:container md:mx-auto scroll-my-1.5">
+            <table className="table-auto bg-white w-[60%] text-center text-black">
 
-                    <tr>
-                        <th>الصلاة</th>
-                        <th>وقت الأذان</th>
-                    </tr>
-                    <tr>
-                        <td>الفجر</td>
-                        <td>{prayTimeState.Fajr}</td>
-                    </tr>
-                    <tr>
-                        <td>الشروق</td>
-                        <td>{prayTimeState.Sunrise}</td>
-                    </tr>
-                    <tr>
-                        <td>الظهر</td>
-                        <td>{prayTimeState.Dhuhr}</td>
-                    </tr>
-                    <tr>
-                        <td>العصر</td>
-                        <td>{prayTimeState.Asr}</td>
-                    </tr>
-                    <tr>
-                        <td>المغرب</td>
-                        <td>{prayTimeState.Maghrib}</td>
-                    </tr>
-                    <tr>
-                        <td>العشاء</td>
-                        <td>{prayTimeState.Isha}</td>
-                    </tr>
+                <tr>
+                    <th>الصلاة</th>
+                    <th>وقت الأذان</th>
+                </tr>
+                <tr>
+                    <td>الفجر</td>
+                    <td>{prayTimeState.Fajr}</td>
+                </tr>
+                <tr>
+                    <td>الشروق</td>
+                    <td>{prayTimeState.Sunrise}</td>
+                </tr>
+                <tr>
+                    <td>الظهر</td>
+                    <td>{prayTimeState.Dhuhr}</td>
+                </tr>
+                <tr>
+                    <td>العصر</td>
+                    <td>{prayTimeState.Asr}</td>
+                </tr>
+                <tr>
+                    <td>المغرب</td>
+                    <td>{prayTimeState.Maghrib}</td>
+                </tr>
+                <tr>
+                    <td>العشاء</td>
+                    <td>{prayTimeState.Isha}</td>
+                </tr>
 
-                </table>
-                <section className="text-black text-right">
-                    <h1>التاريخ : {prayaddressState.gregorian}</h1>
-                    <h1>هجري : {prayaddressState.hijri}</h1>
-                    <h1>اليوم : {prayaddressState.dayName}</h1>
-                    <h1>{prayaddressState.timezone} : المنطقة الزمنية</h1>
-                </section>
-            </section>
-
+            </table>
+            
         </section>
+
     )
 }

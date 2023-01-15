@@ -3,10 +3,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 15px;
-    padding-bottom: 100px;
-    width: 100%;
-    height: 80%;
+    /* padding-top: 15px; */
+    padding-bottom: 10px;
 }
 
 .section::before {
@@ -20,7 +18,8 @@
 }
 
 .hidden {
-    display: none;
+    display: flex;
+    width: 100%;
 }
 
 .lg\:block {
@@ -41,10 +40,10 @@
 
 .container {
     position: absolute;
-    top: 71%;
+    bottom: 24%;
     left: 50%;
-    width: 80%;
+    width: 100%;
     transform: translate(-50%, -50%);
     text-align: center;
-    
+    padding-top: 10px;
 }
