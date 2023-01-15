@@ -46,7 +46,7 @@ export default function Home() {
                     timezone: item.meta.timezone,
                     gregorian: item.date.gregorian.date,
                     hijri: item.date.hijri.date,
-                    dayName: item.date.hijri.weekday.ar,
+                    dayName: item.date.gregorian.weekday.en,
                 })
             }
         })
