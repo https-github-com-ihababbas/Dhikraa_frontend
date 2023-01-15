@@ -9,7 +9,7 @@ export default function Counter_tsbeh() {
     
     return (
         <>
-        <section className={`flex space-x-1 place-content-center bg-white ${style.container}`}>
+        <section className="flex place-content-center bg-white">
         { image.map((element) => (
             <Home_Image_card
             
