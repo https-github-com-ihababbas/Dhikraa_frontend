@@ -4,10 +4,12 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from "next/image";
 import logo from 'public/assets/Logo_dhekraa.png'
+import style from '../styles/header.module.css'
+import Link from "next/link";
 
 const navigation = [
     { name: 'Home', href: '#', current: true },
-    { name: 'About', href: '#', current: false },
+    { name: 'About', href: '/about', current: false },
     { name: 'Reader', href: '#', current: false },
     { name: 'TODO', href: '#', current: false },
     { name: 'Pray Time', href: '#', current: false },
@@ -21,7 +23,7 @@ function linkHanldle(...classes) {
 export default function Header() {
     return (
         // bg-blue-900
-        <Disclosure as="nav" className="bg-blue-900">
+        <Disclosure as="nav" className={`${style.nav}`}>
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -53,7 +55,7 @@ export default function Header() {
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4 ">
                                         {navigation.map((item) => (
-                                            <a
+                                            <Link
                                                 key={item.name}
                                                 href={item.href}
                                                 className={linkHanldle(
@@ -63,7 +65,7 @@ export default function Header() {
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -109,7 +111,7 @@ export default function Header() {
                                                         href="#"
                                                         className={linkHanldle(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
-                                                        Settings
+                                                        Toggel
                                                     </a>
                                                 )}
                                             </Menu.Item>

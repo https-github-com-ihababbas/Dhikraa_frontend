@@ -1,11 +1,12 @@
 import React from "react";
 import logo from 'public/assets/Logo_dhekraa.png'
 import Image from "next/image";
+import style from '../styles/header.module.css'
 
 export default function Header() {
     return (
         // bg-cyan-900
-        <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start space-y-6 bg-blue-900">
+        <div className={`flex flex-1 items-center justify-center sm:items-stretch sm:justify-start space-y-6 ${style.nav}`}>
             <div className="flex flex-shrink-0 items-center">
                 <Image
                     className="block h-20 w-auto lg:hidden"
