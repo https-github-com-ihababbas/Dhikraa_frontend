@@ -30,6 +30,12 @@ export const image = [{
     "title": "counter5",
     "count": 0
 },
+{
+  "_id": 6,
+  "image_url": "/assets/counter6.png",
+  "title": "counter6",
+  "count": 0
+},
 ]
 
 
