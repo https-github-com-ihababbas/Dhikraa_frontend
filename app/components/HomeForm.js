@@ -3,7 +3,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import styles from 'app/styles.module.css';
+import styles from 'app/styles/styles.module.css';
 import stylesHome from '../styles/home.module.css'
 import styleSection from  '../styles/formAndTsbeh.module.css'
 import styleTabel from '../styles/DateAndDay.module.css'
