@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styles from 'app/styles.module.css';
+import styles from 'app/styles/styles.module.css';
 import Image from 'next/image';
 import home_img from 'public/assets/praypage.png'
-import hadith from '/home/student/401-01/final-project/frontend/Dhikraa_frontend/public/assets/hadith.png';
+import hadith from 'public/assets/hadith.png';
 import moment from 'moment';
 import {hadiths} from "./data/hadiths";
 import Swal from 'sweetalert2';
