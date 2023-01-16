@@ -1,4 +1,10 @@
-.container {
-    padding-top: 100px;
-    
-}
+.grid_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    padding-top: 33px;
+  }
+  
+  .card {
+    grid-column: span 1;
+  }

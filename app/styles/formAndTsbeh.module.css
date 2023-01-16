@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    padding-bottom: 100px;
+    
+  }
+
+  .section1 {
+    flex: 2.6; /* This sets the flex-basis property to 0, and the flex-grow property to 1, which means that the sections will take up an equal amount of the available space */
+    
+  }
+
+  .section2 {
+    flex: 1.4; /* This sets the flex-basis property to 0, and the flex-grow property to 3 */
+  }

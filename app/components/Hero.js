@@ -27,7 +27,14 @@ export default function Hero() {
                     alt=""
                 />
                 
-                <div  className={`${styles.container} text-zinc-50 text-3xl bg-gray-500 opacity-70`}>
+                <div  className={`block lg:hidden ${styles.container} text-zinc-50 text-3xl bg-gray-500 opacity-70`}>
+
+                    <h1>{ayatState[0]}</h1>
+                    <h1>{ayatState[1]}</h1>
+
+                </div>
+
+                <div  className={`hidden lg:block ${styles.container1} text-zinc-50 text-3xl bg-gray-500 opacity-70`}>
 
                     <h1>{ayatState[0]}</h1>
                     <h1>{ayatState[1]}</h1>
