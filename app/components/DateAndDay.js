@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import style from '../styles/DateAndDay.module.css'
 
 
 export default function DateAndDay() {
@@ -36,12 +37,14 @@ export default function DateAndDay() {
         })
     }
     return (
-        <section on={timeAndAdress()} className="flex md:container md:mx-auto scroll-my-1.5">
-            <section className="text-right">
-                <span>التاريخ : {prayaddressState.gregorian}</span>
-                <span>هجري : {prayaddressState.hijri}</span>
-                <span>اليوم : {prayaddressState.dayName}</span>
-                <span>المنطقة الزمنية : {prayaddressState.timezone}</span>
+        <section on={timeAndAdress()} className={`${style.section}`}>
+            <section className={`${style.span}`}>
+                <div className={`${style.div}`}>
+                    <h1>Date : <span className="text-sm">{prayaddressState.gregorian}</span></h1>
+                    <h1>Hijri : <span className="text-sm">{prayaddressState.hijri}</span></h1>
+                    <h1>Day : <span className="text-sm">{prayaddressState.dayName}</span></h1>
+                    <h1>Time Zone : <span className="text-sm">{prayaddressState.timezone}</span></h1>
+                </div>
             </section>
         </section>
     )

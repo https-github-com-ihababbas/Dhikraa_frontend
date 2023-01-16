@@ -47,3 +47,13 @@
     text-align: center;
     padding-top: 10px;
 }
+
+.div{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #333;    
+  }
