@@ -10,6 +10,7 @@
     font-weight: bold;
     color: #333;
     padding-right: 45%;
+    
   }
 
 .div{
@@ -20,4 +21,13 @@
     
     display: flex;
     gap: 36px;   
+}
+
+
+.tr:hover {
+    background-color: #ADD8E6; /* This is a light blue color */
+  }
+
+.tr{
+    height: 30px;
 }

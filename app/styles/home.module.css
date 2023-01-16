@@ -40,7 +40,17 @@
 
 .container {
     position: absolute;
-    bottom: 24%;
+    top: 54.5%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding-top: 10px;
+}
+
+.container1 {
+    position: absolute;
+    top: 63%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);

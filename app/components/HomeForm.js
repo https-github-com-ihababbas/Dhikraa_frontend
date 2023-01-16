@@ -6,6 +6,8 @@ import axios from "axios";
 import styles from 'app/styles.module.css';
 import stylesHome from '../styles/home.module.css'
 import styleSection from  '../styles/formAndTsbeh.module.css'
+import styleTabel from '../styles/DateAndDay.module.css'
+
 export default function Home() {
 
     const [prayTimeState, SetPrayTimeState] = useState({})
@@ -52,33 +54,33 @@ export default function Home() {
             <section on={prayTimes()} className={stylesHome.div}>
                 <table className={styles.table}>
                     <thead>
-                        <tr className={styles.tr}>
+                        <tr className={styleTabel.tr}>
                             <th className={styles.th}>الصلاة</th>
                             <th className={styles.th}>وقت الأذان</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className={styles.current}>
+                        <tr className={`${styles.current} ${styleTabel.tr}`}>
                             <td className={styles.td}>الفجر</td>
                             <td className={styles.td}>{prayTimeState.Fajr}</td>
                         </tr>
-                        <tr className={styles.current}>
+                        <tr className={`${styles.current} ${styleTabel.tr}`}>
                             <td className={styles.td}>الشروق</td>
                             <td className={styles.td}>{prayTimeState.Sunrise}</td>
                         </tr>
-                        <tr className={styles.current}>
+                        <tr className={`${styles.current} ${styleTabel.tr}`}>
                             <td className={styles.td}>الظهر</td>
                             <td className={styles.td}>{prayTimeState.Dhuhr}</td>
                         </tr>
-                        <tr className={styles.current}>
+                        <tr className={`${styles.current} ${styleTabel.tr}`}>
                             <td className={styles.td}>العصر</td>
                             <td className={styles.td}>{prayTimeState.Asr}</td>
                         </tr>
-                        <tr className={styles.current}>
+                        <tr className={`${styles.current} ${styleTabel.tr}`}>
                             <td className={styles.td}>المغرب</td>
                             <td className={styles.td}>{prayTimeState.Maghrib}</td>
                         </tr>
-                        <tr className={styles.current}>
+                        <tr className={`${styles.current} ${styleTabel.tr}`}>
                             <td className={styles.td}>العشاء</td>
                             <td className={styles.td}>{prayTimeState.Isha}</td>
                         </tr>
@@ -86,6 +88,9 @@ export default function Home() {
 
                 </table>
 
+            </section>
+            <section>
+                hello
             </section>
         </section>
     )

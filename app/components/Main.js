@@ -5,7 +5,7 @@ import HomeForm from "./HomeForm";
 import Hero from './Hero'
 import DateAndDay from './DateAndDay'
 import Counter_tsbeh from './Counter_tsbeh'
-import styleSection from  '../styles/formAndTsbeh.module.css'
+import styleSection from '../styles/formAndTsbeh.module.css'
 
 
 export default function Main() {
@@ -13,7 +13,13 @@ export default function Main() {
         <>
             <Hero />
             <DateAndDay />
-            <section className={styleSection.container}>
+            <section className={`hidden lg:block `}>
+                <section className={`${styleSection.container}`}>
+                    <HomeForm />
+                    <Counter_tsbeh />
+                </section>
+            </section>
+            <section className='block lg:hidden'>
                 <HomeForm />
                 <Counter_tsbeh />
             </section>
