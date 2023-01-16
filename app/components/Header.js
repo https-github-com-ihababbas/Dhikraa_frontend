@@ -12,7 +12,7 @@ const navigation = [
     { name: 'About', href: '/about', current: false },
     { name: 'Reader', href: '#', current: false },
     { name: 'TODO', href: '#', current: false },
-    { name: 'Pray Time', href: '#', current: false },
+    { name: 'Pray Time', href: '/praytime', current: false },
 
 ]
 

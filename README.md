@@ -42,3 +42,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 1. npm install react next react-router
 2. npm install axios
+3. npm install moment 
+4. npm install sweetalert2
