@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from 'app/styles.module.css';
+import styles from 'app/styles/styles.module.css';
 import Image from 'next/image';
 import home_img from 'public/assets/praypage.png'
 import hadith from 'public/assets/hadith.png';
