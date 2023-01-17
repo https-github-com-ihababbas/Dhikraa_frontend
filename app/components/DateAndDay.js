@@ -7,6 +7,8 @@ import style from '../styles/DateAndDay.module.css'
 export default function DateAndDay() {
 
     const [prayaddressState, SetPrayaddressState] = useState({})
+    const [prayClearaddressState, SetPrayClearaddressState] = useState({})
+    
 
     const date = new Date();
     let year = date.getFullYear();
@@ -33,6 +35,10 @@ export default function DateAndDay() {
                     dayName: item.date.gregorian.weekday.en,
                     timezone: item.meta.timezone,
                 })
+
+                SetPrayClearaddressState({
+                    timezone: prayaddressState.timezone.split("/")[1]
+                })
             }
         })
     }
@@ -43,7 +49,7 @@ export default function DateAndDay() {
                     <h1>Date : <span className="text-sm">{prayaddressState.gregorian}</span></h1>
                     <h1>Hijri : <span className="text-sm">{prayaddressState.hijri}</span></h1>
                     <h1>Day : <span className="text-sm">{prayaddressState.dayName}</span></h1>
-                    <h1>Time Zone : <span className="text-sm">{prayaddressState.timezone}</span></h1>
+                    <h1>Time Zone : <span className="text-sm">{prayClearaddressState.timezone}</span></h1>
                 </div>
             </section>
         </section>

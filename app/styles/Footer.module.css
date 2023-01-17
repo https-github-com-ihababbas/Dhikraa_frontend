@@ -1,0 +1,70 @@
+.padding{
+    padding: 20px 15% 20px 0px;
+}
+
+
+
+
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #0244c1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+.social_icons_img {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3px;
+    width: 100px;
+    height: auto;
+    margin-right: 1rem;
+    
+    
+}
+.copyright {
+    font-size: 140px;
+}
+.col{
+    display: flex;
+    /* gap: 50%; */
+    align-items: center;
+}
+.col_section1 {
+    flex: 1; /* This sets the flex-basis property to 0, and the flex-grow property to 1, which means that the sections will take up an equal amount of the available space */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .col_section2 {
+    flex: 3; /* This sets the flex-basis property to 0, and the flex-grow property to 3 */
+    padding-left: 400px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+  
+@media (min-width: 768px) {
+    .logo {
+        width: 200px;
+    }
+    .social_icons_img {
+        width: 90px;
+        margin-left: 18%;
+        padding-top: 10px;
+    }
+    .copyright {
+        font-size: 23px;
+    }
+}

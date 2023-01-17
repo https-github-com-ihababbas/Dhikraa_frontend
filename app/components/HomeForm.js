@@ -5,12 +5,15 @@ import { useState } from "react";
 import axios from "axios";
 import styles from 'app/styles/styles.module.css';
 import stylesHome from '../styles/home.module.css'
-import styleSection from  '../styles/formAndTsbeh.module.css'
+import styleSection from '../styles/formAndTsbeh.module.css'
 import styleTabel from '../styles/DateAndDay.module.css'
+// import Modal from './Modal'
 
 export default function Home() {
 
     const [prayTimeState, SetPrayTimeState] = useState({})
+    const [prayClearTimeState, SetPrayClearTimeState] = useState({})
+    // const [isOpen, setIsOpen] = useState(false);
 
     const date = new Date();
     let year = date.getFullYear();
@@ -38,11 +41,17 @@ export default function Home() {
                     Dhuhr: item.timings.Dhuhr,
                     Asr: item.timings.Asr,
                     Maghrib: item.timings.Maghrib,
-                    Isha: item.timings.Isha,
                     Imsak: item.timings.Imsak,
+                    Isha: item.timings.Isha,
                 })
 
-
+                SetPrayClearTimeState(Object.fromEntries(
+                    Object.entries(prayTimeState).map(([key, value]) => {
+                        let words = value.split(" ");
+                        words.splice(1, 1);
+                        return [key, words.join(" ")];
+                    })
+                ))
             }
         })
     }
@@ -55,43 +64,49 @@ export default function Home() {
                 <table className={styles.table}>
                     <thead>
                         <tr className={styleTabel.tr}>
-                            <th className={styles.th}>الصلاة</th>
-                            <th className={styles.th}>وقت الأذان</th>
+                            <th className={styles.th}>prayers</th>
+                            <th className={styles.th}>Azan time</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>الفجر</td>
-                            <td className={styles.td}>{prayTimeState.Fajr}</td>
+                            <td className={styles.td}>Imsak</td>
+                            <td className={styles.td}>{prayClearTimeState.Imsak}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>الشروق</td>
-                            <td className={styles.td}>{prayTimeState.Sunrise}</td>
+                            <td className={styles.td}>Fajr</td>
+                            <td className={styles.td}>{prayClearTimeState.Fajr}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>الظهر</td>
-                            <td className={styles.td}>{prayTimeState.Dhuhr}</td>
+                            <td className={styles.td}>Sunrise</td>
+                            <td className={styles.td}>{prayClearTimeState.Sunrise}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>العصر</td>
-                            <td className={styles.td}>{prayTimeState.Asr}</td>
+                            <td className={styles.td}>Dhuhr</td>
+                            <td className={styles.td}>{prayClearTimeState.Dhuhr}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>المغرب</td>
-                            <td className={styles.td}>{prayTimeState.Maghrib}</td>
+                            <td className={styles.td}>Asr</td>
+                            <td className={styles.td}>{prayClearTimeState.Asr}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>العشاء</td>
-                            <td className={styles.td}>{prayTimeState.Isha}</td>
+                            <td className={styles.td}>Maghrib</td>
+                            <td className={styles.td}>{prayClearTimeState.Maghrib}</td>
+                        </tr>
+                        <tr className={`${styles.current} ${styleTabel.tr}`}>
+                            <td className={styles.td}>Isha</td>
+                            <td className={styles.td}>{prayClearTimeState.Isha}</td>
                         </tr>
                     </tbody>
 
                 </table>
 
             </section>
-            <section>
-                hello
+            {/* <section>
+                <button onClick={() => setIsOpen(true)}>Open Modal</button>
             </section>
+            <Modal modalRaf={isOpen} /> */}
         </section>
+
     )
 }
