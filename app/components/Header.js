@@ -29,7 +29,8 @@ function linkHanldle(...classes) {
 export default function Header() {
 
     const { tokens } = useContext(AuthContext);
-    const {logout}=useContext(AuthContext);
+    const { logout } = useContext(AuthContext);
+    
   return (
     // bg-blue-900
     <>
