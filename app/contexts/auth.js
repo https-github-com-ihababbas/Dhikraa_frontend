@@ -7,9 +7,9 @@ export default function AuthWrapper({children}){
 
     
     const [globalState, setGlobalState] = useState({
-        tokens: null,
-        flagForm:true,
+        tokens: localStorage.getItem("tokens"),
         login,
+        logout,
     })
 
     async function login (userInfo) {
@@ -18,10 +18,22 @@ export default function AuthWrapper({children}){
         console.log(res.data)
         setGlobalState({
             tokens: res.data,
-            flagForm:false,
             login,
+            logout,
         })
+        localStorage.setItem("tokens", res.data);
     }
+
+    async function logout() {
+        setGlobalState({
+            tokens: null,
+            login,
+            logout,
+        })
+    
+        localStorage.removeItem("tokens");
+      }
+
 
     return (
         <AuthContext.Provider value={globalState}>
