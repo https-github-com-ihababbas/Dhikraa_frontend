@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import './globals.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
-
+import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import AuthWrapper from "./contexts/auth";
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -16,18 +16,19 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>
-        {/* Header */}
-        <Header />
+      <AuthWrapper>
+        <body>
+          {/* Header */}
+          <Header />
 
-        {/* main */}
-        <main>
-          {children}
-        </main>
+          {/* main */}
+          
+          <main>{children}</main>
 
-        {/* Footer */}
-        <Footer />
-      </body>
+          {/* Footer */}
+          <Footer />
+        </body>
+      </AuthWrapper>
     </html>
-  )
+  );
 }
