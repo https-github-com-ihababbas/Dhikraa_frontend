@@ -35,11 +35,17 @@ export default function DateAndDay() {
                     dayName: item.date.gregorian.weekday.en,
                     timezone: item.meta.timezone,
                 })
-
+                try{
                 SetPrayClearaddressState({
-                    timezone: prayaddressState.timezone.split("/")[1]
-                })
+                    
+                        timezone: prayaddressState.timezone.split("/")[1]
+                    })
+                }
+                catch(err){
+                    
+                }
             }
+                
         })
     }
     return (

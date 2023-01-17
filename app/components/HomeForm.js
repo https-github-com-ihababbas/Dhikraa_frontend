@@ -7,14 +7,21 @@ import styles from 'app/styles/styles.module.css';
 import stylesHome from '../styles/home.module.css'
 import styleSection from '../styles/formAndTsbeh.module.css'
 import styleTabel from '../styles/DateAndDay.module.css'
-// import Modal from './Modal'
+import Modal from './Modal'
 
 export default function Home() {
 
     const [prayTimeState, SetPrayTimeState] = useState({})
     const [prayClearTimeState, SetPrayClearTimeState] = useState({})
-    // const [isOpen, setIsOpen] = useState(false);
+    const [open,setOpen] = useState(false)
 
+    const setModalIsOpenToTrue =()=>{
+        setOpen(true)
+    }
+
+    const setModalIsOpenToFalse =()=>{
+        setOpen(false)
+    }
     const date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -102,10 +109,12 @@ export default function Home() {
                 </table>
 
             </section>
-            {/* <section>
-                <button onClick={() => setIsOpen(true)}>Open Modal</button>
+            <section>
+                <button onClick={() => setModalIsOpenToTrue()}>Open Modal</button>
+                
+                <Modal isopen={open} close={setModalIsOpenToFalse}/>
+
             </section>
-            <Modal modalRaf={isOpen} /> */}
         </section>
 
     )
