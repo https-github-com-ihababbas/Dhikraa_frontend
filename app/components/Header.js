@@ -29,7 +29,7 @@ function linkHanldle(...classes) {
 export default function Header() {
 
     const { tokens } = useContext(AuthContext);
-
+    const {logout}=useContext(AuthContext);
   return (
     // bg-blue-900
     <>
@@ -145,15 +145,15 @@ export default function Header() {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <button
+                            onClick={logout}
                             className={linkHanldle(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Sign out
-                          </a>
+                          </button>
                         )}
                       </Menu.Item>
                     </Menu.Items>

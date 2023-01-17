@@ -8,6 +8,7 @@ export default function LoginForm(){
   const [username,setUsername]=useState('');
   const [password,setPassword]=useState('')
   const {login}=useContext(AuthContext)
+ const {tokens}=useContext(AuthContext)
 
   const  usernameHandler= (e) => {
     setUsername(e.target.value);
@@ -23,10 +24,10 @@ export default function LoginForm(){
     })
   }
 
-  const {flagForm}=useContext(AuthContext)
+ 
   return (
     <>
-    {flagForm ?<div className=" flex justify-center py-24">
+    {!tokens ?<div className=" flex justify-center py-24">
     <form id="whoobe-t7qyk" className="justify-center items-center my-5 w-full shadow rounded-lg bg-gray-300 px-6 flex flex-col md:w-1/2 lg:w-1/3 m-auto" onSubmit={submitHandler}>
     <h2 className="text-2xl my-4 text-gray-600 ">Login</h2>
 			<div id="whoobe-h90kl" className="w-full p-2 justify-start flex flex-col">
