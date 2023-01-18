@@ -2,26 +2,40 @@
 
 import React from "react";
 import { useState } from "react";
+import Image from "next/image";
 import axios from "axios";
+import { adkar } from './data/adkar'
 import styles from 'app/styles/styles.module.css';
 import stylesHome from '../styles/home.module.css'
 import styleSection from '../styles/formAndTsbeh.module.css'
 import styleTabel from '../styles/DateAndDay.module.css'
 import Modal from './Modal'
 
-export default function Home() {
 
+import dakir1 from 'public/assets/Dakir1.png'
+import dakir2 from 'public/assets/Dakir2.png'
+import dakir3 from 'public/assets/Dakir3.png'
+import dakir4 from 'public/assets/Dakir4.png'
+import dakir5 from 'public/assets/Dakir5.png'
+
+export default function HomeForm() {
+
+    const images = [dakir1, dakir2, dakir3, dakir4, dakir5]
     const [prayTimeState, SetPrayTimeState] = useState({})
     const [prayClearTimeState, SetPrayClearTimeState] = useState({})
-    const [open,setOpen] = useState(false)
+    const [open, setOpen] = useState(false)
+    const [imageIndexState, SetImageIndexState] = useState(0)
 
-    const setModalIsOpenToTrue =()=>{
+    const setModalIsOpenToTrue = (index) => {
         setOpen(true)
+        SetImageIndexState(index)
     }
 
-    const setModalIsOpenToFalse =()=>{
+    const setModalIsOpenToFalse = () => {
         setOpen(false)
     }
+
+
     const date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -38,6 +52,7 @@ export default function Home() {
         // note: change address when we complet backend
         const url = 'https://api.aladhan.com/v1/calendarByAddress?address=ِAmman'
         const res = await axios.get(url, objDate)
+
         const dataTime = res.data.data
         dataTime.map(item => {
             if (item.date.gregorian.day == day) {
@@ -62,6 +77,8 @@ export default function Home() {
             }
         })
     }
+
+
 
 
 
@@ -109,11 +126,32 @@ export default function Home() {
                 </table>
 
             </section>
-            <section>
-                <button onClick={() => setModalIsOpenToTrue()}>Open Modal</button>
-                
-                <Modal isopen={open} close={setModalIsOpenToFalse}/>
 
+
+
+            <section className={stylesHome.section}>
+
+                <section className={stylesHome.section_all}>
+                    <Image onClick={() => setModalIsOpenToTrue(0)} className={`${stylesHome.section_img}`} src={images[0]} />
+                </section>
+
+                <section className={stylesHome.section_all}>
+                    <Image onClick={() => setModalIsOpenToTrue(1)} className={`${stylesHome.section_img}`} src={images[1]} />
+                </section>
+
+                <section className={stylesHome.section_all}>
+                    <Image onClick={() => setModalIsOpenToTrue(2)} className={`${stylesHome.section_img}`} src={images[2]} />
+                </section>
+
+                <section className={stylesHome.section_all}>
+                    <Image onClick={() => setModalIsOpenToTrue(3)} className={` ${stylesHome.section_img}`} src={images[3]} />
+                </section>
+
+                <section className={stylesHome.section_all}>
+                    <Image onClick={() => setModalIsOpenToTrue(4)} className={`${stylesHome.section_img}`} src={images[4]} />
+                </section>
+
+                <Modal isopen={open} close={setModalIsOpenToFalse} adkar={adkar[imageIndexState]} img={images[imageIndexState]} />
             </section>
         </section>
 

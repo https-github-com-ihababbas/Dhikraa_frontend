@@ -36,7 +36,7 @@ export default function DateAndDay() {
                     timezone: item.meta.timezone,
                 })
                 try{
-                SetPrayClearaddressState({
+                    SetPrayClearaddressState({
                     
                         timezone: prayaddressState.timezone.split("/")[1]
                     })
