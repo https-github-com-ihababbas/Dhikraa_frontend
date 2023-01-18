@@ -9,7 +9,7 @@ export default function Counter_tsbeh() {
 
     return (
         <>
-            <section className={`${styleSection.section1}`}>
+            <section className={`${styleSection.section1} `}>
                 <section className={styleTsbeh.grid_container}>
                     {image.map((element) => (
                         <Home_Image_card

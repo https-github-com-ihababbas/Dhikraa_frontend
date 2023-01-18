@@ -40,7 +40,7 @@
 
 .container {
     position: absolute;
-    top: 54.5%;
+    top: 52%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
@@ -50,7 +50,7 @@
 
 .container1 {
     position: absolute;
-    top: 63%;
+    top: 21rem;
     left: 50%;
     width: 100%;
     transform: translate(-50%, -50%);
@@ -64,6 +64,28 @@
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     color: #333;    
   }
+
+
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section_all {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    padding-left: 5%;
+}
+
+.section_img {
+    border-radius: 10px;
+    width: 100px;
+}
+
+.section_img:hover{
+    box-shadow: 2px 2px 2px gray;
+}
