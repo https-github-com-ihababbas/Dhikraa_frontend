@@ -62,6 +62,7 @@ export default function LoginForm(){
 		</form>
     </div>:
     <div className="text-black">
+      {/* <h1>welcam {username}</h1> */}
        <Profile/>
       
       

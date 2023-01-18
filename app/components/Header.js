@@ -11,7 +11,7 @@ import { useContext } from 'react'
 import { AuthContext } from "../contexts/auth";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
+  { name: "Home", href: "/", current: true },
   { name: "About", href: "/about", current: false },
   { name: "Reader", href: "#", current: false },
   { name: "Pray Time", href: "/praytime", current: false },
@@ -53,6 +53,10 @@ export default function Header() {
                 </div>
                 <div className="flex items-center justify-center flex-1 space-y-6 sm:items-stretch sm:justify-start">
                   <div className="flex items-center flex-shrink-0">
+                  <Link
+                          key="logo"
+                          href="/"
+                        >
                     <Image
                       className="block w-auto h-20 lg:hidden"
                       src={logo}
@@ -63,7 +67,10 @@ export default function Header() {
                       src={logo}
                       alt="logo"
                     />
+                    </Link>
+                    
                   </div>
+                  
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4 ">
                       {navigation.map((item) => (
@@ -125,7 +132,7 @@ export default function Header() {
                         <Menu.Item>
                           {({ active }) => (
                             <a
-                              href="#"
+                              href="/profile"
                               className={linkHanldle(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
@@ -157,7 +164,7 @@ export default function Header() {
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
-                              Sign out
+                              Logout
                             </button>
                           )}
                         </Menu.Item>

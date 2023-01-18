@@ -19,25 +19,22 @@ export default function AuthWrapper({children}){
 
             const res = await axios.post(url, userInfo);
             console.log(2,res.data)
-            SetGlobalState({
+            setGlobalState({
                 tokens : res.data,
                 login,
+                logout,
+                
             })
+            console.log("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu",res.data)
+            localStorage.setItem("tokens", res.data);
+            localStorage.setItem("access", res.data.access);
+            localStorage.setItem("username", userInfo.username);
         }catch {
             console.log("error")
         }
         
-        const res = await axios.post(url, userInfo);
-        setGlobalState({
-            tokens: res.data,
-            login,
-            logout,
-            
-        })
-        console.log("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu",res.data)
-        localStorage.setItem("tokens", res.data);
-        localStorage.setItem("access", res.data.access);
-        localStorage.setItem("username", userInfo.username);
+        
+        
     }
 
     async function logout() {
