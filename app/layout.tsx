@@ -23,7 +23,7 @@ export default function RootLayout({
 
           {/* main */}
           
-          <main>{children}</main>
+          <main className='dark:bg-black'>{children}</main>
 
           {/* Footer */}
           <Footer />
