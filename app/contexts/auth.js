@@ -10,6 +10,7 @@ export default function AuthWrapper({children}){
         tokens: localStorage.getItem("tokens"),
         login,
         logout,
+        refresh,
         
     })
 
@@ -18,16 +19,18 @@ export default function AuthWrapper({children}){
         try{
 
             const res = await axios.post(url, userInfo);
-            console.log(2,res.data)
+            // console.log(2,res.data)
             setGlobalState({
                 tokens : res.data,
                 login,
                 logout,
+                refresh,
                 
             })
-            console.log("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu",res.data)
+            // console.log("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu",res.data)
             localStorage.setItem("tokens", res.data);
             localStorage.setItem("access", res.data.access);
+            localStorage.setItem("refresh", res.data.refresh);
             localStorage.setItem("username", userInfo.username);
         }catch {
             console.log("error")
@@ -42,14 +45,31 @@ export default function AuthWrapper({children}){
             tokens: null,
             login,
             logout,
+            refresh,
            
         })
     
         localStorage.removeItem("tokens");
         localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
         localStorage.removeItem("username");
       }
 
+      async function refresh (refresh) {
+        console.log("Refreshing tokens",refresh)
+        const url = "https://dhiker-api-v1.herokuapp.com/api/token/refresh";
+        try{
+
+            const res = await axios.post(url, {"refresh":refresh});
+            // console.log("222222222222222222",res.data)
+            localStorage.setItem("access", res.data.access);
+           
+        }catch {
+            console.log("error")
+        }
+          
+    }
+    
 
     return (
         <AuthContext.Provider value={globalState}>

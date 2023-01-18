@@ -19,7 +19,7 @@ const navigation = [
 
 const userNav = [
   { name: "TODO", href: "/todo", current: false },
-  { name: "Quiz", href: "#", current: false },
+  { name: "Quiz", href: "/Quiz", current: false },
 ];
 
 function linkHanldle(...classes) {
