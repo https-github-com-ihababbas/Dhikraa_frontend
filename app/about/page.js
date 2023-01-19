@@ -13,7 +13,7 @@ export default function About() {
    
        
         <div className="inline border-2 border-red-900 justify-self-center bg-white dark:bg-black dark:text-white" >
-            <h2 className="m-3 text-2xl text-black italic font-bold text-center dark:text-white " >Who We Are and What We Do</h2>
+            <h2 className="m-3 text-2xl text-black italic font-bold text-center dark:text-white " >من نحن وماذا نفعل</h2>
             <p className="w-6/12 m-10 text-gray-700 text-center dark:text-white  " style={{ marginLeft: "25%" }}>
             Dhikraa's mission is to keep the people have a good experience with an Islamic website that has many features to use and get a good knowledge, also to listen to Quran , git a simple quiz, In addition to make your plan on it ad keep on the right road.  
             </p>
