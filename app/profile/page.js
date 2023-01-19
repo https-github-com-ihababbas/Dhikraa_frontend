@@ -14,7 +14,7 @@ export default function Profile() {
 
 
   //Data Fetching part
-  const { tokens } = useContext(AuthContext);
+  const { tokens,logout } = useContext(AuthContext);
   const access = localStorage.getItem("access")
   // console.log("tokens", tokens);
 
@@ -36,7 +36,10 @@ export default function Profile() {
     localStorage.setItem("userId", data.id);
     // console.log("userId", data.id)
   }
-  if (error) return <div>failed to load</div>
+  if (error) return <div>
+    failed to load
+    {logout()}
+    </div>
   if (isLoading) return <div>loading...</div>
 
 
@@ -45,7 +48,7 @@ export default function Profile() {
       <div className="text-black">
         <div className="px-[30%]">
           {/* <h1>welcam {data.first_name} {data.last_name}</h1> */}
-          <div className="max-w-full my-3 overflow-hidden bg-blue-500 shadow-xl rounded-3xl ">
+          <div className="max-w-full my-3 overflow-hidden shadow-xl bg-[#2293a7] rounded-3xl ">
             <Image
 
               src="/assets/ramadan.jpg"
@@ -68,56 +71,61 @@ export default function Profile() {
               <h2 className="font-sans text-lg font-bold text-black">{data.first_name} {data.last_name}</h2>
 
             </div>
-            <div className="flex justify-center pb-3 text-white">
-              <div className="p-3 rounded-sm shadow-sm ">
-                <div className="flex items-center space-x-2 font-semibold leading-8 text-gray-900">
+            <div className="flex justify-center pb-3 text-white"> 
+              <div className="p-1 rounded-sm shadow-sm ">
+                <div className="flex items-center justify-end mb-2 mr-6 space-x-2 font-semibold leading-8 text-gray-900">
+                  <span className="text-lg font-bold tracking-wide">المعلومات الشخصية</span>
                   <span className="text-black">
                     <svg className="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                     </svg>
                   </span>
-                  <span className="text-lg font-bold tracking-wide">About</span>
                 </div>
                 <div className="text-gray-700">
                   <div className="grid text-sm md:grid-cols-2">
+                    <div className="grid grid-cols-2">
+                      <div className=" py-2 text-[#ffffffe1] flex justify-end" >{data.last_name}</div>
+                      <div className="px-4 py-2  font-semibold text-[#ffffff] flex justify-end"> العائلة</div>
+                    </div>
                     <div className="grid grid-cols-2 ">
-                      <div className="px-4 py-2 font-semibold  text-[#ffffff]">First Name</div>
-                      <div className="px-2 py-2 text-[#ffffffe1]">{data.first_name}</div>
+                      <div className="px-2 py-2 text-[#ffffffe1] flex justify-end">{data.first_name}</div>
+                      <div className="px-4 py-2 font-semibold  text-[#ffffff] flex justify-end">الأسم </div>
                     </div>
                     <div className="grid grid-cols-2">
-                      <div className="px-4 py-2 font-semibold text-[#ffffff]">Last Name</div>
-                      <div className="px-2 py-2 text-[#ffffffe1]" >{data.last_name}</div>
+                      <div className="px-2 py-2 text-[#ffffffe1] flex justify-end">{data.gender}</div>
+                      <div className="px-4 py-2 font-semibold text-[#ffffff] flex justify-end">الجنس</div>
                     </div>
                     <div className="grid grid-cols-2">
-                      <div className="px-4 py-2 font-semibold text-[#ffffff]">Gender</div>
-                      <div className="px-2 py-2 text-[#ffffffe1]">{data.gender}</div>
+                      <div className=" py-2 text-[#ffffffe1] flex justify-end">{data.location}</div>
+                      <div className="px-4 py-2 font-semibold text-[#ffffff] flex justify-end"> مكان الاقامه</div>
                     </div>
                     <div className="grid grid-cols-2">
-                      <div className="px-4 py-2 font-semibold text-[#ffffff]">Contact No.</div>
-                      <div className="px-2 py-2 text-[#ffffffe1]" >{data.phone_number}</div>
+                      <div className="px-2 py-2 text-[#ffffffe1] flex justify-end">{data.birthday}</div>
+                      <div className="px-4 py-2 font-semibold text-[#ffffff] flex justify-end">تاريخ الميلاد</div>
                     </div>
                     <div className="grid grid-cols-2">
-                      <div className="px-4 py-2 font-semibold text-[#ffffff]"> Address</div>
-                      <div className="px-2 py-2 text-[#ffffffe1]">{data.location}</div>
-                    </div>
-                    {/* <div className="grid grid-cols-2">
-                      <div className="px-4 py-2 font-semibold">Permanant Address</div>
-                      <div className="px-4 py-2">Arlington Heights, IL, Illinois</div>
-                    </div> */}
-                    <div className="grid grid-cols-2">
-                      <div className="px-4 py-2 font-semibold text-[#ffffff]">Birthday</div>
-                      <div className="px-2 py-2 text-[#ffffffe1]">{data.birthday}</div>
+                      <div className="px-2 py-2 text-[#ffffffe1] flex justify-end" >{data.phone_number}</div>
+                      <div className="px-4 py-2 font-semibold text-[#ffffff] flex justify-end">رقم الهاتف</div>
                     </div>
                     <div className="grid grid-cols-2">
-                      <div className="px-4 py-2 font-semibold text-[#ffffff]">Email</div>
-                      <div className=" py-2 text-[#ffffffe1]">
-                        <Link className=" text-[#ffffffe1]" href={data.email}>{data.email}</Link>
+                      <div className="px-4 py-2 font-semibold"></div>
+                      <div className="px-4 py-2"></div>
+                    </div>
+                    <div className="grid grid-cols-2">
+                      <div className=" py-2 text-[#ffffffe1] flex justify-end">
+                        <Link className=" text-[#ffffffe1] flex justify-end" href={data.email}>{data.email}</Link>
                       </div>
+                      <div className="px-4 py-2 font-semibold text-[#ffffff] flex justify-end">الايميل</div>
                     </div>
                   </div>
                 </div>
-                <button className="block w-full p-3 my-4 text-sm font-semibold text-blue-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs">Show
-                  Full Information</button>
+                <div className="grid grid-cols-2">
+                  
+                <button className="block w-full p-3 my-4 text-sm font-semibold text-blue-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs">
+                  تعديل الملف الشخصي </button>
+                  <button className="block w-full p-3 my-4 text-sm font-semibold text-blue-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs">
+                 تغير كلمه السر</button>
+                </div>
               </div>
             </div>
           </div>

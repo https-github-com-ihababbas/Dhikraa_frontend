@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 "use client"
 import { use } from "react";
 import React from "react";
@@ -68,47 +69,92 @@ export default function Todo() {
     return (
         <>
             {tokens ?
-                <>
+                
+                <section className="flex justify-end w-full bg-gray-200 ">
+
 
 
                     <div
-                        style={{ minHeight: '300vh', }}
-                        className="relative flex flex-col px-4 pt-24 pb-12 font-sans text-gray-700 bg-gray-200 sm:px-6 lg:px-8 "
+                        
+                        className="pt-12 pb-12 font-sans text-gray-700 w-[40%] mr-10"
                     >
                         
-                        <button onClick={startQuiz} type="button" className="w-[15%] inline-flex text-white bg-gradient-to-r from-[#1e8a9d] to-[#187584] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-2xl text-sm px-5 py-2 text-center mr-2 mb-5 ml-20">
                             
+                        {!strtflag &&<button onClick={startQuiz} type="button" className="mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#1e8a9d] to-[#187584] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
+
+                            <div class="text-xl font-mono font-bold pt-0.5 px-2">
+                                بدأ الاختبار
+                            </div>
                             <span class="px-2 py-4 text-2xl text-gray-100 border-l-2 border-gray-100 font-mono">
                             </span>
-                            <div class="text-xl font-mono font-bold pt-0.5">
-                                start Quiz
-                            </div>
-                        </button>
+                        </button>}
+                     
+
                         {strtflag && number_to_view.map((item, i) => (
-                            // eslint-disable-next-line react/jsx-key
-                            <div className="flex-1 mt-1 space-y-8">
-                                <div
-                                    style={{ top: "calc(1rem * 1)" }}
-                                    className="w-full max-w-xl px-8 py-12 space-y-4 bg-white border rounded-lg shadow-lg mx-28 ">
+                            <><div>
+                                {item.id%2+item.id%3==0 &&<h1>{item.id} يقبل القسمه على 3 و على 2</h1>}
 
-                                    <h2 className="space-y-1 text-2xl font-bold leading-none text-gray-900">
-                                        <span className="block text-sm text-blue-700">Quistion # {i + 1} </span>
-                                        <span className="block">{item.question}</span>
-                                    </h2>
-                                    <p>
-                                        {item.choices.correct}
-                                    </p>
-                                </div>
 
                             </div>
+                            <div>
+                                {item.id%2==0 && item.id%3!=0 &&<h1>{item.id} يقبل القسمه ع 2</h1>}
 
+
+                            </div>
+                            <div>
+                                {item.id%3==0 && item.id%2!=0 &&<h1>{item.id} يقبل القسمه ع3</h1>}
+
+                                
+                            </div>
+                            <div>
+                                { item.id%5!=0&&item.id%2!=0 && item.id%3!=0&&<h1>{item.id} يقبل القسمه ع ولا شي </h1>}
+
+                                
+                            </div>
+                            <div>
+                            { item.id%5==0&&item.id%2!=0 && item.id%3!=0&&<h1>{item.id} يقبل القسمه ع 5   </h1>}
+                                
+                            </div>
+                            <div className="flex-1 mt-1 text-right">
+                                    <div
+
+                                        className="w-full px-8 py-4 bg-white border rounded-lg shadow-lg">
+
+                                        <h2 className="font-bold leading-none text-gray-900 ">
+                                            <span className="block pb-2 text-sm text-blue-700"> {i + 1} السؤال</span>
+                                            <span className="block pb-2">{item.question}</span>
+                                        </h2>
+                                        <p>
+                                            <section clasName="w-[30%]">
+
+                                                {item.choices.correct} <input type="radio" name="choice" value="Scripting" className="text-left" />
+                                            </section>
+                                            <section clasName="w-[30%]">
+
+                                                {item.choices.wrong1} <input type="radio" name="choice" value="Programming" />
+                                            </section>
+                                            <section clasName="w-[30%]">
+
+                                                {item.choices.wrong2} <input type="radio" name="choice" value="Application" />
+                                            </section>
+                                            <section clasName="w-[30%]">
+
+                                                {item.choices.wrong3} <input type="radio" name="choice" value="None of These" />
+                                            </section>
+
+                                        </p>
+                                    </div>
+
+                                </div></>
+
+                               
 
 
                         ))}
 
 
                     </div>
-                </>
+                </section>
 
                 : <h1 classNameName="text-black">You dont have access for this feature</h1>}
         </>
