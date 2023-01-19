@@ -16,7 +16,7 @@ export default function Profile() {
   //Data Fetching part
   const { tokens } = useContext(AuthContext);
   const access = localStorage.getItem("access")
-  console.log("tokens", tokens);
+  // console.log("tokens", tokens);
 
   const config = {
     headers: {
@@ -24,14 +24,18 @@ export default function Profile() {
     }
   }
   const url = `https://dhiker-api-v1.herokuapp.com/api/accounts/users/${x}`;
-  console.log(`Bearer ${access}`);
+  // console.log(`Bearer ${access}`);
 
   const fetcher = url => axios.get(url, config).then(res => res.data);
   // console.log("fetcher",fetcher)
 
   const { data, error, isLoading } = useSWR(url, fetcher);
-  console.log(data)
+  // console.log('data form profile',data)
 
+  if (data){
+    localStorage.setItem("userId", data.id);
+    // console.log("userId", data.id)
+  }
   if (error) return <div>failed to load</div>
   if (isLoading) return <div>loading...</div>
 
@@ -69,7 +73,7 @@ export default function Profile() {
                 <div className="flex items-center space-x-2 font-semibold leading-8 text-gray-900">
                   <span className="text-black">
                     <svg className="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                     </svg>
                   </span>
                   <span className="text-lg font-bold tracking-wide">About</span>
