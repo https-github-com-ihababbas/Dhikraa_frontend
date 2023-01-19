@@ -79,9 +79,9 @@ export default function PrayTime() {
   };
 
 return (
-  
+  <div> <Image src={home_img} alt="Picture of the author" className={styles.image}/>
   <section className={styles.dashboard}>
-    <Image src={home_img} alt="Picture of the author" className={styles.image}/>
+   
 
     <div >
     <button onClick={handleClick}className={styles.button}>{language === "en" ? "Get Pray Times" : "الحصول على أوقات الصلاة"}</button>
@@ -89,7 +89,7 @@ return (
       <input type="text" id="year" placeholder={language === "en" ? "Year" : "عام"} className={styles.input}/>
       <input type="text" id="city" placeholder={language === "en" ? "City" : "مدينة"} className={styles.input}/>
       <input type="text" id="country" placeholder={language === "en" ? "Country" : "بلد"} className={styles.input}/>
-      <button onClick={handleLanguageToggle}  className={styles.languageButton}>{language === "en" ? "Switch to Arabic" : "Switch to English"}</button>
+      {/* <button onClick={handleLanguageToggle}  className={styles.languageButton}>{language === "en" ? "Switch to Arabic" : "Switch to English"}</button> */}
 
       <div className={styles.div}>
       {showTable ? (
@@ -149,5 +149,6 @@ return (
   </div>
     </div>
   </section>
+  </div>
 );
 }
