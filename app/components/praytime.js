@@ -114,7 +114,7 @@ return (
             
             
               return (
-                <tr key={i} className={isCurrent ? styles.current : ""}>
+                <tr key={i} className={isCurrent ? styles.currents : ""}>
                   <td className={styles.td}>{day.date.readable}</td>
                     <td className={styles.td}>{day.timings.Imsak}</td>
                     <td className={styles.td}>{day.timings.Fajr}</td>
