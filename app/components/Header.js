@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from "react";
 import { Fragment } from "react";
@@ -11,15 +12,15 @@ import { useContext } from 'react'
 import { AuthContext } from "../contexts/auth";
 
 const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "About", href: "/about", current: false },
-  { name: "Reader", href: "/reader", current: false },
-  { name: "Pray Time", href: "/praytime", current: false },
+  { name: "الرئيسية", href: "/", current: true },
+  { name: "من نحن", href: "/about", current: false },
+  { name: "قراءة القرآن", href: "/reader", current: false },
+  { name: "مواقيت الصلاة", href: "/praytime", current: false },
 ];
 
 const userNav = [
-  { name: "TODO", href: "/todo", current: false },
-  { name: "Quiz", href: "/Quiz", current: false },
+  { name: "المهام", href: "/todo", current: false },
+  { name: "إختبـــر معلوماتك", href: "/Quiz", current: false },
 ];
 
 function linkHanldle(...classes) {
@@ -51,26 +52,28 @@ export default function Header() {
                     )}
                   </Disclosure.Button>
                 </div>
+
                 <div className="flex items-center justify-center flex-1 space-y-6 sm:items-stretch sm:justify-start">
                   <div className="flex items-center flex-shrink-0">
-                  <Link
-                          key="logo"
-                          href="/"
-                        >
-                    <Image
-                      className="block w-auto h-20 lg:hidden"
-                      src={logo}
-                      alt="logo"
-                    />
-                    <Image
-                      className="hidden w-auto h-20 lg:block"
-                      src={logo}
-                      alt="logo"
-                    />
+                    <Link
+                      key="logo"
+                      href="/"
+                    >
+                      <Image
+                        className="block w-auto h-20 lg:hidden"
+                        src={logo}
+                        alt="logo"
+                      />
+                      <Image
+                        className="hidden w-auto h-20 lg:block"
+                        src={logo}
+                        alt="logo"
+                      />
                     </Link>
-                    
+
                   </div>
-                  
+
+
                   <div className="hidden sm:ml-6 sm:block">
                     <div className="flex space-x-4 ">
                       {navigation.map((item) => (
@@ -138,7 +141,7 @@ export default function Header() {
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
-                              Your Profile
+                              الملف الشخصي
                             </a>
                           )}
                         </Menu.Item>
@@ -164,16 +167,18 @@ export default function Header() {
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
                             >
-                              Logout
+                              تسجيل الخروج
                             </button>
                           )}
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
-                  </Menu> : <Link href='/login' className="text-white">Login</Link>}
+                  </Menu> : <Link href='/login' className="text-white">تسجيل الدخول</Link>}
 
 
                 </div>
+
+
               </div>
             </div>
 
