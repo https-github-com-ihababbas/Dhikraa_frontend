@@ -6,14 +6,14 @@ export const ThemeContext = createContext()
 
 export default function ThemeWeapper({children}) {
 
-    const [isDarkTheme, setIsDarkTheme] = useState(true)
+    const [isDarkTheme, setIsDarkTheme] = useState(false)
     
     function initialThemeHandle() {
         isDarkTheme && document.querySelector("body").classList.add("dark")
     }
 
     function toggleThemeHandler(){
-        setIsDarkTheme(!isDarkTheme)
+        setIsDarkTheme(isDarkTheme)
         document.querySelector("body").classList.toggle("dark")
     }
 
