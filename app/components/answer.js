@@ -2,14 +2,10 @@
 
 import React from "react";
 
-import { useState} from "react";
 
 
 
-export default function answer(props){
-    const [userAnswer,setuserAnswer] = useState({})
-    
-    
+export default function answer(props){     
     let value = 0
     let answers = []
     value = Object.values(props.choices)
@@ -24,10 +20,8 @@ export default function answer(props){
     
     
     const saveAnswers = (id,e) => {
-        console.log(id)
-        userAnswer[id] = e.target.value;
-        console.log(userAnswer)
-      };  
+        props.answeruser(e.target.value,id)
+    };  
     
     
     
