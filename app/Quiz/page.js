@@ -17,7 +17,7 @@ export default function Todo() {
     const refresh_string = localStorage.getItem("refresh")
     // console.log("Refreshing tokens888888888888888888",refresh_string)
     refresh(refresh_string)
-
+    const [userAnswer,setuserAnswer] = useState([])
 
     //Data Fetching part
 
@@ -50,18 +50,25 @@ export default function Todo() {
 
 
     }
-    console.log(chossen_id)
+    //console.log(chossen_id)
     const number_to_view = []
     chossen_id.forEach((item) => {
         number_to_view.push(data[item])
 
     })
-    console.log(number_to_view)
+    //console.log(number_to_view)
 
     function startQuiz() {
         setStrtFlag(true)
     }
+    function getAnswers(){
+      let userAnswer = []
+      for (let i = 0; i < 10; i++) {
+        userAnswer.push(document.getElementsByName(i))
 
+    } 
+    console.log(userAnswer)
+    }
 
 
 
@@ -107,9 +114,10 @@ export default function Todo() {
                                         <Answer
                                         choices = {item.choices}
                                         id = {i}
+                                        userAnswer ={userAnswer}
                                         />
                                     </div>
-
+                          
                                 </div>
 
                                

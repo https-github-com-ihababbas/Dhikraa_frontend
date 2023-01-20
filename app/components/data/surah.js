@@ -12,7 +12,7 @@ export const Surah = [
     { number: 11, name: "سورةهود" },
     { number: 12, name: "سورة يوسف" },
     { number: 13, name: "سورة الرعد" },
-    { number: 14, name: "سورة الرعد" },
+    { number: 14, name: "سورة إبراهيم" },
     { number: 15, name: "سورة الحجر" },
     { number: 16, name: "سورة النحل" },
     { number: 17, name: "سورة الإسراء'" },
