@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AuthWrapper from "./contexts/auth";
+import ThemeWeapper from "./contexts/theme";
 export default function RootLayout({
   children,
 }: {
@@ -17,17 +18,19 @@ export default function RootLayout({
       */}
       <head />
       <AuthWrapper>
-        <body>
-          {/* Header */}
-          <Header />
+        <ThemeWeapper>
+          <body>
+            {/* Header */}
+            <Header />
 
-          {/* main */}
-          
-          <main className='dark:bg-black'>{children}</main>
+            {/* main */}
 
-          {/* Footer */}
-          <Footer />
-        </body>
+            <main className='dark:bg-black'>{children}</main>
+
+            {/* Footer */}
+            <Footer />
+          </body>
+        </ThemeWeapper>
       </AuthWrapper>
     </html>
   );

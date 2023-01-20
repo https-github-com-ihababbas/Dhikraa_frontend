@@ -2,14 +2,16 @@
 "use client";
 import React from "react";
 import { Fragment } from "react";
+import { useContext } from 'react'
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import logo from "public/assets/Logo_dhekraa.png";
 import style from "../styles/header.module.css";
 import Link from "next/link";
-import { useContext } from 'react'
 import { AuthContext } from "../contexts/auth";
+import { ThemeContext } from '../contexts/theme'
+
 
 const navigation = [
   { name: "الرئيسية", href: "/", current: true },
@@ -29,6 +31,7 @@ function linkHanldle(...classes) {
 
 export default function Header() {
 
+  const { isDarkTheme,toggleThemeHandler } = useContext(ThemeContext);
 
   const { tokens } = useContext(AuthContext);
   const { logout } = useContext(AuthContext);
@@ -147,15 +150,16 @@ export default function Header() {
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
-                            <a
-                              href="#"
+                            <button
+                              type="button"
                               className={linkHanldle(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
+                              onClick={toggleThemeHandler}
                             >
-                              Toggel
-                            </a>
+                              الوضع الليلي
+                            </button>
                           )}
                         </Menu.Item>
                         <Menu.Item>

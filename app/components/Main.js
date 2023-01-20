@@ -13,13 +13,13 @@ export default function Main() {
         <>
             <Hero />
             <DateAndDay />
-            <section className={`hidden lg:block `}>
+            <section className={`dark:bg-black bg-white hidden lg:block `}>
                 <section className={`${styleSection.container}`}>
                     <HomeForm />
                     <Counter_tsbeh />
                 </section>
             </section>
-            <section className='block lg:hidden'>
+            <section className='dark:bg-black bg-white block lg:hidden'>
                 <HomeForm />
                 <Counter_tsbeh />
             </section>
