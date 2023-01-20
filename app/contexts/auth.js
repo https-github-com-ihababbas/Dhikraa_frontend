@@ -54,6 +54,8 @@ export default function AuthWrapper({children}){
         localStorage.removeItem("refresh");
         localStorage.removeItem("username");
         localStorage.removeItem("userId");
+        localStorage.removeItem("is_superuser");
+        
 
       }
 
@@ -62,9 +64,14 @@ export default function AuthWrapper({children}){
         const url = "https://dhiker-api-v1.herokuapp.com/api/token/refresh";
         try{
 
-            const res = await axios.post(url, {"refresh":refresh});
-
-            localStorage.setItem("access", res.data.access);
+            const res = await axios.post(url, {"refresh":refresh})
+            .then((res) => {
+                localStorage.setItem("access", res.data.access);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+            
            
         }catch {
             console.log("error")

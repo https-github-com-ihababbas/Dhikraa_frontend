@@ -34,7 +34,9 @@ export default function Profile() {
 
   if (data){
     localStorage.setItem("userId", data.id);
-    // console.log("userId", data.id)
+    localStorage.setItem("is_superuser", data.is_superuser);
+
+    // console.log("userId", data)
   }
   if (error) return <div>
     failed to load
