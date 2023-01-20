@@ -17,6 +17,7 @@ export default function DateAndDay() {
 
     async function timeAndAdress() {
         'this function give an opject of pray times from api'
+        const[dataTime,setDataTime]=useState('')
 
         let objDate = {
             year,
@@ -24,10 +25,17 @@ export default function DateAndDay() {
         }
 
         // note: change address when we complet backend
+    
         const url = 'https://api.aladhan.com/v1/calendarByAddress?address=ِAmman'
         const res = await axios.get(url, objDate)
-        const dataTime = res.data.data
-        dataTime.map(item => {
+        // const dataTime = res.data.data
+        .then((result) => {
+            setDataTime(result.data.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+          {dataTime!='' && dataTime.map(item => {
             if (item.date.gregorian.day == day) {
                 SetPrayaddressState({
                     gregorian: item.date.gregorian.date,
@@ -37,19 +45,20 @@ export default function DateAndDay() {
                 })
                 try{
                     SetPrayClearaddressState({
-                    
+
                         timezone: prayaddressState.timezone.split("/")[1]
                     })
                 }
                 catch(err){
-                    
+
                 }
             }
-                
-        })
+
+        })}
     }
+    timeAndAdress()
     return (
-        <section on={timeAndAdress()} className={`${style.section}`}>
+        <section className={`${style.section} dark:bg-black bg-white`}>
             <section className={`${style.span}`}>
                 <div className={`${style.div}`}>
                     <h1>Date : <span className="text-sm">{prayaddressState.gregorian}</span></h1>

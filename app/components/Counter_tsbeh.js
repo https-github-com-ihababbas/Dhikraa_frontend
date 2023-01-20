@@ -11,9 +11,9 @@ export default function Counter_tsbeh() {
         <>
             <section className={`${styleSection.section1} `}>
                 <section className={styleTsbeh.grid_container}>
-                    {image.map((element) => (
+                    {image.map((element,index) => (
                         <Home_Image_card
-
+                            key={index}
                             title={element.title}
                             img={element.image_url}
                         // incrementtotal = {incrementtotal}

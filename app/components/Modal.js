@@ -42,7 +42,7 @@ export default function Example({ isopen, close, adkar, img }) {
                       <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
 
                         <div className="mt-2">
-                          <Image src={img} />
+                          <Image src={img} alt=''/>
                           <section className={style.section_p}>
                             <p >
                               {adkar['1']}

@@ -41,8 +41,9 @@ export default function HomeForm() {
     let month = date.getMonth() + 1;
     let day = date.getDate()
 
-    async function prayTimes() {
+    const prayTimes = async () => {
         'this function give an opject of pray times from api'
+        const [dataTime, setDataTime] = useState('')
 
         let objDate = {
             year,
@@ -52,73 +53,79 @@ export default function HomeForm() {
         // note: change address when we complet backend
         const url = 'https://api.aladhan.com/v1/calendarByAddress?address=ِAmman'
         const res = await axios.get(url, objDate)
+            .then((result) => {
+                setDataTime(result.data.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        {
+            dataTime != '' && dataTime.map(item => {
+                if (item.date.gregorian.day == day) {
 
-        const dataTime = res.data.data
-        dataTime.map(item => {
-            if (item.date.gregorian.day == day) {
-
-                SetPrayTimeState({
-                    Fajr: item.timings.Fajr,
-                    Sunrise: item.timings.Sunrise,
-                    Dhuhr: item.timings.Dhuhr,
-                    Asr: item.timings.Asr,
-                    Maghrib: item.timings.Maghrib,
-                    Imsak: item.timings.Imsak,
-                    Isha: item.timings.Isha,
-                })
-
-                SetPrayClearTimeState(Object.fromEntries(
-                    Object.entries(prayTimeState).map(([key, value]) => {
-                        let words = value.split(" ");
-                        words.splice(1, 1);
-                        return [key, words.join(" ")];
+                    SetPrayTimeState({
+                        Fajr: item.timings.Fajr,
+                        Sunrise: item.timings.Sunrise,
+                        Dhuhr: item.timings.Dhuhr,
+                        Asr: item.timings.Asr,
+                        Maghrib: item.timings.Maghrib,
+                        Imsak: item.timings.Imsak,
+                        Isha: item.timings.Isha,
                     })
-                ))
-            }
-        })
+
+                    SetPrayClearTimeState(Object.fromEntries(
+                        Object.entries(prayTimeState).map(([key, value]) => {
+                            let words = value.split(" ");
+                            words.splice(1, 1);
+                            return [key, words.join(" ")];
+                        })
+                    ))
+                }
+            })
+        }
     }
 
-
+    prayTimes()
 
 
 
     return (
         <section className={`${styleSection.section2}`}>
-            <section on={prayTimes()} className={stylesHome.div}>
+            <section className={stylesHome.div}>
                 <table className={styles.table}>
                     <thead>
                         <tr className={styleTabel.tr}>
-                            <th className={styles.th}>prayers</th>
-                            <th className={styles.th}>Azan time</th>
+                            <th className={styles.th}>الصلاة</th>
+                            <th className={styles.th}>وقت الاذان</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>Imsak</td>
+                            <td className={styles.td}>الامساك</td>
                             <td className={styles.td}>{prayClearTimeState.Imsak}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>Fajr</td>
+                            <td className={styles.td}>الفجر</td>
                             <td className={styles.td}>{prayClearTimeState.Fajr}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>Sunrise</td>
+                            <td className={styles.td}>الشروق</td>
                             <td className={styles.td}>{prayClearTimeState.Sunrise}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>Dhuhr</td>
+                            <td className={styles.td}>الظهر</td>
                             <td className={styles.td}>{prayClearTimeState.Dhuhr}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>Asr</td>
+                            <td className={styles.td}>العصر</td>
                             <td className={styles.td}>{prayClearTimeState.Asr}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>Maghrib</td>
+                            <td className={styles.td}>المغرب</td>
                             <td className={styles.td}>{prayClearTimeState.Maghrib}</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>Isha</td>
+                            <td className={styles.td}>العشاء</td>
                             <td className={styles.td}>{prayClearTimeState.Isha}</td>
                         </tr>
                     </tbody>
@@ -132,23 +139,23 @@ export default function HomeForm() {
             <section className={stylesHome.section}>
 
                 <section className={stylesHome.section_all}>
-                    <Image onClick={() => setModalIsOpenToTrue(0)} className={`${stylesHome.section_img}`} src={images[0]} />
+                    <Image onClick={() => setModalIsOpenToTrue(0)} className={`${stylesHome.section_img}`} src={images[0]} alt='' />
                 </section>
 
                 <section className={stylesHome.section_all}>
-                    <Image onClick={() => setModalIsOpenToTrue(1)} className={`${stylesHome.section_img}`} src={images[1]} />
+                    <Image onClick={() => setModalIsOpenToTrue(1)} className={`${stylesHome.section_img}`} src={images[1]} alt='' />
                 </section>
 
                 <section className={stylesHome.section_all}>
-                    <Image onClick={() => setModalIsOpenToTrue(2)} className={`${stylesHome.section_img}`} src={images[2]} />
+                    <Image onClick={() => setModalIsOpenToTrue(2)} className={`${stylesHome.section_img}`} src={images[2]} alt='' />
                 </section>
 
                 <section className={stylesHome.section_all}>
-                    <Image onClick={() => setModalIsOpenToTrue(3)} className={` ${stylesHome.section_img}`} src={images[3]} />
+                    <Image onClick={() => setModalIsOpenToTrue(3)} className={` ${stylesHome.section_img}`} src={images[3]} alt='' />
                 </section>
 
                 <section className={stylesHome.section_all}>
-                    <Image onClick={() => setModalIsOpenToTrue(4)} className={`${stylesHome.section_img}`} src={images[4]} />
+                    <Image onClick={() => setModalIsOpenToTrue(4)} className={`${stylesHome.section_img}`} src={images[4]} alt='' />
                 </section>
 
                 <Modal isopen={open} close={setModalIsOpenToFalse} adkar={adkar[imageIndexState]} img={images[imageIndexState]} />
