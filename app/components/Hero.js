@@ -19,7 +19,7 @@ export default function Hero() {
 
     return(
         <>
-            <section className={`${styles.section} bg-white`}>
+            <section className={`${styles.section} dark:bg-black bg-white`}>
 
                 <Image
                     className={`${styles.hidden} ${styles['lg:block']} ${styles.relative} ${styles['h-400px']} ${styles['w-80%']}`}
