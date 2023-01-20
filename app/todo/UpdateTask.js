@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { AuthContext } from "../contexts/auth";
 import axios from "axios";
 
-export default function UpdateTask({ isOpen, close, taskInfo }) {
+export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
   const { tokens, refresh } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
@@ -52,6 +52,15 @@ export default function UpdateTask({ isOpen, close, taskInfo }) {
       .put(`${url}${taskInfo.id}`, obj, config)
       .then((result) => {
         console.log(result.data);
+
+        axios
+      .get(url, config)
+      .then((result) => {
+        setData(result.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
       })
       .catch((err) => {
         console.log("updateSide", err);
@@ -80,7 +89,7 @@ export default function UpdateTask({ isOpen, close, taskInfo }) {
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-10 overflow-y-auto">
+          <div className="fixed inset-0 z-10 overflow-y-auto text-xl">
             <div className="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
@@ -184,7 +193,7 @@ export default function UpdateTask({ isOpen, close, taskInfo }) {
                         </div>
 
                         <div className="text-left">
-                          <button className="py-3 px-8 bg-green-400 text-white font-bold rounded-3xl hover:bg-green-600 shadow-2xl">
+                          <button className="py-3 px-8 bg-teal-600 text-white font-bold rounded-3xl hover:bg-teal-800 shadow-2xl">
                             تعديل
                           </button>
                         </div>
