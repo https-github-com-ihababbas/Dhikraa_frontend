@@ -7,10 +7,6 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
   const { tokens, refresh } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
-  const [task, setTask] = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
 
   const refresh_string = localStorage.getItem("refresh");
   refresh(refresh_string);
@@ -21,31 +17,19 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
     },
   };
 
-  const handleTaskChange = (e) => {
-    setTask(e.target.value);
-  };
-
-  const handleDesChange = (e) => {
-    setDescription(e.target.value);
-  };
-
-  const handleDateChange = (e) => {
-    setDate(e.target.value);
-  };
-
-  const handleTimeChange = (e) => {
-    setTime(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(e.target.task.value)
+    console.log(e.target.description.value)
+    console.log(e.target.date.value)
+    console.log(e.target.time.value)
     const url = `https://dhiker-api-v1.herokuapp.com/api/v1/todo/`;
     const obj = {
       owner: localStorage.getItem("userId"),
-      date,
-      time,
-      task,
-      description,
+      date:e.target.date.value,
+      time:e.target.time.value,
+      task:e.target.task.value,
+      description:e.target.description.value,
       id: taskInfo.id,
     };
     axios
@@ -119,7 +103,6 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                             className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
                       text-gray-600
                       outline-none text-right"
-                            onChange={handleTaskChange}
                             defaultValue={taskInfo.task}
                           />
                           <label
@@ -138,7 +121,6 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                             required
                             className="flex-1 py-2 border-b-2 border-gray-400  
                       text-gray-600 text-right "
-                            onChange={handleDesChange}
                             defaultValue={taskInfo.description}
                           />
                           <label
@@ -160,7 +142,6 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                             className="flex-1 py-2 border-b-2 border-gray-400  
                       text-gray-600 text-right
                       "
-                            onChange={handleDateChange}
                             defaultValue={taskInfo.date}
                           />
                           <label
@@ -181,7 +162,6 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                             required
                             className="flex-1 py-2 border-b-2 border-gray-400  
                       text-gray-600 text-right"
-                            onChange={handleTimeChange}
                             defaultValue={taskInfo.time}
                           />
                           <label
