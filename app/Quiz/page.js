@@ -8,7 +8,7 @@ import Image from "next/image";
 import useSWR from 'swr'
 import axios from "axios";
 import Link from "next/link";
-
+import Answer from "../components/answer";
 
 export default function Todo() {
     const [strtflag, setStrtFlag] = useState(false)
@@ -91,30 +91,9 @@ export default function Todo() {
                      
 
                         {strtflag && number_to_view.map((item, i) => (
-                            <><div>
-                                {item.id%2+item.id%3==0 &&<h1>{item.id} يقبل القسمه على 3 و على 2</h1>}
-
-
-                            </div>
-                            <div>
-                                {item.id%2==0 && item.id%3!=0 &&<h1>{item.id} يقبل القسمه ع 2</h1>}
-
-
-                            </div>
-                            <div>
-                                {item.id%3==0 && item.id%2!=0 &&<h1>{item.id} يقبل القسمه ع3</h1>}
-
-                                
-                            </div>
-                            <div>
-                                { item.id%5!=0&&item.id%2!=0 && item.id%3!=0&&<h1>{item.id} يقبل القسمه ع ولا شي </h1>}
-
-                                
-                            </div>
-                            <div>
-                            { item.id%5==0&&item.id%2!=0 && item.id%3!=0&&<h1>{item.id} يقبل القسمه ع 5   </h1>}
-                                
-                            </div>
+                            
+                              
+                           
                             <div className="flex-1 mt-1 text-right">
                                     <div
 
@@ -124,28 +103,14 @@ export default function Todo() {
                                             <span className="block pb-2 text-sm text-blue-700"> {i + 1} السؤال</span>
                                             <span className="block pb-2">{item.question}</span>
                                         </h2>
-                                        <p>
-                                            <section clasName="w-[30%]">
 
-                                                {item.choices.correct} <input type="radio" name="choice" value="Scripting" className="text-left" />
-                                            </section>
-                                            <section clasName="w-[30%]">
-
-                                                {item.choices.wrong1} <input type="radio" name="choice" value="Programming" />
-                                            </section>
-                                            <section clasName="w-[30%]">
-
-                                                {item.choices.wrong2} <input type="radio" name="choice" value="Application" />
-                                            </section>
-                                            <section clasName="w-[30%]">
-
-                                                {item.choices.wrong3} <input type="radio" name="choice" value="None of These" />
-                                            </section>
-
-                                        </p>
+                                        <Answer
+                                        choices = {item.choices}
+                                        id = {i}
+                                        />
                                     </div>
 
-                                </div></>
+                                </div>
 
                                
 
