@@ -7,11 +7,13 @@ import useSWR from 'swr'
 import axios from "axios";
 import Answer from "../components/answer";
 
-export default function Todo() {
-   
+export default function Todo(props) {
+    const { tokens, refresh } = useContext(AuthContext)
 
 
-    
+
+
+
 
 
 
@@ -26,16 +28,16 @@ export default function Todo() {
 
                     <div
 
-                        className="pt-12 pb-12 font-sans text-gray-700 w-[40%] mr-10"
+                        className="pt-12 pb-12 font-sans text-gray-700 w-[100%] mr-10"
                     >
 
 
-                       
 
 
 
 
-                        { number_to_view.map((item, i) => (
+
+                        {props.number_to_view.map((item, i) => (
 
 
 
@@ -49,12 +51,12 @@ export default function Todo() {
                                         <span className="block pb-2">{item.question}</span>
                                     </h2>
 
-                                    <section clasName="w-[30%]">
+                                    <section className="w-[30%] text-green-700 " >
 
-                                        {value[0]} <input type="radio" id="answer" name={props.id} value={value[0]} className="text-left" onChange={(e) => { saveAnswers(props.id, e) }} />
+                                        الإجابه الصحيحة :  {item.choices.correct}
                                     </section>
-                                    <section clasName="w-[30%]">
-                                        {value[1]} <input type="radio" id="answer" name={props.id} value={value[1]} className="text-left" onChange={(e) => { saveAnswers(props.id, e) }} />
+                                    <section clasName="w-[30%] ">
+                                        إجابتك :   {props.review[i] || "لا يوجد إجابة"}
                                     </section>
                                 </div>
 
@@ -64,8 +66,6 @@ export default function Todo() {
 
 
                         ))}
-                        <button onClick={submittHandeler} >submit</button>
-                        <h1>{mark}</h1>
 
 
 
