@@ -14,7 +14,7 @@ export default function About() {
         
          <Ramdan/>
         <div className="inline border-2 border-red-900 justify-self-center  dark:text-white" >
-            <h2 className="m-3 text-2xl text-black italic font-bold text-center dark:text-white " >
+            <h2 className="m-3 text-2xl text-black italic font-bold text-center  dark:text-white " >
             
             مَنْ نَحْنُ وَمَاذَا نَفْعَل 
             </h2>
