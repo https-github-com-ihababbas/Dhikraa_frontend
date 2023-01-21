@@ -14,6 +14,8 @@ export default function Todo() {
     const [strtflag, setStrtFlag] = useState(false)
     const [submittflag, setSubmittFlag] = useState(false)
     const [reviewflag, setReviwFlag] = useState({})
+    const [Quistion, setQuistion] = useState([])
+
     const x = localStorage.getItem("username")
     const { tokens, refresh } = useContext(AuthContext)
     const refresh_string = localStorage.getItem("refresh")
@@ -53,11 +55,12 @@ export default function Todo() {
 
     })
     // console.log(number_to_view)
- 
+
     function startQuiz() {
         setStrtFlag(true)
         setMark(0)
         setSubmittFlag(false)
+        
     }
 
 
@@ -76,6 +79,7 @@ export default function Todo() {
         setSubmittFlag(true)
         console.log(review)
         setReviwFlag(review)
+        setQuistion(number_to_view)
 
 
 
@@ -104,30 +108,30 @@ export default function Todo() {
 
     return (
         <>
-     <div className="flex w-full bg-gray-200 shadow-2xl h-80 right">
-        <Image src={quiz} alt="todo" className="w-4/6 h-full" />
-        <div className="w-2/6 pb-16 mr-1 text-3xl text-right text-gray-700">
-         
-          <div className="border-b-2 border-teal-600 ">
-             <h1 className="py-4 text-center"> <span className="text-teal-600">{localStorage.getItem("username")} </span>أهلا بك </h1></div>
-            <h2 className="p-4 text-teal-800 ">
-                سيتكون الاختبار من عشرة اسئلة ضع دائرة فيها اربع خيارات مختلفة ، وعند انهاء الاختبار ستظهر لك علامتك من عشرة
-            </h2>
-  
-          
-        </div>
-        
-        </div>
-        
-        
-        
-        
-     
-           
-            
+            <div className="flex w-full bg-gray-200 shadow-2xl h-80 right">
+                <Image src={quiz} alt="todo" className="w-4/6 h-full" />
+                <div className="w-2/6 pb-16 mr-1 text-3xl text-right text-gray-700">
+
+                    <div className="border-b-2 border-teal-600 ">
+                        <h1 className="py-4 text-center"> <span className="text-teal-600">{localStorage.getItem("username")} </span>أهلا بك </h1></div>
+                    <h2 className="p-4 text-teal-800 ">
+                        سيتكون الاختبار من عشرة اسئلة ضع دائرة فيها اربع خيارات مختلفة ، وعند انهاء الاختبار ستظهر لك علامتك من عشرة
+                    </h2>
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
             {tokens ?
-                
-                <section className="flex justify-end w-full  ">
+
+                <section className="flex justify-end w-full ">
 
 
 
@@ -136,7 +140,7 @@ export default function Todo() {
                         className="pt-12 pb-12 font-sans text-gray-700 w-[40%] mr-10"
 
                     >
-                        {submittflag &&<button onClick={startQuiz} type="button" className="mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#1e8a9d] to-[#187584] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
+                        {submittflag && <button onClick={startQuiz} type="button" className="mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#1e8a9d] to-[#187584] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
 
                             <div className="text-xl font-mono font-bold pt-0.5 px-2">
                                 اعادة الاختبار
@@ -187,18 +191,33 @@ export default function Todo() {
 
 
                         ))}
-                        {!submittflag && strtflag && <button onClick={submittHandeler} >submit</button>}
+                        {!submittflag && strtflag &&
+                            <button onClick={submittHandeler} type="button" className="mt-4 mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#1e8a9d] to-[#187584] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
+
+                                <div className="text-xl font-mono font-bold pt-0.5 px-2">
+                                    إنهاء الاختبار
+                                </div>
+                                <span className="px-2 py-4 font-mono text-2xl text-gray-100 border-l-2 border-gray-100">
+                                </span>
+                            </button>}
 
                         {submittflag &&
                             <>
+                                {mark  >= 5 &&
 
-                                <h1>{mark}/10</h1>
+                                    <h1 className="mr-16 text-xl font-bold text-right text-green-600 mt-[-2rem]">{mark}/10 : النتيجة   </h1>
+                                }
+                                { mark  < 5 &&
+
+                                    <h1 className="mr-16 text-xl font-bold text-right text-red-600 mt-[-2rem]">{mark}/10 : النتيجة  </h1>
+                                }
+
                                 <Review
-                                    number_to_view={number_to_view}
+                                    number_to_view={Quistion}
                                     startQuiz={startQuiz}
 
 
-                                    review={review}
+                                    review={reviewflag}
                                 />
                             </>
 
@@ -210,7 +229,7 @@ export default function Todo() {
                     </div>
                 </section>
 
-                : <h1 classNameName="text-black">You dont have access for this feature</h1>}
+                : <h1 classNameName="text-black">سارع بالتسجيل في الموقع لاستخدام هذة الميزة</h1>}
         </>
     );
 }

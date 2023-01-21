@@ -15,13 +15,13 @@ export default function Todo(props) {
         <>
             {tokens ?
 
-                <section className="flex justify-end w-full bg-gray-200 ">
+                <section className="flex justify-end w-full ">
 
 
 
                     <div
 
-                        className="pt-12 pb-12 font-sans text-gray-700 w-[100%] mr-10"
+                        className="pt-5 pb-12 font-sans text-gray-700 w-[100%] mr-10"
                     >
 
 
@@ -41,14 +41,14 @@ export default function Todo(props) {
 
                                     <h2 className="font-bold leading-none text-gray-900 ">
                                         <span className="block pb-2 text-sm text-blue-700"> {i + 1} السؤال</span>
-                                        <span className="block pb-2">{item.question}</span>
+                                        <span className="block pb-2 text-lg">{item.question}</span>
                                     </h2>
 
-                                    <section className="w-[30%] text-green-700 " >
+                                    <section className="font-bold text-green-700" >
 
                                         الإجابه الصحيحة :  {item.choices.correct}
                                     </section>
-                                    <section clasName="w-[30%] ">
+                                    <section  >
                                         إجابتك :   {props.review[i] || "لا يوجد إجابة"}
                                     </section>
                                 </div>
