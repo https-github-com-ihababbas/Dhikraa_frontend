@@ -10,6 +10,7 @@ import stylesHome from '../styles/home.module.css'
 import styleSection from '../styles/formAndTsbeh.module.css'
 import styleTabel from '../styles/DateAndDay.module.css'
 import Modal from './Modal'
+import {PageState} from './Modal'
 
 
 import dakir1 from 'public/assets/Dakir1.png'
@@ -25,6 +26,7 @@ export default function HomeForm() {
     const [prayClearTimeState, SetPrayClearTimeState] = useState({})
     const [open, setOpen] = useState(false)
     const [imageIndexState, SetImageIndexState] = useState(0)
+    const [numPageState, SetNumPageState] = useState(1)
 
     const setModalIsOpenToTrue = (index) => {
         setOpen(true)
@@ -33,6 +35,7 @@ export default function HomeForm() {
 
     const setModalIsOpenToFalse = () => {
         setOpen(false)
+        SetNumPageState(1)
     }
 
 
@@ -158,7 +161,7 @@ export default function HomeForm() {
                     <Image onClick={() => setModalIsOpenToTrue(4)} className={`${stylesHome.section_img}`} src={images[4]} alt='' />
                 </section>
 
-                <Modal isopen={open} close={setModalIsOpenToFalse} adkar={adkar[imageIndexState]} img={images[imageIndexState]} />
+                <Modal isopen={open} close={setModalIsOpenToFalse} adkar={adkar[imageIndexState]} img={images[imageIndexState]} page={numPageState} />
             </section>
         </section>
 

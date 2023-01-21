@@ -3,9 +3,21 @@ import { Dialog, Transition } from '@headlessui/react'
 import style from '../styles/modal.module.css'
 import Image from 'next/image'
 
-export default function Example({ isopen, close, adkar, img }) {
+export default function Example({ isopen, close, adkar, img, page }) {
   const [open, setOpen] = useState(true)
   const cancelButtonRef = useRef(null)
+  const [numPageState, SetNumPageState] = useState(page)
+
+
+  const nextPage = () => {
+    SetNumPageState(numPageState+1)
+  }
+
+  const pravPage = () => {
+    SetNumPageState(numPageState-1)
+  }
+
+  
 
   return (
     <>
@@ -21,7 +33,7 @@ export default function Example({ isopen, close, adkar, img }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <div className={`fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity`} />
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 overflow-y-auto">
@@ -36,59 +48,65 @@ export default function Example({ isopen, close, adkar, img }) {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button
+                      type="button"
+                      className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                      onClick={close}
+                      ref={cancelButtonRef}
+                      >
+                      X
+                    </button>
+                  </div>
                   <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div className="sm:flex sm:items-start">
 
                       <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <h1 className={style.h1}>
+                          {adkar.titel}
+                        </h1>
 
                         <div className="mt-2">
-                          <Image src={img} alt=''/>
+                          <Image src={img} alt='' />
                           <section className={style.section_p}>
-                            <p >
-                              {adkar['1']}
+                            {adkar[numPageState][0] != '' && <p className={style.first_p}>
+                              {adkar[numPageState][0]}
+                            </p>}
+                            <p className={style.sec_p}>
+                              {adkar[numPageState][1]}
                             </p>
-                            <p>
-                              {adkar['2']}
-                            </p>
-                            <p>
-                              {adkar['3']}
-                            </p>
-                            <p>
-                              {adkar['4']}
-                            </p>
-                            <p>
-                              {adkar['5']}
-                            </p>
-                            <p>
-                              {adkar['6']}
-                            </p>
-                            <p>
-                              {adkar['7']}
-                            </p>
-                            <p>
-                              {adkar['8']}
-                            </p>
-                            <p>
-                              {adkar['9']}
-                            </p>
-                            <p>
-                              {adkar['10']}
-                            </p>
-                            <p>
-                              {adkar['11']}
+                            <p className={style.third_p}>
+                              {adkar[numPageState][2]}
                             </p>
                           </section>
                         </div>
                       </div>
                     </div>
+                    <div className={style.button_div}>
+                    {numPageState > 1 && <button
+                      type="button"
+                      className={` ${style.prev_button} ${style.button} ${style.hover} mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm `}
+                      onClick={pravPage}
+                    >
+                      السابق
+                    </button>}
+                    {numPageState < 11 && <button
+                      type="button"
+                      className={` ${style.next_button} ${style.button} mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm `}
+                      onClick={nextPage}
+                    >
+                      التالي
+                    </button>}
+                    </div>
                   </div>
+
                   <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <button
                       type="button"
                       className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                       onClick={close}
                       ref={cancelButtonRef}
-                    >
+                      >
                       Cancel
                     </button>
                   </div>

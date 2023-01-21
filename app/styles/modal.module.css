@@ -1,4 +1,68 @@
-.section_p{
-    padding-top: 50px;
+.h1{
+    font-size: 40px;
+    text-align: center;
+    /* background-color: ; */
+    color: #02c180;
+    margin-top: -40px;
 }
 
+
+
+.section_p{
+    padding-top: 20px;
+    
+}
+
+.first_p{
+    border-bottom: groove;
+    
+    font-size: 1.5em;
+    text-align: right;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 25px 10px 0px;
+    margin-bottom: 15px;
+
+}
+
+.sec_p{
+    text-align: right;
+    font-size: 1.3em;
+    line-height: 1.5;
+    padding: 0px 10px 12px;
+}
+
+.third_p{
+    font-size: 1.1em;
+    text-align: right;
+    padding: 15px 10px 20px;
+}
+
+.next_button{
+    position: relative;
+    float: right;
+}
+
+.prev_button{
+    position: relative;
+    float: left;
+}
+
+.button{
+    /* Appearance */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+
+    
+}
+
+.hover {
+    cursor: pointer;
+}
+
+.button_div{
+    padding-bottom: 14px;
+}
