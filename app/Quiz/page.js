@@ -7,6 +7,8 @@ import useSWR from 'swr'
 import axios from "axios";
 import Answer from "../components/answer";
 import Review from "./Review"
+import Image from "next/image";
+import quiz from "public/assets/quiz.png";
 
 export default function Todo() {
     const [strtflag, setStrtFlag] = useState(false)
@@ -102,9 +104,30 @@ export default function Todo() {
 
     return (
         <>
+     <div className="flex w-full bg-gray-200 shadow-2xl h-80 right">
+        <Image src={quiz} alt="todo" className="w-4/6 h-full" />
+        <div className="w-2/6 pb-16 mr-1 text-3xl text-right text-gray-700">
+         
+          <div className="border-b-2 border-teal-600 ">
+             <h1 className="py-4 text-center"> <span className="text-teal-600">{localStorage.getItem("username")} </span>أهلا بك </h1></div>
+            <h2 className="p-4 text-teal-800 ">
+                سيتكون الاختبار من عشرة اسئلة ضع دائرة فيها اربع خيارات مختلفة ، وعند انهاء الاختبار ستظهر لك علامتك من عشرة
+            </h2>
+  
+          
+        </div>
+        
+        </div>
+        
+        
+        
+        
+     
+           
+            
             {tokens ?
-
-                <section className="flex justify-end w-full bg-gray-200 ">
+                
+                <section className="flex justify-end w-full  ">
 
 
 
