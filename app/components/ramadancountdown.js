@@ -4,7 +4,7 @@ import { useState, useContext, useEffect } from "react";
 
 export default function ramdancountdown() {
     var countDownDate = new Date("Mar 22, 2023 18:50:00").getTime();
-
+    const [countDown ,  setcountDown] = useState(0)
     // Update the count down every 1 second
     var x = setInterval(function() {
     
@@ -21,19 +21,21 @@ export default function ramdancountdown() {
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
       // Display the result in the element with id="demo"
-      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-      + minutes + "m " + seconds + "s";
+      setcountDown(days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s")
     
       // If the count down is finished, write some text
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+        //document.getElementById("demo").innerHTML = "EXPIRED";
       }
     }, 1000);
+
+    
   return (
     <>
       <h1 className="text-4xl justify-self-center text-center dark:text-white" >العد التنازلي لرمضان</h1>   
-   <h1 id="demo" className="text-4xl justify-self-center text-center dark:text-white" >العد التنازلي لرمضان</h1>
+   <h1  className="text-4xl justify-self-center text-center dark:text-white" >{countDown}</h1>
    </>
 
   )
