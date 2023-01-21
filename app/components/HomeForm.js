@@ -10,7 +10,6 @@ import stylesHome from '../styles/home.module.css'
 import styleSection from '../styles/formAndTsbeh.module.css'
 import styleTabel from '../styles/DateAndDay.module.css'
 import Modal from './Modal'
-import {PageState} from './Modal'
 
 
 import dakir1 from 'public/assets/Dakir1.png'
@@ -98,38 +97,38 @@ export default function HomeForm() {
                 <table className={styles.table}>
                     <thead>
                         <tr className={styleTabel.tr}>
-                            <th className={styles.th}>الصلاة</th>
                             <th className={styles.th}>وقت الاذان</th>
+                            <th className={styles.th}>الصلاة</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>الامساك</td>
                             <td className={styles.td}>{prayClearTimeState.Imsak}</td>
+                            <td className={styles.td}>الامساك</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>الفجر</td>
                             <td className={styles.td}>{prayClearTimeState.Fajr}</td>
+                            <td className={styles.td}>الفجر</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>الشروق</td>
                             <td className={styles.td}>{prayClearTimeState.Sunrise}</td>
+                            <td className={styles.td}>الشروق</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>الظهر</td>
                             <td className={styles.td}>{prayClearTimeState.Dhuhr}</td>
+                            <td className={styles.td}>الظهر</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>العصر</td>
                             <td className={styles.td}>{prayClearTimeState.Asr}</td>
+                            <td className={styles.td}>العصر</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>المغرب</td>
                             <td className={styles.td}>{prayClearTimeState.Maghrib}</td>
+                            <td className={styles.td}>المغرب</td>
                         </tr>
                         <tr className={`${styles.current} ${styleTabel.tr}`}>
-                            <td className={styles.td}>العشاء</td>
                             <td className={styles.td}>{prayClearTimeState.Isha}</td>
+                            <td className={styles.td}>العشاء</td>
                         </tr>
                     </tbody>
 
