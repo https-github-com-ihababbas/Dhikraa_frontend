@@ -6,12 +6,13 @@ import React from "react";
 import ACard from '../components/aboutCards'
 
 import style from '../styles/aboutus.module.css'
+import Ramdan from '../components/ramadancountdown'
 
 export default function About() {
     return (
         <>
-   
-       
+        
+         <Ramdan/>
         <div className="inline border-2 border-red-900 justify-self-center  dark:text-white" >
             <h2 className="m-3 text-2xl text-black italic font-bold text-center dark:text-white " >
             

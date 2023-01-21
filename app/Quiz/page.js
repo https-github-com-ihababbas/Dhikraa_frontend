@@ -53,7 +53,7 @@ export default function Todo() {
 
     })
     // console.log(number_to_view)
-
+ 
     function startQuiz() {
         setStrtFlag(true)
         setMark(0)

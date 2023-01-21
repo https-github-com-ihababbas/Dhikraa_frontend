@@ -25,12 +25,6 @@ export default function answer(props) {
 
 
 
-
-
-
-
-
-
     return (
 
         <>
