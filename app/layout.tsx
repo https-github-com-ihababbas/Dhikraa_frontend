@@ -18,19 +18,19 @@ export default function RootLayout({
       */}
       <head />
       <AuthWrapper>
-        <ThemeWeapper>
+        {/* <ThemeWeapper> */}
           <body>
             {/* Header */}
             <Header />
 
             {/* main */}
 
-            <main className='bg-teal-200 dark:bg-gray-900'>{children}</main>
+            <main >{children}</main>
 
             {/* Footer */}
             <Footer />
           </body>
-        </ThemeWeapper>
+        {/* </ThemeWeapper> */}
       </AuthWrapper>
     </html>
   );
