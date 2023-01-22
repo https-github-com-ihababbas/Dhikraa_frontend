@@ -6,18 +6,30 @@ import React from "react";
 import ACard from '../components/aboutCards'
 
 import style from '../styles/aboutus.module.css'
-import Ramdan from '../components/ramadancountdown'
-
+import styles from "../styles/quiz.module.css"
+import image from "public/assets/image.png";
+import Image from "next/image";
 export default function About() {
     return (
         <>
+         <div className={styles.wp_caption} >
+            <Image
+                src={image}
+                alt="background"
+                width={9999}
+                height={300}
+                className={styles.demo} >
+
+            </Image>
+            <div className={styles.wp_caption_text}>
+                    
+                        <h1 className="relative pb-2 text-5xl">منْ نَحْنُ وَمَاذَا نَفْعَل </h1>
+                  </div>
+            </div>
         <div className={style.back}>
-         <Ramdan/>
+       
         <div className="inline border-2 border-red-900 justify-self-center   dark:text-white" >
-            <h2 className="m-3 text-2xl text-black italic font-bold text-center  text-green-900 dark:text-white " >
             
-            مَنْ نَحْنُ وَمَاذَا نَفْعَل 
-            </h2>
             <p className="w-6/12 m-10 text-lg text-center dark:text-white  " style={{ marginLeft: "25%" }}>
             مُهِمَّةٌ هَذَا الْمَوْقِع تتلخص فِي إنْشَاءِ مَوْقِع إسْلَامِيّ راقِي ، يُمَثِّل الدَّيْنِ عَلَى أَحْسَنِ وَجْه وَالْحِرْصِ عَلَى خَوْضِ تَجْرِبَة جَيِّدَة للمستخدم مِنْ خِلَالِ تَوَفَّر عَدَدٍ مِنْ الأمورالبسيطة الَّتِي قَدْ يَسْتَخْدِمَهَا أَيْ شَخْصٍ مُسْلِم فيحياته اليَوْمِيَّة ، وَوُجُود صفحتين تَفاعُلِيَّة حَيْث بِإِمْكَان المستخدم اخْتِبَار مَعْلُومَاتِه الأسَاسِيَّة وَإِنْشَاء قَائِمَةٌ مَهامّ خَاصَّةٍ فِيهِ .            </p>
             
