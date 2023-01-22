@@ -45,3 +45,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 3. npm install moment 
 4. npm install sweetalert2
 5. npm install swr
+6. npm i react-youtube
