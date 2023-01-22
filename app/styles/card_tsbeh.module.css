@@ -1,10 +1,16 @@
+.section_container{
+      padding-top: 9%;
+
+}
+
 .grid_container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 44px;
-    column-gap: 54px;
-    padding-top: 18.6px;
+    padding-top: 3%;
+    grid-gap: 10%;
+    column-gap: 5%;
     padding-left: 4%;
+    padding-bottom: 2%;
   }
   
   .card {

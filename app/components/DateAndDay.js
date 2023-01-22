@@ -40,7 +40,7 @@ export default function DateAndDay() {
                 SetPrayaddressState({
                     gregorian: item.date.gregorian.date,
                     hijri: item.date.hijri.date,
-                    dayName: item.date.gregorian.weekday.en,
+                    dayName: item.date.hijri.weekday.ar,
                     timezone: item.meta.timezone,
                 })
                 try{
@@ -58,13 +58,13 @@ export default function DateAndDay() {
     }
     timeAndAdress()
     return (
-        <section className={`${style.section} dark:bg-black bg-white`}>
+        <section className={`${style.section} `}>
             <section className={`${style.span}`}>
                 <div className={`${style.div}`}>
-                    <h1>Date : <span className="text-sm">{prayaddressState.gregorian}</span></h1>
-                    <h1>Hijri : <span className="text-sm">{prayaddressState.hijri}</span></h1>
-                    <h1>Day : <span className="text-sm">{prayaddressState.dayName}</span></h1>
-                    <h1>Time Zone : <span className="text-sm">{prayClearaddressState.timezone}</span></h1>
+                    <h1>التاريخ : <span className="text-sm">{prayaddressState.gregorian}</span></h1>
+                    <h1>التاريخ الهجري : <span className="text-sm">{prayaddressState.hijri}</span></h1>
+                    <h1>اليوم : <span className="text-sm">{prayaddressState.dayName}</span></h1>
+                    <h1><span className="text-sm">{prayClearaddressState.timezone} : المكان</span></h1>
                 </div>
             </section>
         </section>

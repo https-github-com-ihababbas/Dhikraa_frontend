@@ -1,11 +1,10 @@
 .section{
-    align-items: center;
-    padding: 15px 6px;
+    padding: 15px 5.1%;
 }
 
 .span {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     font-size: 1rm;
     font-weight: bold;
     color: #333;
