@@ -34,8 +34,8 @@ export default function ramdancountdown() {
     
   return (
     <>
-      <h1 className="text-4xl justify-self-center text-center dark:text-white" > باقي لرمضان</h1>   
-   <h1  className="text-4xl justify-self-center text-center dark:text-white" >{countDown}</h1>
+      <h1 className="text-4xl justify-self-center text-center text-green-900 dark:text-white" > باقي لرمضان</h1>   
+   <h1  className="text-4xl justify-self-center text-center text-green-900 dark:text-white" >{countDown}</h1>
    </>
 
   )
