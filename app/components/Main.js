@@ -6,24 +6,26 @@ import Hero from './Hero'
 import DateAndDay from './DateAndDay'
 import Counter_tsbeh from './Counter_tsbeh'
 import styleSection from '../styles/formAndTsbeh.module.css'
+import HomeModal from './HomeModal'
+import Ramdan from '../components/ramadancountdown'
 
 
 export default function Main() {
     return (
         <>
+        
             <Hero />
+            <Ramdan />
             <DateAndDay />
-            <section className={`dark:bg-black bg-white hidden lg:block `}>
-                <section className={`${styleSection.container}`}>
+            <section className={styleSection.container}>
+                <section className={styleSection.section1}>
+                    <HomeModal />
+                </section>
+                <section className={styleSection.section2}>
                     <HomeForm />
                     <Counter_tsbeh />
                 </section>
             </section>
-            <section className='dark:bg-black bg-white block lg:hidden'>
-                <HomeForm />
-                <Counter_tsbeh />
-            </section>
-            
         </>
     )
 }
