@@ -54,7 +54,7 @@ export default function Quiz() {
             </Image>
                 <div className={style.wp_caption_text}>
                     
-                        <h1 className="relative pb-2 text-5xl">إختبر نفسك </h1>
+                        <h1 className="relative pb-2 text-5xl">إختبر معلوماتك </h1>
                         <p >
                         سيتكون الاختبار من عشرة اسئلة  اختيار متعدد </p>
                    
@@ -147,7 +147,7 @@ export default function Quiz() {
             </Image>
                 <div className={style.wp_caption_text}>
                     
-                        <h1 className="relative pb-2 text-5xl">إختبر نفسك </h1>
+                        <h1 className="relative pb-2 text-5xl">إختبر معلوماتك </h1>
                         <p >
                         سيتكون الاختبار من عشرة اسئلة  اختيار متعدد </p>
                    

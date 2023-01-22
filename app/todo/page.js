@@ -6,6 +6,9 @@ import Image from "next/image";
 import todo_img from "public/assets/todo_img.png";
 import axios from "axios";
 import UpdateTask from "./UpdateTask";
+import style from "../styles/quiz.module.css"
+import image from "public/assets/image.png";
+
 
 export default function Todo() {
   const { tokens, refresh } = useContext(AuthContext);
@@ -29,6 +32,7 @@ export default function Todo() {
       .get(url, config)
       .then((result) => {
         setData(result.data);
+        
       })
       .catch((err) => {
         console.log(err);
@@ -44,10 +48,10 @@ export default function Todo() {
     setFlagForm(false);
     const obj = {
       owner: localStorage.getItem("userId"),
-      date:e.target.date.value,
-      time:e.target.time.value,
-      task:e.target.task.value,
-      description:e.target.description.value,
+      date: e.target.date.value,
+      time: e.target.time.value,
+      task: e.target.task.value,
+      description: e.target.description.value,
     };
     console.log(obj);
     axios
@@ -122,33 +126,46 @@ export default function Todo() {
 
   return (
     <>
-      <div className="flex w-full bg-gray-200 shadow-2xl h-80 right">
-        <Image src={todo_img} alt="todo" className="w-4/6 h-full" />
-        <div className="w-2/6 pb-16 mr-1 text-3xl text-right text-gray-700">
-         
-          <div className="border-b-2 border-teal-600 ">
-             <h1 className="py-4 text-center"> <span className="text-teal-600">{localStorage.getItem("username")} </span>أهلا بك </h1></div>
-            <h2 className="p-4 text-teal-800 "> يأتي الشعور بالإنجاز عندما تكمل مهام الأهداف التي حددتها لنفسك لذا ابدأ معنا ببناء قائمة المهام خاصتك</h2>
-          {!flagForm &&
-          <div className="p-2 text-left">
-              <button
-                className="px-8 py-3 text-2xl font-bold text-white bg-teal-600 shadow-2xl rounded-3xl hover:bg-teal-800 shadow-gray-500"
-                onClick={handleFlag}
-              >
-                اضف مهمة
-              </button>
-            </div> }
-          
+      <div className={style.wp_caption} >
+        <Image
+          src={image}
+          alt="background"
+          width={9999}
+          height={300}
+          className={style.demo} >
+
+        </Image>
+        <div className={style.wp_caption_text}>
+
+          <h1 className="relative pb-4 text-5xl">المهام  </h1>
+          <p >
+            يأتي الشعور بالإنجاز عندما تكمل مهام الأهداف التي حددتها لنفسك لذا ابدأ معنا ببناء قائمة المهام خاصتك</p>
+
         </div>
-        
       </div>
+      <div className={style.back}>
+        
       {tokens ? (
         <div className="font-sans text-xl ">
+          <div
+            className="flex justify-center pt-6">
+            <button onClick={handleFlag} type="button" className=" mr-25 py-2 px-3 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
+    
+              <div className="text-xl font-mono font-bold pt-0.5 px-3">
+                اضف مهمة
+              </div>
+              <span className="px-2 py-4 font-mono text-2xl text-gray-100 border-l-2 border-gray-100">
+              </span>
+            </button>
+    
+           
+          </div>
+          
           {!flagForm ? (
-            <div className="p-10 text-right">
+            <div className="text-right ">
             </div>
           ) : (
-            <div className="flex justify-center px-8 py-8 bg-white border-solid ">
+            <div className="flex justify-center px-8 bg-white border-solid ">
               <div className="p-8 bg-white border-solid shadow-2xl md:w-1/4 lg:w-1/2 shadow-gray-300 rounded-3xl">
                 <button
                   onClick={closeForm}
@@ -232,17 +249,17 @@ export default function Todo() {
           )}
           <div>
             {data && data.length > 0 ? (
-              <div className="flex  item-right">
-                <div className="grid w-full grid-cols-1 gap-6 text-3xl sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="flex item-right">
+                <div className="grid w-full grid-cols-1 gap-6 text-xl sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {data.length > 0 &&
                     data.map((task) => {
                       return (
                         <div
-                          className="float-right max-w-xl px-8 py-8 my-20 "
+                          className="float-right max-w-xl px-8 py-8 my-7 "
                           key={task.id}
                         >
                           <div className="mb-6 tracking-wide bg-gray-100 rounded-lg shadow-2xl">
-                            <div className="flex justify-center py-2 text-teal-700 bg-teal-200 border-b-4 border-gray-300 rounded-lg md:flex-shrink-0">
+                            <div className="flex justify-center py-2 text-[#e5f2c4] bg-[#3a451c] border-b-4 border-gray-300 rounded-lg md:flex-shrink-0">
                               {task.date}
                             </div>
                             <div>
@@ -273,7 +290,7 @@ export default function Todo() {
                                     </svg>
                                   </button>
                                   <button
-                                    className="inline-flex items-center justify-center w-8 h-8 mr-2 text-white bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-800"
+                                    className="inline-flex items-center justify-center w-8 h-8 mr-4 text-white bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-800"
                                     onClick={() => deleteTask(task.id)}
                                   >
                                     <svg
@@ -293,10 +310,10 @@ export default function Todo() {
                                   </button>
                                 </div>
                                 <div>
-                                  <h1 className="-ml-3 text-xl text-2xl text-right text-teal-700 text-blue-600 text-bold">
+                                  <h1 className="-ml-3 text-xl text-right text-teal-700 text-[#778554] text-bold">
                                     {task.task}
                                   </h1>
-                                  <h5 className="-ml-3 text-xl text-right text-teal-500 text-blue-500 text-s">
+                                  <h5 className="-ml-3 text-lg text-right text-teal-500 text-[#778554] text-s">
                                     {toConvert(task.time)}
                                   </h5>
                                 </div>
@@ -324,6 +341,11 @@ export default function Todo() {
         taskInfo={taskInfo}
         setData={setData}
       />
+      </div>
+      
+
+
+
     </>
   );
 }
