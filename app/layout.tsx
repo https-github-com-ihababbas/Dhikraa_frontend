@@ -25,7 +25,7 @@ export default function RootLayout({
 
             {/* main */}
 
-            <main className='dark:bg-gray-900 bg-teal-200'>{children}</main>
+            <main className='bg-teal-200 dark:bg-gray-900'>{children}</main>
 
             {/* Footer */}
             <Footer />
