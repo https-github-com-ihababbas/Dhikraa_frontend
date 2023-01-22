@@ -55,6 +55,7 @@ export default function AuthWrapper({children}){
         localStorage.removeItem("username");
         localStorage.removeItem("userId");
         localStorage.removeItem("is_superuser");
+        localStorage.removeItem("userlocation");
         
 
       }

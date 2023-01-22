@@ -48,9 +48,12 @@ export default function Todo(props) {
 
                                         الإجابه الصحيحة :  {item.choices.correct}
                                     </section>
-                                    <section  >
+                                    {item.choices.correct!=props.review[i] &&<section className="text-red-500" >
                                         إجابتك :   {props.review[i] || "لا يوجد إجابة"}
-                                    </section>
+                                    </section>}
+                                    {item.choices.correct==props.review[i] &&<section  >
+                                        إجابتك :   {props.review[i] || "لا يوجد إجابة"}
+                                    </section>}
                                 </div>
 
                             </div>

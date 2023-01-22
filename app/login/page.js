@@ -4,6 +4,7 @@ import { useState ,useContext,useEffect} from "react";
 import { AuthContext } from "../contexts/auth";
 import Image from "next/image";
 import Profile from "../profile/page";
+import Quiz from "../Quiz/page"
 
 
 export default function LoginForm(){
