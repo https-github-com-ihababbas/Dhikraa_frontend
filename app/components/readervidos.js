@@ -4,11 +4,6 @@ import React from 'react';
 import YouTube from 'react-youtube';
 import { Readers } from "./data/reader_videos";
 import styles from '../styles/reader_videos.module.css';
-// import Dialog from '@mui/material/core/Dialog';
-// import DialogActions from '@material-ui/core/DialogActions';
-// import DialogContent from '@material-ui/core/DialogContent';
-// import DialogTitle from '@material-ui/core/DialogTitle';
-// import Button from '@material-ui/core/Button';
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useRef, useContext } from "react";
 
