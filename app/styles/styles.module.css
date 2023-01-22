@@ -1,11 +1,6 @@
 .dashboard{
-    background-color: #ffffff;
-
     padding: 20px;
     border-radius: 5px;
-    margin: 20px;
-
-
 }
 .languageButton{
     background-color: #02c180;
@@ -42,6 +37,7 @@
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
 }
 .table { 
+  background-color: #b3ecd8;
     border-collapse: collapse;
     width: 100%;
     margin: 20px;
@@ -50,6 +46,7 @@
   }
   
 .th{
+  
     border: 1px solid black;
     text-align: center;
   }

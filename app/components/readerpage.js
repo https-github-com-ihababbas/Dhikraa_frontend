@@ -4,10 +4,8 @@ import { Surah } from "./data/surah"
 import styles from 'app/styles/reader.module.css';
 import reader_image from 'public/assets/reader.png';
 import Image from 'next/image';
-
-
-
-
+import Readervideos from "./readervidos";
+import { Container } from "postcss";
 
 
 export default function Readerpage() {
@@ -23,19 +21,20 @@ export default function Readerpage() {
 
     
     const callAPI = async () => {
-      const response = await fetch(`https://api.alquran.cloud/v1/surah/${surahNumber}/${readerCode}`);
-      const data = await response.json();
-      console.log(data);
-      setSurahName(data.data.name);
-      if(data.data.ayahs && data.data.ayahs.length > 0 ){
-        setAyahs(data.data.ayahs);
-      }
-      setCurrentAyah(0);
-
-      
-      
-      
-    }
+        try {
+          const response = await fetch(`https://api.alquran.cloud/v1/surah/${surahNumber}/${readerCode}`);
+          const data = await response.json();
+          console.log(data);
+          setSurahName(data.data.name);
+          if(data.data.ayahs && data.data.ayahs.length > 0 ){
+            setAyahs(data.data.ayahs);
+          }
+          setCurrentAyah(0);
+        } catch (error) {
+          console.log('Failed to fetch data: ', error);
+          // show an error message to the user
+        }
+      };
 
     const playNextAyah = () => {
       if (currentAyah < ayahs.length - 1) {
@@ -47,13 +46,14 @@ export default function Readerpage() {
 
     useEffect(() => {
         if (audioRef.current) {
-            audioRef.current.play();
-            return () => {
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-                audioRef.current.pause();
+          audioRef.current.play();
+          return () => {
+            if (audioRef.current) {
+              audioRef.current.pause();
             }
+          }
         }
-    }, [audioRef, currentAyah]);
+      }, [audioRef, currentAyah]);
 
     const jumpToAyah = (ayahNumber) => {
       // Make sure the ayah number is within the valid range
@@ -68,47 +68,54 @@ export default function Readerpage() {
 const handleChange = (e) => {
     setSurahNumber(e.target.value);
     callAPI();
+    
 };
 
 
     return (
       <div>
+        
          <Image src={reader_image} alt="Picture of the author" className={styles.image}/>
+        <div className="border-black">
+            <h1 className="mp3">MP3 audio</h1>
+
          <div className={styles.selectWrapper}>
-    <select  onChange={handleChange} className={styles.selectsurah}>
-        {Surah.map(surah => (
-            <option key={surah.number} value={surah.number} className={styles.option1}>
-                Surah {surah.number} - {surah.name}
+                    <select onChange={handleChange} className={styles.selectsurah}>
+                    {Surah.map(surah => (
+                    <option key={surah.number} value={surah.number}> Surah {surah.number} - {surah.name}
             </option>
-        ))}
-    </select>
-    <select onChange={handleChange} className={styles.selectreader}>
+            
+                )
+            )}
+        </select>
+        <select onChange={(e) => setReaderCode(e.target.value)} className={styles.selectreader}>
         {Reader.map(reader => (
-            <option key={reader.code} value={reader.code} className={styles.option}>
-                {reader.name}
+                    <option key={reader.code} value={reader.code} className={styles.option}>{reader.name}
             </option>
-        ))}
-    </select>
+                )
+            )}
+        </select>
+
 </div>
             <div className={styles.selectWrapper}>
         <button onClick={() => {
     callAPI();
     
     setShowForm(true);
-}} className={styles.button}>Start Surah</button>
+}} className={styles.button}>ابدأ السورة</button>
  {ayahs.length > 0 && (
-          <div> 
-              <h1 className={styles.surahname}>{surahName}</h1>
-                    
-        <audio ref={audioRef} src={ayahs[currentAyah].audio} controls onEnded={playNextAyah} className={styles.audio} preload= "auto"  /> 
-           <p className={styles.text}>{ayahs[currentAyah].text}</p>
-            </div>
+    <div className={styles.audioContainer}>
+  <audio ref={audioRef} src={ayahs[currentAyah].audio} controls onEnded={playNextAyah} className={styles.audio}/>
+  <div className={styles.textContainer}>
+    <p className={styles.ayahText}>{ayahs[currentAyah].text}</p>
+  </div>
+</div>
         )}
 
 
 {showForm && (
     <div className={styles.selectWrapper}>
-        <button onClick={() => jumpToAyah(currentAyah - 1)} disabled={currentAyah === 0} className={styles.button}>Previous</button>
+        <button onClick={() => jumpToAyah(currentAyah - 1)} disabled={currentAyah === 0} className={styles.button}>السابق</button>
         <form onSubmit={(e) => {
     e.preventDefault();
     jumpToAyah(e.target.jump.value - 1);
@@ -118,18 +125,19 @@ const handleChange = (e) => {
   <button type="submit" 
           onClick={(e) => jumpToAyah(e.currentTarget.form.jump.value - 1)}
           disabled={currentAyah === ayahs.length - 1} 
-          className={styles.button}>Jump</button>
+          className={styles.button}>اذهب</button>
 </form>
-        <button onClick={() => jumpToAyah(currentAyah + 1)} disabled={currentAyah === ayahs.length - 1} className={styles.button}>Next</button>
+        <button onClick={() => jumpToAyah(currentAyah + 1)} disabled={currentAyah === ayahs.length - 1} className={styles.button}>التالى</button>
         
     </div>
 )}
 </div>
-        {showForm && (
+</div>
+{showForm && (
           <form onSubmit={handleJump}  >
-          <input type="number" name="jump" min={1} max={ayahs.length}className={styles.input}/>
+          <input type="number" name="jump" min={1} max={ayahs.length} className={styles.input} defaultValue={1}/>
 
-          <button type="submit" disabled={currentAyah === ayahs.length - 1} className={styles.button}  >see the ayah</button>
+          <button type="submit" disabled={currentAyah === ayahs.length - 1} className={styles.button}  >عررض الأيه</button>
       </form>
   )}
       <br/><br/>
@@ -140,6 +148,7 @@ const handleChange = (e) => {
               </div>
           )}
       </div>
+      <Readervideos className="m-auto " />
   </div>
       
     );
