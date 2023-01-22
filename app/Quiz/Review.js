@@ -40,7 +40,7 @@ export default function Todo(props) {
                                     className="w-full px-8 py-4 bg-white border rounded-lg shadow-lg">
 
                                     <h2 className="font-bold leading-none text-gray-900 ">
-                                        <span className="block pb-2 text-sm text-blue-700"> {i + 1} السؤال</span>
+                                        <span className="block pb-2 text-sm text-[#3a451c]"> {i + 1} السؤال</span>
                                         <span className="block pb-2 text-lg">{item.question}</span>
                                     </h2>
 

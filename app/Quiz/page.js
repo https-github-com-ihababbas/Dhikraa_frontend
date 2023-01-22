@@ -1,3 +1,4 @@
+
 /* eslint-disable react/jsx-key */
 "use client"
 import React from "react";
@@ -8,7 +9,10 @@ import axios from "axios";
 import Answer from "../components/answer";
 import Review from "./Review"
 import Image from "next/image";
-import quiz from "public/assets/quiz.png";
+import quiz from "public/assets/image.png";
+import style from "../styles/quiz.module.css"
+import image from "public/assets/image.png";
+
 
 export default function Quiz() {
     const [strtflag, setStrtFlag] = useState(false) //to start the quize
@@ -39,19 +43,22 @@ export default function Quiz() {
     if (error) return (
 
         <>
-            <div className="flex w-full bg-gray-200 shadow-2xl h-80 right">
-                <Image src={quiz} alt="todo" className="w-4/6 h-full" />
-                <div className="w-2/6 pb-16 mr-1 text-3xl text-right text-gray-700">
+             <div className={style.wp_caption} >
+            <Image
+                src={image}
+                alt="background"
+                width={9999}
+                height={300}
+                className={style.demo} >
 
-                    <div className="border-b-2 border-teal-600 ">
-                        <h1 className="py-4 text-center"> <span className="text-teal-600">{localStorage.getItem("username")} </span>أهلا بك </h1></div>
-                    <h2 className="p-4 text-teal-800 ">
-                        سيتكون الاختبار من عشرة اسئلة ضع دائرة فيها اربع خيارات مختلفة ، وعند انهاء الاختبار ستظهر لك علامتك من عشرة
-                    </h2>
-
-
+            </Image>
+                <div className={style.wp_caption_text}>
+                    
+                        <h1 className="relative pb-2 text-5xl">إختبر نفسك </h1>
+                        <p >
+                        سيتكون الاختبار من عشرة اسئلة  اختيار متعدد </p>
+                   
                 </div>
-
             </div>
             <div className="text-3xl text-center pt-12 h-[200px] ">
                 سارع التسجيل في بالموقع لاستخدام هذة الميزة
@@ -128,40 +135,38 @@ export default function Quiz() {
 
 
     return (
-        <>
-            <div className="flex w-full bg-gray-200 shadow-2xl h-80 right">
-                <Image src={quiz} alt="todo" className="w-4/6 h-full" />
-                <div className="w-2/6 pb-16 mr-1 text-3xl text-right text-gray-700">
+        <section  >
+            <div className={style.wp_caption} >
+            <Image
+                src={image}
+                alt="background"
+                width={9999}
+                height={300}
+                className={style.demo} >
 
-                    <div className="border-b-2 border-teal-600 ">
-                        <h1 className="py-4 text-center"> <span className="text-teal-600">{localStorage.getItem("username")} </span>أهلا بك </h1></div>
-                    <h2 className="p-4 text-teal-800 ">
-                        سيتكون الاختبار من عشرة اسئلة ضع دائرة فيها اربع خيارات مختلفة ، وعند انهاء الاختبار ستظهر لك علامتك من عشرة
-                    </h2>
-
-
+            </Image>
+                <div className={style.wp_caption_text}>
+                    
+                        <h1 className="relative pb-2 text-5xl">إختبر نفسك </h1>
+                        <p >
+                        سيتكون الاختبار من عشرة اسئلة  اختيار متعدد </p>
+                   
                 </div>
-
             </div>
-
-
-
-
-
-
-
+           
             {tokens ?
+            // className={style.back}
 
-                <section className="flex justify-end w-full ">
+                <section className={style.back}>
 
 
 
                     <div
 
-                        className="pt-12 pb-12 font-sans text-gray-700 w-[40%] mr-10"
+                        className="pt-12 pb-12 font-sans text-gray-700 w-[40%] "
 
                     >
-                        {submittflag && <button onClick={startQuiz} type="button" className=" mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#1e8a9d] to-[#187584] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
+                        {submittflag && <button onClick={startQuiz} type="button" className=" mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
 
                             <div className="text-xl font-mono font-bold pt-0.5 px-2">
                                 اعادة الاختبار
@@ -172,7 +177,7 @@ export default function Quiz() {
 
 
 
-                        {!strtflag && !submittflag && <button onClick={startQuiz} type="button" className="mb-14 mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#1e8a9d] to-[#187584] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
+                        {!strtflag && !submittflag && <button onClick={startQuiz} type="button" className="mb-14 ml-[40%]  py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
 
                             <div className="text-xl font-mono font-bold pt-0.5 px-2">
                                 إبدأ الاختبار
@@ -194,7 +199,7 @@ export default function Quiz() {
                                     className="w-full px-8 py-4 bg-white border rounded-lg shadow-lg">
 
                                     <h2 className="font-bold leading-none text-gray-900 ">
-                                        <span className="block pb-2 text-sm text-blue-700"> {i + 1} السؤال</span>
+                                        <span className="block pb-2 text-sm text-[#3a451c]"> {i + 1} السؤال</span>
                                         <span className="block pb-2">{item.question}</span>
                                     </h2>
 
@@ -213,7 +218,7 @@ export default function Quiz() {
 
                         ))}
                         {!submittflag && strtflag &&
-                            <button onClick={submittHandeler} type="button" className="mt-4 mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#1e8a9d] to-[#187584] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
+                            <button onClick={submittHandeler} type="button" className="mt-4 mr-14 py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
 
                                 <div className="text-xl font-mono font-bold pt-0.5 px-2">
                                     إنهاء الاختبار
@@ -249,10 +254,11 @@ export default function Quiz() {
 
                     </div>
                 </section>
+                
 
                 : <div className="text-3xl text-center pt-12 h-[200px] ">
                     سارع التسجيل في بالموقع لاستخدام هذة الميزة
                 </div>}
-        </>
+        </section>
     );
 }
