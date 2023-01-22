@@ -12,8 +12,11 @@ import Swal from 'sweetalert2';
 
 
 
+
 export default function PrayTime() {
   const [language, setLanguage] = useState("ar"); // initial language state
+  const [prayTimeState, SetPrayTimeState] = useState({})
+
 
   // toggle the language
   const handleLanguageToggle = () => {
@@ -28,6 +31,7 @@ export default function PrayTime() {
     const country = document.getElementById("country").value
     const month = document.getElementById("month").value;
     const year = document.getElementById("year").value;
+
 
     if (!city ) {
       Swal.fire("Please enter the city ")
@@ -77,6 +81,7 @@ export default function PrayTime() {
       setCurrentIndex(currentIndex - 1);
     }
   };
+  
 
 return (
   <div> <Image src={home_img} alt="Picture of the author" className={styles.image}/>
@@ -106,23 +111,24 @@ return (
               <th className={styles.th}>{language === "en" ? "Isha" : "عشاء"}</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className={styles.tbody}>
           {timings ?timings.map((day, i) => {
             const currentDate = moment(day.date.readable, 'DD MMMM YYYY');
             const today = moment();
             const isCurrent = currentDate.isSame(today, 'day');
             
             
+            
               return (
                 <tr key={i} className={isCurrent ? styles.currents : ""}>
                   <td className={styles.td}>{day.date.readable}</td>
-                    <td className={styles.td}>{day.timings.Imsak}</td>
-                    <td className={styles.td}>{day.timings.Fajr}</td>
-                    <td className={styles.td}>{day.timings.Sunrise}</td>
-                    <td className={styles.td}>{day.timings.Dhuhr}</td>
-                    <td className={styles.td}>{day.timings.Asr}</td>
-                    <td className={styles.td}>{day.timings.Maghrib}</td>
-                    <td className={styles.td}>{day.timings.Isha}</td>
+                  <td className={styles.td}>{day.timings.Imsak.replace(" (+03)", "")}</td>
+                  <td className={styles.td}>{day.timings.Fajr.replace(" (+03)", "")}</td>
+                <td className={styles.td}>{day.timings.Sunrise.replace(" (+03)", "")}</td>
+                <td className={styles.td}>{day.timings.Dhuhr.replace(" (+03)", "")}</td>
+                <td className={styles.td}>{day.timings.Asr.replace(" (+03)", "")}</td>
+                <td className={styles.td}>{day.timings.Maghrib.replace(" (+03)", "")}</td>
+                <td className={styles.td}>{day.timings.Isha.replace(" (+03)", "")}</td>
                     </tr>
             
             );

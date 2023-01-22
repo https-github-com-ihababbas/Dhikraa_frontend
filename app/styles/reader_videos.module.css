@@ -37,6 +37,22 @@
     margin: 20px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
 }
-.option{
-      
-}
+.table { 
+  background-color: #b3ecd8;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    overflow-y: scroll; /* Add a scrollbar for the y-axis */
+    max-height: 400px; /* Set a maximum height for the table */
+
+  }
+  .tbody {
+    display: block; /* Make the table body a block element */
+    max-height: 380px; /* Set a maximum height for the table body */
+    overflow-y: scroll; /* Add a scrollbar for the y-axis */
+  }
+  .tr{
+    display: table; /* Make the rows table cells again */
+
+  }
