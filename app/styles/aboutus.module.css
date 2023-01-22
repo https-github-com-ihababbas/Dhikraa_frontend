@@ -10,7 +10,13 @@
    display: block;
    
 }
+.back
+{
+background-image: url(/assets/back.png);
+background-size:cover;
+background-position: center;
 
+}
 .part2 {
   align-items: center;
   padding: 37.5px 200px;
