@@ -32,6 +32,9 @@ export default function Profile() {
       .then((result) => {
         console.log(result.data);
         setUserData(result.data);
+        localStorage.setItem("userId", result.data.id);
+        localStorage.setItem("is_superuser",result.data.is_superuser);
+        localStorage.setItem("userlocation",result.data.location);
       })
       .catch((err) => {
         console.log(err);
