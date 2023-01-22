@@ -31,7 +31,7 @@ function linkHanldle(...classes) {
 
 export default function Header() {
 
-  const { isDarkTheme,toggleThemeHandler } = useContext(ThemeContext);
+  // const { isDarkTheme,toggleThemeHandler } = useContext(ThemeContext);
 
   const { tokens } = useContext(AuthContext);
   const { logout } = useContext(AuthContext);
@@ -157,7 +157,7 @@ export default function Header() {
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
                               )}
-                              onClick={toggleThemeHandler}
+                              // onClick={toggleThemeHandler}
                             >
                               الوضع الليلي
                             </button>
