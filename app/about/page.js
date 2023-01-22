@@ -11,7 +11,7 @@ import Ramdan from '../components/ramadancountdown'
 export default function About() {
     return (
         <>
-        
+        <div className={style.back}>
          <Ramdan/>
         <div className="inline border-2 border-red-900 justify-self-center   dark:text-white" >
             <h2 className="m-3 text-2xl text-black italic font-bold text-center  text-green-900 dark:text-white " >
@@ -62,6 +62,7 @@ export default function About() {
         فِي نِهَايَةِ مَا نُرِيدُ هُوَ أَنْ نُخَلِّصَ عَمِلْنَا ابْتِغَاءَ وَجْهِ اللَّهِ وإعمار الْأَرْض وَالْحِرْصِ عَلَى خِدْمَةِ الْمُجْتَمَعِ الْمَحَلِّيّ وَجَمِيعِ الْمُسْلِمِينَ ، وَالِاسْتِمْرَارِ فِي تَقْدِيمِ مَا يُمَيِّزُ بِهِ دِينِنَا الْحَنِيف لِلْجَمِيع بِطُرُق مُمَيِّزَة وجديدة وحصرية وبالصورة الصَّحِيحَة
         </p>
          </div>
+        </div>
         </div>
         </>
  
