@@ -110,11 +110,11 @@ export default function Readervideos() {
                     )
                 })}
             </select>
-            {<button onClick={handleDataFetch} className={styles.button}>عرض قائمه السور </button>}
+            {<button onClick={handleDataFetch}className="mb-14 ml-[40%]  py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">عرض قائمه السور </button>}
             {isDataFetched && (
-                <table className="m-auto ">
-                    <tbody>
-                        <tr style={videoGrid}>
+                <table className={styles.table}>
+                    <tbody className={styles.tbody}>
+                        <tr style={videoGrid} className={styles.tr}>
                             {allVideos.map((item, index) => {
                                 const videoId = item.snippet.resourceId.videoId;
                                 const videoTitle = item.snippet.title;

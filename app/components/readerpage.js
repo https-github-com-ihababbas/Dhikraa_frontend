@@ -100,9 +100,9 @@ const handleChange = (e) => {
             <div className={styles.selectWrapper}>
         <button onClick={() => {
     callAPI();
-    
+   
     setShowForm(true);
-}} className={styles.button}>ابدأ السورة</button>
+}}  className="mb-14 ml-[40%]  py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">ابدأ السورة</button>
  {ayahs.length > 0 && (
     <div className={styles.audioContainer}>
   <audio ref={audioRef} src={ayahs[currentAyah].audio} controls onEnded={playNextAyah} className={styles.audio}/>
@@ -115,7 +115,7 @@ const handleChange = (e) => {
 
 {showForm && (
     <div className={styles.selectWrapper}>
-        <button onClick={() => jumpToAyah(currentAyah - 1)} disabled={currentAyah === 0} className={styles.button}>السابق</button>
+        <button onClick={() => jumpToAyah(currentAyah - 1)} disabled={currentAyah === 0}  className="mb-14 ml-[40%]  py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">السابق</button>
         <form onSubmit={(e) => {
     e.preventDefault();
     jumpToAyah(e.target.jump.value - 1);
@@ -125,9 +125,9 @@ const handleChange = (e) => {
   <button type="submit" 
           onClick={(e) => jumpToAyah(e.currentTarget.form.jump.value - 1)}
           disabled={currentAyah === ayahs.length - 1} 
-          className={styles.button}>اذهب</button>
+          className="mb-14 ml-[40%]  py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">اذهب</button>
 </form>
-        <button onClick={() => jumpToAyah(currentAyah + 1)} disabled={currentAyah === ayahs.length - 1} className={styles.button}>التالى</button>
+        <button onClick={() => jumpToAyah(currentAyah + 1)} disabled={currentAyah === ayahs.length - 1}  className="mb-14 ml-[40%]  py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">التالى</button>
         
     </div>
 )}
@@ -137,7 +137,7 @@ const handleChange = (e) => {
           <form onSubmit={handleJump}  >
           <input type="number" name="jump" min={1} max={ayahs.length} className={styles.input} defaultValue={1}/>
 
-          <button type="submit" disabled={currentAyah === ayahs.length - 1} className={styles.button}  >عررض الأيه</button>
+          <button type="submit" disabled={currentAyah === ayahs.length - 1} className="mb-14 ml-[40%]  py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  " >عررض الأيه</button>
       </form>
   )}
       <br/><br/>
