@@ -7,10 +7,10 @@ import ACard from '../components/aboutCards'
 
 import style from '../styles/aboutus.module.css'
 
-
 export default function About() {
     return (
         <>
+  
         <div className={style.back}>
          
         <div className="inline border-2 border-red-900 justify-self-center   dark:text-white" >
