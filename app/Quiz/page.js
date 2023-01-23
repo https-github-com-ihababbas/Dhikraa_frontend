@@ -43,23 +43,41 @@ export default function Quiz() {
     if (error) return (
 
         <>
-             <div className={style.wp_caption} >
-            <Image
-                src={image}
-                alt="background"
-                width={9999}
-                height={300}
-                className={style.demo} >
+     <section className="pt-6 ">
+        <h1 className="text-5xl font-bold text-center">
+        ❆  اِخْتَبَرَ مَعْلُومَاتِك ❆
+        </h1>
 
-            </Image>
-                <div className={style.wp_caption_text}>
-                    
-                        <h1 className="relative pb-2 text-5xl">إختبر معلوماتك </h1>
-                        <p >
-                        سيتكون الاختبار من عشرة اسئلة  اختيار متعدد </p>
-                   
-                </div>
+        <div className="flex justify-between h-full py-4 mb-8 ml-40 mr-40 rounded-md shadow-sm flex-right">
+
+          <div className="relative justify-center w-1/4 h-64 ">
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
             </div>
+            <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
+              <Image className="w-full h-64 rounded-3xl rad" src={quiz} />
+            </div>
+          </div>
+          <div className="w-3/4">
+            <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
+            <br />
+            
+           
+              
+            <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
+            سَيَتَكَوَّنُ هَذَا اَلِاخْتِبَارِ مِنْ عَشَرَةِ اَسْلَة كُلَّ سُؤَالٍ مَعَ أَرْبَعِ خِيَارَاتٍ وَجَوَابٍ وَاحِدٍ هُوَ اَلصَّحِيحُ
+              <Icon icon="iconoir:system-restart" className="mx-4" />
+
+            </h3>
+            <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
+            مَوَاضِيع اَلْأَسْئِلَةِ هِيَ اَلْقُرْآنُ اَلْكَرِيمُ اَلسِّيرَةَ اَلنَّبَوِيَّةَ مَعْلُومَاتٍ عَامَّةً وَالتَّجْوِيدُ
+              <Icon icon="iconoir:system-restart" className="mx-4" />
+
+            </h3>
+
+        </div>
+    </div>
+       </section>
             <div className="text-3xl text-center pt-12 h-[200px] ">
                 سارع التسجيل في بالموقع لاستخدام هذة الميزة
             </div>
