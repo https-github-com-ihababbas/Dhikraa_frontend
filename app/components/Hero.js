@@ -3,7 +3,8 @@ import Image from "next/image";
 import home_img from 'public/assets/Home_page.png';
 import { ayat } from './data/ayat';
 import { useEffect, useState } from "react";
-import styles from '../styles/home.module.css'
+import style from "../styles/quiz.module.css"
+import image from "public/assets/image.png";
 
 
 export default function Hero() {
@@ -17,31 +18,24 @@ export default function Hero() {
         }, 100);
     }, [])
 
-    return(
-        <>
-            <section className={`${styles.section}`}>
+    return (
+        <div className={style.wp_caption} >
+            <Image
+                src={image}
+                alt="background"
+                width={9999}
+                height={300}
+                className={style.demo} >
 
-                <Image
-                    className={`${styles.hidden} ${styles['lg:block']} ${styles.relative} ${styles['h-400px']} ${styles['w-80%']}`}
-                    src={home_img}
-                    alt=""
-                />
-                
-                <div  className={`block lg:hidden ${styles.container} text-zinc-50 text-3xl bg-gray-500 opacity-70`}>
+            </Image>
+            <div className={style.wp_caption_text}>
 
-                    <h1>{ayatState[0]}</h1>
-                    <h1>{ayatState[1]}</h1>
+                <h1 className="leading-normal mx-32 relative pt-32 text-4xl text-[#e5f2c4] ">{ayatState[0]}</h1>
 
-                </div>
+                <p className="text-[#e5f2c4]">{ayatState[1]}</p>
 
-                <div  className={`hidden lg:block ${styles.container1} text-zinc-50 text-3xl bg-gray-500 opacity-70`}>
 
-                    <h1>{ayatState[0]}</h1>
-                    <h1>{ayatState[1]}</h1>
-
-                </div>
-
-            </section>
-        </>
+            </div>
+        </div>
     )
 }
