@@ -27,9 +27,9 @@ export default function Hero() {
 
             <div className={style.wp_caption_text}>
 
-                <h1 className="leading-normal mx-32 relative pt-32 text-4xl text-[#e5f2c4] ">{ayatState[0]}</h1>
+                <h1 className={style.lineUp }>{ayatState[0]}</h1>
 
-                <p className="text-[#e5f2c4]">{ayatState[1]}</p>
+                <p className={style.lineUp2}>{ayatState[1]}</p>
 
 
             </div>

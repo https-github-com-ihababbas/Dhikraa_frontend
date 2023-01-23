@@ -28,7 +28,6 @@ export default function HomeForm() {
             year,
             month
         }
-
         // note: change address when we complet backend
         const url = 'https://api.aladhan.com/v1/calendarByAddress?address=ِAmman'
         const res = await axios.get(url, objDate)
@@ -36,7 +35,7 @@ export default function HomeForm() {
                 setDataTime(result.data.data);
             })
             .catch((err) => {
-                console.log(err);
+                const x =err;
             });
         {
             dataTime != '' && dataTime.map(item => {

@@ -81,7 +81,7 @@ export default function Users() {
                           <div class="relative w-auto pl-4 mt-4 flex-initial">
                             <div class="text-white px-3 my-3 text-center inline-flex items-center justify-center w-16 h-16 shadow-lg rounded-full bg-red-500">
                               <i class="far fa-chart-bar"></i>
-                             {(female / users.length) * 100}% 
+                             {((female / users.length) * 100).toFixed(1)}% 
                             </div>
                           </div>
                           <div class="relative w-full pr-4 max-w-full flex-grow flex-1 text-right ">
@@ -102,7 +102,7 @@ export default function Users() {
                           <div class="relative w-auto pl-4 mt-4 flex-initial">
                             <div class="text-white px-3 my-3 text-center inline-flex items-center justify-center w-16 h-16 shadow-lg rounded-full bg-blue-600">
                               <i class="far fa-chart-bar"></i>
-                            {(male / users.length) * 100}% 
+                            {((male / users.length) * 100).toFixed(1)}% 
                             </div>
                           </div>
                           <div class="relative w-full pr-4 max-w-full flex-grow flex-1 text-right ">
@@ -123,7 +123,7 @@ export default function Users() {
                           <div class="relative w-auto pl-4 mt-4 flex-initial">
                             <div class="text-white px-3 my-3 text-center inline-flex items-center justify-center w-16 h-16 shadow-lg rounded-full bg-[#3a451c]">
                               <i class="far fa-chart-bar"></i>
-                             {(admin / users.length) * 100}% 
+                             {((admin / users.length) * 100).toFixed(1)}% 
                             </div>
                           </div>
                           <div class="relative w-full pr-4 max-w-full flex-grow flex-1 text-right ">

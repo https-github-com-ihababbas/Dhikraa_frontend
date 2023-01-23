@@ -42,3 +42,53 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+.lineUp {
+    animation: 3s anim-lineUp ease-out;
+    font-size: xx-large;
+    border: black;
+    color: #e5f2c4;
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+
+  }
+
+  .lineUp2 {
+    animation: 3s anim-lineUp ease-out;
+    font-size: large;
+    border: black;
+    color: #e5f2c4;
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(80%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+
+  }

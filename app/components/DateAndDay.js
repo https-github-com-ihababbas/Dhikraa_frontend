@@ -47,7 +47,7 @@ export default function DateAndDay() {
                 setDataTime(res.data.data);
             })
             .catch((err) => {
-                console.log(err);
+                const x= err;
             });
         {
             dataTime != '' && dataTime.map(item => {
