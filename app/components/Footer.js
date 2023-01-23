@@ -15,32 +15,32 @@ export default function Footer() {
         <footer className="p-4 sm:p-6 bg-[#252f0b]">
             <div className="md:flex md:justify-between ">
 
-                <div className="border-[#e5f2c4]  w-1/2 grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                <div className="border-[#e5f2c4]  w-1/2 grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 pt-3">
                     <div className="">
-                        <h3 className="mb-6 text-2xl text-right font-semibold text-[#949e7b] ">خدمات تفاعليه</h3>
+                        <h3 className="mb-4 text-2xl text-right font-semibold text-[#949e7b] ">خدمات تفاعليه</h3>
                         <ul>
-                            <li className="mb-4 text-right">
+                            <li className="mb-2 text-right">
                                 <a href="#" target="_blank"
                                     className="text-[#778554] text-xl hover:underline">مواقيت الصلاة</a>
                             </li>
-                            <li className="mb-4 text-right">
+                            <li className="mb-2 text-right">
                                 <a href="#" target="_blank" rel="nofollow"
                                     className="text-[#778554] text-xl hover:underline">اذكار المسلم</a>
                             </li>
-                            <li className="mb-4 text-right">
+                            <li className="mb-2 text-right">
                                 <a href="#" target="_blank" rel="nofollow"
                                     className="text-[#778554] text-xl hover:underline">اختبارات اسلامية </a>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h3 className="mb-6 text-2xl text-right font-semibold text-[#949e7b] ">خدمات مستقبليه</h3>
+                        <h3 className="mb-4 text-2xl text-right font-semibold text-[#949e7b] ">خدمات مستقبليه</h3>
                         <ul>
-                            <li className="mb-4 text-right">
+                            <li className="mb-2 text-right">
                                 <a href="#" target="_blank" className="text-[#778554] text-xl hover:underline">
                                     مشروع حفاظ</a>
                             </li>
-                            <li className="mb-4 text-right">
+                            <li className="mb-2 text-right">
                                 <a href="#" target="_blank" className="text-[#778554] text-xl hover:underline">
                                     رحلات اسلامية
                                 </a>
@@ -48,19 +48,19 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h3 className="mb-6 text-2xl text-right font-semibold text-[#949e7b] ">اتصل بنا</h3>
+                        <h3 className="mb-4 text-2xl text-right font-semibold text-[#949e7b] ">اتصل بنا</h3>
                         <ul>
-                            <li className="mb-4 text-right">
+                            <li className="mb-2 text-right">
                                     
                                 <a href="#" target="_blank"
                                     className="text-[#778554] hover:underline">07 XXXX XXXX ✆</a>
                             </li>
                             
-                            <li className="mb-4 text-right">
+                            <li className="mb-2 text-right">
                                 <a href="#" target="_blank"
-                                    className="text-[#778554] hover:underline">06 XXX XXX XXX ☎</a>
+                                    className="text-[#778554] hover:underline">06X XXX XXX ☎</a>
                             </li>
-                            <li className="mb-4 text-right">
+                            <li className="mb-2 text-right">
                                 <a href="#" target="_blank"
                                     className="text-[#778554] hover:underline">dhikraa@dhikraa.com ✉</a>
                             </li>

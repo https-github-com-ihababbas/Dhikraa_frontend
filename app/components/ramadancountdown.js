@@ -35,7 +35,7 @@ export default function ramdancountdown() {
 
   return (
     <section className="my-24">
-      <h1 className="text-5xl border-b-2 mx-[30%] border-[#778554] justify-self-center text-center text-[#778554] dark:text-white mb-4 pb-2" > رمضان يدنو </h1>
+      <h1 className="text-5xl border-b-2 ml-[45%] mr-[10%] border-[#778554] justify-self-center text-center text-[#252f0b] dark:text-white mb-4 pb-2" > رمضان يدنو </h1>
 
       <div className=" bg-[#949e7b] flex flex-right w-full h-full  justify-between px-32">
 
@@ -48,7 +48,7 @@ export default function ramdancountdown() {
           </div>
         </div>
         <div className="w-3/4">
-          <h1 className="mt-10 text-4xl justify-self-center text-right text-green-900 dark:text-white" >{countDown}</h1>
+          <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" >{countDown}</h1>
           <br/>
           <p className="text-2xl text-[#252f0b]  text-right ml-32">رمضان هو مدرسة سنوية تأتينا كل عام ، تدخل علينا في بدايتها وقد تكون صعبة ونشعر في الثقل منها بينما تسير الايام يختلف الشعور بأن انفسنا قد اعتادت على نظام جميل لربما ساعدنا على الالتزام في عبادة او فعل معين ، وقد نكون حزينين في آخره ايامه اذ اننا لم نؤدي الواجبات علينا في هذه المدرسة بالشكل المطلوب</p>
         </div>

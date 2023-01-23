@@ -8,8 +8,8 @@
 .demo {
     display: block;
     max-width: 100%;
-    height: 25rem;
-    filter: brightness(0.2) invert(.1)
+    height: 35rem;
+    filter: brightness(0.4) invert(.1);
 }
 
 .wp_caption:after {

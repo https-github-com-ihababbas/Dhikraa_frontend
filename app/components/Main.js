@@ -16,14 +16,16 @@ export default function Main() {
             <Hero />
             
             <DateAndDay />
+            <HomeForm />
             <Ramdan />
+            <Counter_tsbeh />
+
+            {/* <HomeModal /> */}
+
             {/* <section className={styleSection.container}>
                 <section className={styleSection.section1}>
-                    <HomeModal />
                 </section>
                 <section className={styleSection.section2}>
-                    <HomeForm />
-                    <Counter_tsbeh />
                 </section>
             </section> */}
         </>

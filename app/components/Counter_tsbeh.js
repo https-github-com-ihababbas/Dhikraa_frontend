@@ -8,10 +8,7 @@ export default function Counter_tsbeh() {
 
 
     return (
-        <section className={`${styleTsbeh.section_container} shadow-xl`}>
-            
-            <h1 className="m-3 text-2xl italic font-bold text-center text-teal-600">خاتم التسابيح</h1>
-            <section className={styleTsbeh.grid_container}>
+            <section className='flex justify-between px-20 h-full'>
                     {image.map((element,index) => (
                         <Home_Image_card
                             key={index}
@@ -24,7 +21,6 @@ export default function Counter_tsbeh() {
                         />
                     ))}
                 </section>
-        </section>
     )
 
 }
