@@ -27,7 +27,14 @@ background-position: center;
 }
 
 
+.wp_caption:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 30%;
+  width: 50%;
 
+}
 
 
 .part1 {
