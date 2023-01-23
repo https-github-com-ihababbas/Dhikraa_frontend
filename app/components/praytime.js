@@ -8,7 +8,7 @@ import { hadiths } from "./data/hadiths";
 import Swal from 'sweetalert2';
 import style from "../styles/quiz.module.css"
 import image from "public/assets/image.png";
-
+import { Icon } from '@iconify/react';
 
 
 
@@ -180,12 +180,19 @@ export default function PrayTime() {
           <div className={styles.cardContainer}>
             <div className={styles.card}>
               <div className={styles.cardText}>
-              <button onClick={handleNext} className={styles.next}>{language === "en" ? "Next" : "⬅️"}</button>
+              <button onClick={handleNext} className={styles.next}> 
+             
+              <Icon icon="material-symbols:arrow-back-rounded" />
+              </button>
                 <div>
+               
                   <h2 className={styles.h1}>{hadiths[currentIndex].hadith}</h2>
                 </div>
               </div>
-              <button onClick={handlePrev} className={styles.prev}>{language === "en" ? "Prev" : "➡️"}</button>
+              <button onClick={handlePrev} className={styles.prev}>
+              <Icon icon="material-symbols:arrow-forward-rounded" />
+
+              </button>
               <div className={styles.cardImage}>
                 <Image src={hadith} alt="Card 2 Image" />
               </div>
