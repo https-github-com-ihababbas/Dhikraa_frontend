@@ -133,7 +133,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className='text-xl py-1 text-white h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-300 hover:border-[#949e7b] text-justify '
+                    className='text-xl py-1 text-white h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-justify '
                     aria-current={item.current ? 'page' : undefined}
                   >
                     {item.name}
@@ -144,7 +144,7 @@ export default function Header() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className='text-xl py-1 text-white h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-300 hover:border-[#949e7b] text-justify '
+                      className='text-xl py-1 text-white h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-justify '
                     // aria-current={item.current ? 'page' : undefined}
                     >
                       {item.name}

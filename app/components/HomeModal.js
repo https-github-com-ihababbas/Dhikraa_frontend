@@ -28,29 +28,29 @@ export default function HomeModal() {
     }
 
     return (
-    <section className="shadow-xl">
-        <h1 className="m-3 text-2xl italic font-bold text-center text-teal-600">اذكار و الادعية</h1>
-        <section className={stylesHome.section_modal}>
+    <section>
+        <h1 >اذكار و الادعية</h1>
+        <section className="flex justify-between gap-10">
             
-            <section className={stylesHome.section_all}>
+            {/* <section >
                 <Image onClick={() => setModalIsOpenToTrue(0)} className={`${stylesHome.section_img}`} src={images[0]} alt='' />
-            </section>
+            </section> */}
 
-            <section className={stylesHome.section_all}>
+            {/* <section>
                 <Image onClick={() => setModalIsOpenToTrue(1)} className={`${stylesHome.section_img}`} src={images[1]} alt='' />
             </section>
 
-            <section className={stylesHome.section_all}>
+            <section>
                 <Image onClick={() => setModalIsOpenToTrue(2)} className={`${stylesHome.section_img}`} src={images[2]} alt='' />
             </section>
 
-            <section className={stylesHome.section_all}>
+            <section>
                 <Image onClick={() => setModalIsOpenToTrue(3)} className={` ${stylesHome.section_img}`} src={images[3]} alt='' />
             </section>
 
-            <section className={stylesHome.section_all}>
+            <section>
                 <Image onClick={() => setModalIsOpenToTrue(4)} className={`${stylesHome.section_img}`} src={images[4]} alt='' />
-            </section>
+            </section> */}
 
             <Modal isopen={open} close={setModalIsOpenToFalse} adkar={adkar[imageIndexState]} img={images[imageIndexState]} page={numPageState} />
         </section>
