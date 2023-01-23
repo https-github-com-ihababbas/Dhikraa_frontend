@@ -10,7 +10,6 @@ import logo from "public/assets/Logo_dhekraa.png";
 import style from "../styles/header.module.css";
 import Link from "next/link";
 import { AuthContext } from "../contexts/auth";
-import { ThemeContext } from "../contexts/theme";
 
 const navigation = [
   { name: " الرئيسية ", href: "/", current: true },
@@ -27,13 +26,12 @@ const userNav = [
 function linkHanldle(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
 export default function Header() {
   // const { isDarkTheme,toggleThemeHandler } = useContext(ThemeContext);
 
   const { tokens } = useContext(AuthContext);
   const { logout } = useContext(AuthContext);
-
+  const admin=localStorage.getItem("is_superuser")
   return (
     // bg-blue-900
     <Disclosure as="nav" className="bg-[#252f0b] ">
@@ -91,20 +89,6 @@ export default function Header() {
                       <Menu.Item>
                         {({ active }) => (
                           <button
-                            type="button"
-                            className={linkHanldle(
-                              active ? "bg-[#e5f2c4] text-[#000]" : "",
-                              "block px-4 py-2 text-l text-gray-700 w-full text-right text-[#e5f2c4] "
-                            )}
-                          // onClick={toggleThemeHandler}
-                          >
-                            الوضع الليلي
-                          </button>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button
                             onClick={logout}
                             className={linkHanldle(
                               active ? "bg-[#e5f2c4] text-[#000]" : "",
@@ -119,7 +103,7 @@ export default function Header() {
                   </Transition>
                 </Menu>
               ) : (
-                <Link href="/login" className="text-white">
+                <Link href="/login" className="text-[#e5f2c4] mx-8 text-xl hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b]">
                   تسجيل الدخول
                 </Link>
               )}
@@ -133,18 +117,25 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className='text-xl py-1 text-white h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-justify '
+                    className='text-xl py-1 text-[#e5f2c4] h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-justify '
                     aria-current={item.current ? 'page' : undefined}
                   >
                     {item.name}
                   </Link>
                 ))}
-                {tokens &&
-                  userNav.map((item) => (
+                {tokens && admin=='true'&& <Link
+                    key='admin'
+                    href='/admin'
+                    className='text-xl py-1 text-[#e5f2c4] h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-justify '
+                    
+                  >
+                    لوحة التحكم
+                  </Link>}
+                  {tokens && admin=='false'&&userNav.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
-                      className='text-xl py-1 text-white h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-justify '
+                      className='text-xl py-1 text-[#e5f2c4] h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-justify'
                     // aria-current={item.current ? 'page' : undefined}
                     >
                       {item.name}

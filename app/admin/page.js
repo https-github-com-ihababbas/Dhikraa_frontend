@@ -19,8 +19,8 @@ export default function AdminPanel() {
   return (
     <>
       
-      <section className="bg-[#e5f2c4] body-font pb-36 flex justify-center items-center ">
-      <div className="container pt-32 pd-64 mx-auto justify-center  h-full ">
+      <section className="bg-[#e5f2c4] body-font py-32 flex justify-center items-center ">
+      <div className="container pb-16 pt-16 mx-auto justify-center  h-full ">
           <div className="flex flex-wrap text-center justify-center">
             <div className="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500 shadow-2xl bg-[#949e7b] mx-8 rounded-2xl ">
               <div className=" bg-[#949e7b] flex items-center  justify-between px-4 h-full  rounded-lg">
