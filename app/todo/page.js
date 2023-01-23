@@ -146,7 +146,11 @@ export default function Todo() {
         </div>
       </div> */}
       <section className="pt-6 ">
-        <h1 className="text-5xl font-bold text-center">۞ اَلْمَهَامُّ ۞</h1>
+        <h1 className="text-5xl font-bold text-center ">
+        {/* <Icon icon="iconoir:system-restart" className="mx-4" /> */}
+           اَلْمَهَامُّ 
+           {/* <Icon icon="iconoir:system-restart" className="mx-4" /> */}
+        </h1>
 
         <div className="flex justify-between h-full py-4 mb-8 ml-40 mr-40 rounded-md shadow-sm flex-right">
 
