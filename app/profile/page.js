@@ -176,6 +176,7 @@ export default function Profile() {
               isOpen={changeProfileFlag}
               close={closeModule}
               setUserData={setUserData}
+              userData={userData}
 
             />
           </>
