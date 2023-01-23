@@ -7,7 +7,7 @@ import moment from 'moment';
 import { hadiths } from "./data/hadiths";
 import Swal from 'sweetalert2';
 import style from "../styles/quiz.module.css"
-import image from "public/assets/image.png";
+import maca from "public/assets/maca.jpg";
 import { Icon } from '@iconify/react';
 
 
@@ -85,34 +85,48 @@ export default function PrayTime() {
 
 
   return (
-    <div>
+    <div className={style.back}>
       {/* <Image src={home_img} alt="Picture of the author" className={styles.image} /> */}
-      <div className={style.wp_caption} >
-        <Image
-          src={image}
-          alt="background"
-          width={9999}
-          height={300}
-          className={style.demo} >
+      
+      <section className="pt-6 ">
+        <h1 className="text-5xl font-bold text-center">
+        ❆  مَوَاقِيت اَلصَّلَاةِ  ❆
+        </h1>
 
-        </Image>
-        <div className={style.wp_caption_text}>
-          <h1 className="relative pb-2 text-5xl">مَوَاقِيت الصَّلَاةَ  </h1>
-          <p className='pt-4 pb-2 text-2xl'>
-            أَقِمِ ٱلصَّلَوٰةَ لِدُلُوكِ ٱلشَّمۡسِ إِلَىٰ غَسَقِ ٱلَّیۡلِ وَقُرۡءَانَ ٱلۡفَجۡرِۖ إِنَّ قُرۡءَانَ ٱلۡفَجۡرِ كَانَ مَشۡهُودࣰا
-          </p>
-          <p >سورة الإسراء: 78
+        <div className="flex justify-between h-full py-4 mb-8 ml-40 mr-40 rounded-md shadow-sm flex-right">
 
-          </p>
+          <div className="relative justify-center w-1/4 h-64 ">
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+            </div>
+            <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
+              <Image className="w-full h-64 rounded-3xl rad" src={maca} />
+            </div>
+          </div>
+          <div className="w-3/4">
+            <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
+            <br />
+            
+           
+              
+            <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
+   - أَقِمِ ٱلصَّلَوٰةَ لِدُلُوكِ ٱلشَّمۡسِ إِلَىٰ غَسَقِ ٱلَّیۡلِ وَقُرۡءَانَ ٱلۡفَجۡرِۖ إِنَّ قُرۡءَانَ ٱلۡفَجۡرِ كَانَ مَشۡهُودࣰا - سورة الاسراء : 78  
+              <Icon icon="iconoir:system-restart" className="mx-4" />
 
+            </h3>
+            <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
+          103 : فَإِذَا قَضَيْتُمُ الصَّلَاةَ فَاذْكُرُوا اللَّهَ قِيَامًا وَقُعُودًا وَعَلَى جُنُوبِكُمْ فَإِذَا اطْمَأْنَنْتُمْ فَأَقِيمُوا الصَّلَاةَ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا - سورة النساء              <Icon icon="iconoir:system-restart" className="mx-4" />
 
+            </h3>
 
         </div>
-      </div>
+    </div>
+       </section>
 
 
 
-      <section className={`${styles.dashboard} ${style.back}`}>
+
+      <section className={`${styles.dashboard} `}>
 
 
         <div  >
