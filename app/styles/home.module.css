@@ -1,101 +1,44 @@
-.section {
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* padding-top: 15px; */
-    padding-bottom: 10px;
+
+.wp_caption {
+    position: relative;
+    padding: 0;
+    margin: 0;
 }
 
-.section::before {
+.demo {
+    display: block;
+    max-width: 100%;
+    height: 25rem;
+    filter: brightness(0.2) invert(.1)
+}
+
+.wp_caption:after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.hidden {
-    display: flex;
-    width: 100%;
-}
-
-.lg\:block {
     display: block;
+    top: 30%;
+    width: 50%;
+
 }
 
-.relative {
-    position: relative;
-}
-
-.h-400px {
-    height: 400px;
-}
-
-.w-80 {
-    width: 80%;
-}
-
-.container {
+.wp_caption_text {
+    display: block;
     position: absolute;
-    top: 52%;
-    left: 50%;
     width: 100%;
-    transform: translate(-50%, -50%);
+    color: #fff;
     text-align: center;
-    padding-top: 10px;
+    bottom: 30%;
+    padding: 1em;
+    font-weight: 700;
+    z-index: 2;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-.container1 {
-    position: absolute;
-    top: 21rem;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    padding-top: 10px;
-}
-
-.div{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: bold;
-    /* margin-top: 1rem; */
-    color: #333;    
-  }
-
-.section {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.section_modal {
-     margin: 0px 80px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.section_all {
-    display: inline-block;
-}
-
-.section_img {
-    width: 130px; /* adjust as needed */
-    height: 130px; /* adjust as needed */
-    margin: 10px; /* adjust as needed */
-    border-radius: 50%;
-}
-
-.section_img:hover{
-    box-shadow: 2px 2px 2px gray;
-}
-
-.section_form{
-    padding: 0px 20% 0px 20%;
+.back {
+    background: url(/assets/back.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

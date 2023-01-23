@@ -1,11 +1,11 @@
 'use client';
 
 import React from "react";
-import HomeForm from "./HomeForm";
 import Hero from './Hero'
+import HomeForm from "./HomeForm";
 import DateAndDay from './DateAndDay'
 import Counter_tsbeh from './Counter_tsbeh'
-import styleSection from '../styles/formAndTsbeh.module.css'
+import styleHome from '../styles/home.module.css'
 import HomeModal from './HomeModal'
 import Ramdan from '../components/ramadancountdown'
 
@@ -13,11 +13,11 @@ import Ramdan from '../components/ramadancountdown'
 export default function Main() {
     return (
         <>
-        
             <Hero />
-            <Ramdan />
+            
             <DateAndDay />
-            <section className={styleSection.container}>
+            <Ramdan />
+            {/* <section className={styleSection.container}>
                 <section className={styleSection.section1}>
                     <HomeModal />
                 </section>
@@ -25,7 +25,8 @@ export default function Main() {
                     <HomeForm />
                     <Counter_tsbeh />
                 </section>
-            </section>
+            </section> */}
         </>
+
     )
 }
