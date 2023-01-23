@@ -4,7 +4,7 @@ import { AuthContext } from "../contexts/auth";
 import axios from "axios";
 import Swal from 'sweetalert2'
 
-export default function UpdateProfile({ isOpen, close, id }) {
+export default function UpdateProfile({ isOpen, close, id,setUserData,userData }) {
     const { tokens, refresh, logout } = useContext(AuthContext);
     const [open, setOpen] = useState(true);
     const cancelButtonRef = useRef(null);
@@ -22,41 +22,55 @@ export default function UpdateProfile({ isOpen, close, id }) {
     const handleSubmit = (e) => {
         console.log(`Submit`)
         e.preventDefault();
-        // console.log(e.target.password.value)
-        // console.log(e.target.password2.value)
-        // console.log(e.target.old_password.value)
+        console.log(e.target.username.value)
+        console.log(e.target.first_name.value)
+        console.log(e.target.last_name.value)
 
-        // const url = `https://dhiker-api-v1.herokuapp.com/api/accounts/`;
-        // const obj = {
+        const url = `https://dhiker-api-v1.herokuapp.com/api/accounts/`;
+        const obj = {
 
-        //     password: e.target.password.value,
-        //     password2: e.target.password2.value,
-        //     old_password: e.target.old_password.value,
+            username: e.target.username.value,
+            first_name: e.target.first_name.value,
+            last_name: e.target.last_name.value,
+            email: e.target.email.value,
+            phone_number: e.target.number.value,
+            birthday: e.target.birthday.value,
+            location: e.target.location.value,
+            gender: e.target.gender.value,
 
-        // };
-        // axios
-        //     .put(`${url}change_password/${id}/`, obj, config)
-        //     .then((result) => {
-        //         console.log(result.data);
+        };
+        console.log(obj)
+        axios
+            .put(`${url}update_profile/${id}/`, obj, config)
+            .then((result) => {
+                console.log(result.data);
+                axios
+                .get(`${url}users/${result.data.username}`, config)
+                .then((result) => {
+                    setUserData(result.data)
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
 
-        //     })
-        //     .catch((err) => {
-        //         const res = err.response.data
-        //         console.log("changepassword", err, typeof (res));
-        //         console.log(res.hasOwnProperty("old_password"));
-        //         if (res.hasOwnProperty("old_password")) {
-        //             Swal.fire({
-        //                 icon: 'error',
-        //                 text: `${res.old_password.old_password}`,
-        //             });
-        //         }
-        //         if (res.hasOwnProperty("password")) {
-        //             Swal.fire({
-        //                 icon: 'error',
-        //                 text: `${res.password}`,
-        //             });
-        //         }
-        //     });
+            })
+            .catch((err) => {
+                const res = err.response.data
+                console.log("updateprofile", err, typeof (res));
+                console.log(res.hasOwnProperty("username"));
+                if (res.hasOwnProperty("username")) {
+                    Swal.fire({
+                        icon: 'error',
+                        text: `${res.email.email}`,
+                    });
+                }
+                if (res.hasOwnProperty("password")) {
+                    Swal.fire({
+                        icon: 'error',
+                        text: `${res.password}`,
+                    });
+                }
+            });
         close();
 
     };
@@ -110,6 +124,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
                                                     name="username"
                                                     required
                                                     className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 outline-none focus:border-green-400"
+                                                    defaultValue={userData.username}
 
                                                 />
                                                 <label
@@ -126,6 +141,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
                                                     name="first_name"
                                                     required
                                                     className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    defaultValue={userData.first_name}
                                                 />
                                                 <label
                                                     className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
@@ -142,6 +158,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
 
                                                     required
                                                     className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    defaultValue={userData.last_name}
 
                                                 />
                                                 <label
@@ -159,6 +176,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
 
                                                     required
                                                     className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    defaultValue={userData.email}
 
                                                 />
                                                 <label
@@ -176,6 +194,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
 
                                                     required
                                                     className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    defaultValue={userData.phone_number}
 
                                                 />
                                                 <label
@@ -195,6 +214,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
 
                                                     required
                                                     className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    defaultValue={userData.birthday}
 
                                                 />
                                                 <label
@@ -211,6 +231,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
                                                     name="location"
                                                     required
                                                     className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    defaultValue={userData.location}
 
                                                 />
                                                 <label
@@ -227,6 +248,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
                                                 id="gender"
                                                 required
                                                 className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                defaultValue={userData.gender}
 
                                             >
                                                 <option value="female">female</option>
@@ -237,7 +259,7 @@ export default function UpdateProfile({ isOpen, close, id }) {
                                                     className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
                                                 >
 
-                                                    النوع
+                                                    الجنس
                                                 </label>
                                             </div>
 
