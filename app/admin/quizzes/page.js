@@ -86,27 +86,28 @@ export default function Quizzes() {
       });
   };
   return (
-    <div class=" py-10 dark:bg-gray-900 bg-teal-200">
-      <Link href='/admin' className="flex w-1/6  px-8 py-2 mb-4 ml-8 text-lg text-black shadow-2xl rounded-3xl hover:text-green-700 shadow-gray-500 text-center"> عودة لصفحة الرئيسية</Link>
+    <div class=" py-10  bg-[#e5f2c4] ">
+      <Link href='/admin' className="flex w-[14%] px-8 py-2 mb-4 ml-8 text-lg text-black shadow-2xl rounded-3xl hover:text-[#e5f2c4] hover:bg-[#3a451c] shadow-gray-500 text-center bg-[#949e7b]"> عودة لصفحة الرئيسية</Link>
       <div class=" justify-center px-6 md:flex w-full gap-8 ">
-        <div class=" h-screen shadow-md  overflow-scroll w-1/2 dark:bg-gray-900 bg-teal-200 ">
+        {someOfQ.length > 0 &&
+        <div class=" h-screen shadow-md  overflow-scroll scroll-0 w-1/2 dark:bg-gray-900 bg-[#e5f2c4] ">
           {someOfQ.length > 0 ? (
             someOfQ.map((item) => {
               return (
                 <div
-                  class="flex flex-col border rounded-lg  bg-white mb-4 shadow-xl w-full"
+                  class="flex flex-col border rounded-lg  bg-[#949e7b] mb-4 shadow-xl w-full"
                   key={item.id}
                 >
                   <div class="grid grid-cols-1 ">
                     <div class="flex flex-col ">
-                      <div class="flex flex-col space-y-4  p-6 text-gray-600 flex items-center  ">
+                      <div class="flex flex-col space-y-4  p-6 text-[#252f0b] flex items-center  ">
                         <div class="flex flex-row text-2xl ">
                           {item.question}
                         </div>
                       </div>
                       <div class="flex flex-col w-full bottom-0">
                         <div class="grid grid-cols-2 border-t divide-x text-gray-500  bg-gray-50 dark:bg-transparent w-full items-center justify-center">
-                          <button onClick={() => openUpdateModule(item)} class=" cursor-pointer uppercase text-lg flex flex-row items-center text-white justify-center bg-teal-600 font-semibold w-full hover:bg-teal-800 ">
+                          <button onClick={() => openUpdateModule(item)} class=" cursor-pointer uppercase text-lg flex flex-row items-center text-white justify-center bg-teal-800 font-semibold w-full hover:bg-teal-600 ">
                             <div class="mr-2 items-center justify-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -149,88 +150,89 @@ export default function Quizzes() {
           ) : (
             <div className="dark:bg-gray-900 bg-teal-200"></div>
           )}
-        </div>
+        </div> }
+        
         <div class="rounded-lg w-1/2">
-          <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
+          <div class="justify-between mb-6 rounded-lg bg-[#778554] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
             <div class="sm:ml-4 sm:flex w-full sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("General");
                 }}
-                class="flex items-center space-x-4 px-8 py-2 text-lg text-white bg-teal-600 shadow-2xl rounded-3xl hover:bg-teal-800 shadow-gray-500 w-1/6"
+                class="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#949e7b] shadow-2xl rounded-3xl hover:bg-[#252f0b] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
               >
                 عرض
               </button>
               <button
                 onClick={() => openModule("General")}
-                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-white bg-green-600 shadow-2xl rounded-3xl hover:bg-green-800 shadow-gray-500"
+                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#e5f2c4] bg-[#252f0b] shadow-2xl rounded-3xl hover:bg-[#e5f2c4] hover:text-[#252f0b] shadow-gray-500"
               >
                 إضافة
               </button>
-              <h2 class="text-2xl font-bold text-gray-900 text-right w-1/2">
+              <h2 class="text-2xl font-bold text-[#e5f2c4] text-right w-1/2">
                 {types.General}
               </h2>
             </div>
           </div>
-          <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
+          <div class="justify-between mb-6 rounded-lg bg-[#778554] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
             <div class="sm:ml-4 sm:flex w-full sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Quran");
                 }}
-                class="flex items-center space-x-4 px-8 py-2 text-lg text-white bg-teal-600 shadow-2xl rounded-3xl hover:bg-teal-800 shadow-gray-500 w-1/6"
+                class="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#949e7b] shadow-2xl rounded-3xl hover:bg-[#252f0b] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
               >
                 عرض
               </button>
               <button
                 onClick={() => openModule("Quran")}
-                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-white bg-green-600 shadow-2xl rounded-3xl hover:bg-teal-800 shadow-gray-500"
+                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#e5f2c4] bg-[#252f0b] shadow-2xl rounded-3xl hover:bg-[#e5f2c4] hover:text-[#252f0b] shadow-gray-500"
               >
                 إضافة
               </button>
-              <h2 class="text-2xl font-bold text-gray-900 text-right w-1/2">
+              <h2 class="text-2xl font-bold text-[#e5f2c4] text-right w-1/2">
                 {types.Quran}
               </h2>
             </div>
           </div>
-          <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
+          <div class="justify-between mb-6 rounded-lg bg-[#778554] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
           <div class="sm:ml-4 sm:flex w-full sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Tajweed");
                 }}
-                class="flex items-center space-x-4 px-8 py-2 text-lg text-white bg-teal-600 shadow-2xl rounded-3xl hover:bg-teal-800 shadow-gray-500 w-1/6"
+                class="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#949e7b] shadow-2xl rounded-3xl hover:bg-[#252f0b] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
               >
                 عرض
               </button>
               <button
                 onClick={() => openModule("Tajweed")}
-                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-white bg-green-600 shadow-2xl rounded-3xl hover:bg-green-800 shadow-gray-500"
+                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#e5f2c4] bg-[#252f0b] shadow-2xl rounded-3xl hover:bg-[#e5f2c4] hover:text-[#252f0b] shadow-gray-500"
               >
                 إضافة
               </button>
-              <h2 class="text-2xl font-bold text-gray-900 text-right w-1/2">
+              <h2 class="text-2xl font-bold text-[#e5f2c4] text-right w-1/2">
                 {types.Tajweed}
               </h2>
             </div>
           </div>
-          <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
+          <div class="justify-between mb-6 rounded-lg bg-[#778554] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
           <div class="sm:ml-4 sm:flex w-full sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Ciera");
                 }}
-                class="flex items-center space-x-4 px-8 py-2 text-lg text-white bg-teal-600 shadow-2xl rounded-3xl hover:bg-teal-800 shadow-gray-500 w-1/6"
+                class="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#949e7b] shadow-2xl rounded-3xl hover:bg-[#252f0b] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
               >
                 عرض
               </button>
               <button
                 onClick={() => openModule("Ciera")}
-                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-white bg-green-600 shadow-2xl rounded-3xl hover:bg-green-800 shadow-gray-500"
+                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#e5f2c4] bg-[#252f0b] shadow-2xl rounded-3xl hover:bg-[#e5f2c4] hover:text-[#252f0b] shadow-gray-500"
               >
                 إضافة
               </button>
-              <h2 class="text-2xl font-bold text-gray-900 text-right w-1/2">
+              <h2 class="text-2xl font-bold text-[#e5f2c4] text-right w-1/2">
                 {types.Ciera}
               </h2>
             </div>

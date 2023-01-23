@@ -19,35 +19,35 @@ export default function AdminPanel() {
   return (
     <>
       
-      <section className="text-gray-600 bg-teal-200 body-font pb-36 flex justify-center items-center ">
+      <section className="bg-[#e5f2c4] body-font pb-36 flex justify-center items-center ">
       <div className="container pt-32 pd-64 mx-auto justify-center  h-full ">
           <div className="flex flex-wrap text-center justify-center">
-            <div className="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500 shadow-2xl mx-8 rounded-2xl ">
-              <div className=" flex items-center  justify-between px-4 h-full  rounded-lg bg-white shadow-indigo-50 shadow-md">
-                <div className="bg-gradient-to-tr from-green-500 to-green-500 w-32 h-32  rounded-full shadow-2xl shadow-green-400 border-white  border-dashed border-2  flex justify-center items-center ">
+            <div className="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500 shadow-2xl bg-[#949e7b] mx-8 rounded-2xl ">
+              <div className=" bg-[#949e7b] flex items-center  justify-between px-4 h-full  rounded-lg">
+                <div className="bg-gradient-to-tr from-[#252f0b] to[#252f0b] w-32 h-32  rounded-full shadow-2xl shadow-[#252f0b] border-white  border-dashed [#e5f2c4]   flex justify-center items-center ">
                   <div>
-                    <h1 className="text-white text-2xl">المستخدمون</h1>
+                    <h1 className="text-2xl text-[#e5f2c4] ">المستخدمون</h1>
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-gray-900 text-2xl font-bold mb-6">قسم المستخدمون</h2>
-                  <Link href='/admin/users' className="text-lg mt-6 px-4 py-2 bg-green-400  text-white rounded-lg  tracking-wider hover:bg-green-500 outline-none">
+                  <h2 className="text-[#e5f2c4] text-2xl font-bold mb-6">قسم المستخدمون</h2>
+                  <Link href='/admin/users' className="text-lg mt-6 px-4 py-2 bg-[#3a451c]  text-[#e5f2c4] rounded-lg  hover:bg-[#e5f2c4] hover:text-[#252f0b] outline-none">
                     الإنتقال
                   </Link>
                 </div>
                 
               </div>
             </div>
-            <div className="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500  shadow-2xl mx-8 rounded-2xl">
-              <div className=" flex items-center  justify-between p-4  rounded-lg bg-white shadow-indigo-50 shadow-md">
-                <div className="bg-gradient-to-tr from-cyan-500 to-cyan-400 w-32 h-32  rounded-full shadow-2xl shadow-cyan-400 border-white  border-dashed border-2  flex justify-center items-center ">
+            <div className="p-4 sm:w-1/2 lg:w-1/3 w-full hover:scale-105 duration-500 bg-[#778554]  shadow-2xl mx-8 rounded-2xl">
+              <div className=" flex items-center   justify-between p-4  rounded-lg bg-[#778554] shadow-[#778554] shadow-md">
+                <div className="bg-gradient-to-tr from-[#949e7b] to-[#949e7b] w-32 h-32  rounded-full shadow-2xl shadow-[#949e7b] border-[#949e7b]  border-dashed border-2  flex justify-center items-center ">
                   <div>
-                    <h1 className="text-white text-2xl text-bold">الإختبارات</h1>
+                    <h1 className="text-[#e5f2c4] text-2xl text-bold">الإختبارات</h1>
                   </div>
                 </div>
                 <div>
-                  <h2 className="text-gray-900 text-2xl  mb-6 font-bold">قسم الإختبارات</h2>
-                  <Link href='admin/quizzes' className="text-lg mt-6 px-4 py-2 bg-cyan-400  text-white rounded-lg  tracking-wider hover:bg-cyan-500 outline-none">
+                  <h2 className="text-[#e5f2c4] text-2xl  mb-6 font-bold">قسم الإختبارات</h2>
+                  <Link href='admin/quizzes' className="text-lg mt-6 px-4 py-2 bg-[#3a451c]  text-[#e5f2c4] rounded-lg  hover:bg-[#e5f2c4] hover:text-[#252f0b] outline-none">
                     الإنتقال
                   </Link>
                 </div>
