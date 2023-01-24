@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Reader } from "./data/reader"
 import { Surah } from "./data/surah"
 import styles from 'app/styles/reader.module.css';
-import reader_image from 'public/assets/reader.png';
+import home_img from 'public/assets/back2.png';
 import Image from 'next/image';
 import Readervideos from "./readervidos";
 import { Container } from "postcss";
@@ -77,7 +77,9 @@ export default function Readerpage() {
 
 
   return (
-    <div className={style.back}>
+    <div className={styles.div}>
+            <Image src={home_img} alt="Picture of the author" className={styles.image} />
+
       <section className="pt-6 ">
         <h1 className="text-4xl font-bold text-center"> اِسْتَمَعَ لِلْقُرْآنِ </h1>
 
@@ -236,7 +238,7 @@ export default function Readerpage() {
 
 
 
-      {/* <Readervideos className="m-auto " /> */}
+      <Readervideos className="m-auto " />
     </div>
 
   );

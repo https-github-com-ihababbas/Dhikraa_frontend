@@ -110,7 +110,7 @@ export default function Readervideos() {
                     )
                 })}
             </select>
-            {<button onClick={handleDataFetch}className="mb-14 ml-[40%]  py-1.5 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">عرض قائمه السور </button>}
+            {<button onClick={handleDataFetch}>عرض قائمه السور </button>}
             {isDataFetched && (
                 <table className={styles.table}>
                     <tbody className={styles.tbody}>
@@ -178,7 +178,7 @@ export default function Readervideos() {
                                 leaveFrom="opacity-100 translate-y-0 "
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 "
                             >
-                                <Dialog.Panel className="relative overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-2xl sm:my-8 sm:w-full sm:max-w-md">
+                                <Dialog.Panel className="relative overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-2xl sm:my-8 sm:w-full sm:max-w-xl">
                                     {/* <div className="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4"> */}
                                     <div className="w-full p-8 bg-white border-solid shadow-2xl rounded-3xl">
                                         <button
@@ -191,7 +191,7 @@ export default function Readervideos() {
 
                                         <h1>{currentTitle}</h1>
                                         <div>
-                                            <YouTube videoId={currentVideoId} opts={{ width: '350px', height: '500px' }} className="youtube-video" />
+                                            <YouTube videoId={currentVideoId} opts={{ width: '500px', height: '500px' }} className="youtube-video" />
                                         </div>
                                         <div>
                                             <button onClick={handleClose} color="primary">
