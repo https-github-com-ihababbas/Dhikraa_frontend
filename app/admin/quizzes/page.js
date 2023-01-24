@@ -6,6 +6,8 @@ import { AuthContext } from "app/contexts/auth.js";
 import axios from "axios";
 import AddQus from "./AddQus";
 import UpdateQus from "./UpdateQus";
+import style from "app/styles/admin.module.css"
+import LoginForm from "../../login/page";
 
 export default function Quizzes() {
   const { tokens, refresh } = useContext(AuthContext);
@@ -85,36 +87,39 @@ export default function Quizzes() {
         console.log("deleteSide", err);
       });
   };
+  const admin=localStorage.getItem("username")
   return (
-    <div class=" py-10  bg-[#e5f2c4] ">
-      <Link href='/admin' className="flex w-[14%] px-8 py-2 mb-4 ml-8 text-lg text-black shadow-2xl rounded-3xl hover:text-[#e5f2c4] hover:bg-[#3a451c] shadow-gray-500 text-center bg-[#949e7b]"> عودة لصفحة الرئيسية</Link>
-      <div class=" justify-center px-6 md:flex w-full gap-8 ">
+    <>
+    {tokens && admin=="admin" ?<div className={`${style.back} py-10`}>
+      <Link href='/admin' className="flex w-[14%] px-8 py-2  ml-8 text-lg text-black shadow-2xl rounded-3xl hover:text-[#e5f2c4] hover:bg-[#3a451c] shadow-gray-500 text-center bg-[#949e7b]"> عودة لصفحة الرئيسية</Link>
+      <div className=" justify-center px-6 md:flex w-full gap-8 pt-10 ">
         {someOfQ.length > 0 &&
-        <div class=" h-screen shadow-md  overflow-scroll scroll-0 w-1/2 dark:bg-gray-900 bg-[#e5f2c4] ">
+        <div className={`h-screen shadow-md   overflow-scroll ${style.tbody} w-1/2 dark:bg-gray-900 bg-[#e5f2c4]`}>
           {someOfQ.length > 0 ? (
             someOfQ.map((item) => {
               return (
                 <div
-                  class="flex flex-col border rounded-lg  bg-[#949e7b] mb-4 shadow-xl w-full"
+                  className="flex flex-col border rounded-lg  bg-[#949e7b] mb-4 shadow-xl w-full"
                   key={item.id}
                 >
-                  <div class="grid grid-cols-1 ">
-                    <div class="flex flex-col ">
-                      <div class="flex flex-col space-y-4  p-6 text-[#252f0b] flex items-center  ">
-                        <div class="flex flex-row text-2xl ">
+                  <div className="grid grid-cols-1 ">
+                    <div className="flex flex-col ">
+                      <div className="flex flex-col p-4 text-[#252f0b] flex items-center  ">
+                        <div className="flex flex-row text-2xl mt-2 text-center ">
                           {item.question}
                         </div>
                       </div>
-                      <div class="flex flex-col w-full bottom-0">
-                        <div class="grid grid-cols-2 border-t divide-x text-gray-500  bg-gray-50 dark:bg-transparent w-full items-center justify-center">
-                          <button onClick={() => openUpdateModule(item)} class=" cursor-pointer uppercase text-lg flex flex-row items-center text-white justify-center bg-teal-800 font-semibold w-full hover:bg-teal-600 ">
-                            <div class="mr-2 items-center justify-center">
+                      <div className="flex flex-col w-full pb-2">
+                        <div className=" text-gray-500 dark:bg-transparent w-full items-center flex justify-center gap-20 bg-[#949e7b]">
+                          <button onClick={() => openUpdateModule(item)} className=" cursor-pointer uppercase text-lg flex flex-row items-center  justify-center font-semibold  w-1/4 mt-2 text-lg text-[#252f0b] bg-[#e5f2c4] shadow-2xl rounded-3xl hover:bg-[#778554]  py-2 mb-2 ">
+                            <div className="mr-2 items-center justify-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="20px"
                                 viewBox="0 0 24 24"
                                 width="20px"
-                                fill="#fff"
+                                fill="#252f0b"
+                                
                               >
                                 <path d="M0 0h24v24H0z" fill="none" />
                                 <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
@@ -123,16 +128,16 @@ export default function Quizzes() {
                             تعديل
                           </button>
                           <button
-                            class="cursor-pointer uppercase text-lg flex flex-row items-center justify-center font-semibold w-full h-full text-white bg-red-600 focus:shadow-outline hover:bg-red-800"
+                            className="cursor-pointer uppercase text-lg flex flex-row items-center  justify-center font-semibold  w-1/4 mt-2 text-lg text-[#252f0b] bg-[#778554]  shadow-2xl rounded-3xl hover:bg-[#e5f2c4] py-2 mb-2"
                             onClick={() => deleteQue(item.id)}
                           >
-                            <div class="mr-2">
+                            <div className="mr-2">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="20px"
                                 viewBox="0 0 24 24"
                                 width="20px"
-                                fill="#fff"
+                                fill="#252f0b"
                               >
                                 <path d="M0 0h24v24H0V0z" fill="none" />
                                 <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z" />
@@ -152,87 +157,87 @@ export default function Quizzes() {
           )}
         </div> }
         
-        <div class="rounded-lg w-1/2">
-          <div class="justify-between mb-6 rounded-lg bg-[#778554] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
-            <div class="sm:ml-4 sm:flex w-full sm:justify-between">
+        <div className="rounded-lg w-1/2">
+          <div className="justify-between mb-6 rounded-lg bg-[#949e7b] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
+            <div className="sm:ml-4 sm:flex w-full sm:justify-between ">
               <button
                 onClick={() => {
                   showQuestions("General");
                 }}
-                class="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#949e7b] shadow-2xl rounded-3xl hover:bg-[#252f0b] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
+                className="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#e5f2c4] shadow-2xl rounded-3xl hover:bg-[#778554] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
               >
                 عرض
               </button>
               <button
                 onClick={() => openModule("General")}
-                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#e5f2c4] bg-[#252f0b] shadow-2xl rounded-3xl hover:bg-[#e5f2c4] hover:text-[#252f0b] shadow-gray-500"
+                className="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#778554] shadow-2xl rounded-3xl hover:bg-[#e5f2c4]  shadow-gray-500"
               >
                 إضافة
               </button>
-              <h2 class="text-2xl font-bold text-[#e5f2c4] text-right w-1/2">
+              <h2 className="text-2xl font-bold text-[#252f0b] text-right w-1/2">
                 {types.General}
               </h2>
             </div>
           </div>
-          <div class="justify-between mb-6 rounded-lg bg-[#778554] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
-            <div class="sm:ml-4 sm:flex w-full sm:justify-between">
+          <div className="justify-between mb-6 rounded-lg bg-[#949e7b] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
+            <div className="sm:ml-4 sm:flex w-full sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Quran");
                 }}
-                class="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#949e7b] shadow-2xl rounded-3xl hover:bg-[#252f0b] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
+                className="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#e5f2c4] shadow-2xl rounded-3xl hover:bg-[#778554] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
               >
                 عرض
               </button>
               <button
                 onClick={() => openModule("Quran")}
-                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#e5f2c4] bg-[#252f0b] shadow-2xl rounded-3xl hover:bg-[#e5f2c4] hover:text-[#252f0b] shadow-gray-500"
+                className="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#778554] shadow-2xl rounded-3xl hover:bg-[#e5f2c4]  shadow-gray-500"
               >
                 إضافة
               </button>
-              <h2 class="text-2xl font-bold text-[#e5f2c4] text-right w-1/2">
+              <h2 className="text-2xl font-bold text-[#252f0b] text-right w-1/2">
                 {types.Quran}
               </h2>
             </div>
           </div>
-          <div class="justify-between mb-6 rounded-lg bg-[#778554] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
-          <div class="sm:ml-4 sm:flex w-full sm:justify-between">
+          <div className="justify-between mb-6 rounded-lg bg-[#949e7b] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
+          <div className="sm:ml-4 sm:flex w-full sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Tajweed");
                 }}
-                class="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#949e7b] shadow-2xl rounded-3xl hover:bg-[#252f0b] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
+                className="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#e5f2c4] shadow-2xl rounded-3xl hover:bg-[#778554] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
               >
                 عرض
               </button>
               <button
                 onClick={() => openModule("Tajweed")}
-                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#e5f2c4] bg-[#252f0b] shadow-2xl rounded-3xl hover:bg-[#e5f2c4] hover:text-[#252f0b] shadow-gray-500"
+                className="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#778554] shadow-2xl rounded-3xl hover:bg-[#e5f2c4]  shadow-gray-500"
               >
                 إضافة
               </button>
-              <h2 class="text-2xl font-bold text-[#e5f2c4] text-right w-1/2">
+              <h2 className="text-2xl font-bold text-[#252f0b] text-right w-1/2">
                 {types.Tajweed}
               </h2>
             </div>
           </div>
-          <div class="justify-between mb-6 rounded-lg bg-[#778554] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
-          <div class="sm:ml-4 sm:flex w-full sm:justify-between">
+          <div className="justify-between mb-6 rounded-lg bg-[#949e7b] p-6 shadow-2xl sm:flex sm:justify-start hover:scale-105">
+          <div className="sm:ml-4 sm:flex w-full sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Ciera");
                 }}
-                class="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#949e7b] shadow-2xl rounded-3xl hover:bg-[#252f0b] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
+                className="flex items-center space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#e5f2c4] shadow-2xl rounded-3xl hover:bg-[#778554] hover:text-[#e5f2c4]  shadow-gray-500 w-1/6"
               >
                 عرض
               </button>
               <button
                 onClick={() => openModule("Ciera")}
-                class="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#e5f2c4] bg-[#252f0b] shadow-2xl rounded-3xl hover:bg-[#e5f2c4] hover:text-[#252f0b] shadow-gray-500"
+                className="flex items-center w-1/6 space-x-4 px-8 py-2 text-lg text-[#252f0b] bg-[#778554] shadow-2xl rounded-3xl hover:bg-[#e5f2c4]  shadow-gray-500"
               >
                 إضافة
               </button>
-              <h2 class="text-2xl font-bold text-[#e5f2c4] text-right w-1/2">
+              <h2 className="text-2xl font-bold text-[#252f0b] text-right w-1/2">
                 {types.Ciera}
               </h2>
             </div>
@@ -251,6 +256,9 @@ export default function Quizzes() {
       setAllQuizzes={setAllQuizzes}
       quizInfo={quizInfo}
       />
-    </div>
+    </div> 
+    :<LoginForm/>
+    }
+    </>
   );
 }
