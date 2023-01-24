@@ -106,11 +106,11 @@ export default function Readervideos() {
                 <option className={styles.option} value="">حدد القارئ </option>
                 {Object.keys(Readers).map((reader, index) => {
                     return (
-                        <option key={index} value={reader}>{reader}</option>
+                        <option key={index} value={reader} className={styles.option}>{reader} </option>
                     )
                 })}
             </select>
-            {<button onClick={handleDataFetch}>عرض قائمه السور </button>}
+            {<button onClick={handleDataFetch}className=" w-24  text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  " >عرض قائمه السور </button>}
             {isDataFetched && (
                 <table className={styles.table}>
                     <tbody className={styles.tbody}>
