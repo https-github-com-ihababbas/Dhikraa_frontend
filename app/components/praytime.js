@@ -14,6 +14,7 @@ import { Icon } from '@iconify/react';
 
 
 
+
 export default function PrayTime() {
   const [language, setLanguage] = useState("ar"); // initial language state
   const [prayTimeState, SetPrayTimeState] = useState({})
@@ -29,7 +30,7 @@ export default function PrayTime() {
   };
   const callAPI = async () => {
     const city = document.getElementById("city").value;
-    const country = document.getElementById("country").value
+    // const country = document.getElementById("country").value
     const month = document.getElementById("month").value;
     const year = document.getElementById("year").value;
 
@@ -40,7 +41,9 @@ export default function PrayTime() {
     }
 
     try {
-      const res = await fetch(`https://api.aladhan.com/v1/calendarByCity?city=${city}&country={country}&method=2&month=${month}&year=${year}`);
+      // const res = await fetch(`https://api.aladhan.com/v1/calendarByCity?city=${city}&country={country}&method=2&month=${month}&year=${year}`);
+      const res = await fetch(`https://api.aladhan.com/v1/calendarByAddress?address=${city}&month=${month}&year=${year}}`);
+
       const data = await res.json();
 
       setTimings(data.data);
@@ -135,7 +138,7 @@ export default function PrayTime() {
             <input type="text" id="month" placeholder={language === "en" ? "Month" : "شهر"} className={styles.input} />
             <input type="text" id="year" placeholder={language === "en" ? "Year" : "عام"} className={styles.input} />
             <input type="text" id="city" placeholder={language === "en" ? "City" : "مدينة"} className={styles.input} />
-            <input type="text" id="country" placeholder={language === "en" ? "Country" : "بلد"} className={styles.input} />
+            {/* <input type="text" id="country" placeholder={language === "en" ? "Country" : "بلد"} className={styles.input} /> */}
             <button onClick={handleClick} className=" ml-4 h-[2.8rem] mt-[20px] mr-14 py-1.6 px-2 flex text-white bg-gradient-to-r from-[#778554] to-[#3a451c] hover:bg-gradient-to-l focus:outline-none focus:ring-purple-200 font-medium rounded-2xl text-sm  text-center  ">
 
               <div className="px-2 pt-1.5 font-mono text-xl font-bold">

@@ -7,10 +7,15 @@
 }
 
 .image {
+  position: absolute;
+  z-index: -1;
   width: 100%;
-  height: 600px;
-  margin: 0 auto;
-  /* center the element horizontally */
+  height: 100%;
+}
+.div{
+  position : relative;
+  min-height: 100vh;
+  
 }
 
 .input {
