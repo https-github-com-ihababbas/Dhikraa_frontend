@@ -9,7 +9,8 @@ import { Container } from "postcss";
 import style from "../styles/todo.module.css"
 import todo from "public/assets/quran1.png";
 import { Icon } from '@iconify/react';
-
+import zakaref from "public/assets/back44.png";
+import line_img from "public/assets/line.png";
 
 
 export default function Readerpage() {
@@ -77,48 +78,70 @@ export default function Readerpage() {
 
 
   return (
-    <div className={styles.div}>
-            <Image src={home_img} alt="Picture of the author" className={styles.image} />
+    <div className="bg-[#e5f2c4]">
+      {/* <Image src={home_img} alt="Picture of the author" className={styles.image} /> */}
+      <section className="flex justify-end ">
 
-      <section className="pt-6 ">
-        <h1 className="text-4xl font-bold text-center"> اِسْتَمَعَ لِلْقُرْآنِ </h1>
+        <section className="w-5/6 pt-6">
+          <div className="flex justify-center pl-40">
 
-        <div className="flex justify-between h-full py-4 mb-8 ml-40 mr-40 rounded-md shadow-sm flex-right ">
+            <div className="text-5xl text-[#252f0b]   ">
 
-          <div className="relative justify-center w-1/4 h-50 ">
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-            </div>
-            <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
-              <Image className="w-full h-50 rounded-3xl rad brightness-125 " src={todo} />
+              <h1 className="pl-9">
+                إِسْتَمَعَ لِلْقُرْآنِ
+              </h1>
+              <Image className="justify-center" width={280} src={line_img} />
             </div>
           </div>
-          <div className="w-3/4">
-            <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
-            <br />
+
+          <div className="flex justify-center w-full py-4 mb-8 rounded-md shadow-sm flex-right ">
+
+            <div className="relative justify-center w-1/4 h-52 ">
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+              </div>
+              <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
+                <Image className="w-full h-52 rounded-3xl rad brightness-125 " src={todo} />
+              </div>
+            </div>
+            <div className="w-7/12">
+              <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
+              <br />
 
 
 
-            <p className="text-3xl text-[#252f0b]  text-center ml-32 mr-32  ">
-              <p className='pt-4 pb-2 text-3xl'>
-                وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُوا لَهُ وَأَنصِتُوا لَعَلَّكُمْ تُرْحَمُونَ              </p>
-              <p >سورة الأعراف: 204
+              <p className="text-2xl text-[#252f0b]  text-right ml-14    ">
+                <p className='pt-4 pb-2 text-3xl'>
+                  وَإِذَا قُرِئَ الْقُرْآنُ فَاسْتَمِعُوا لَهُ وَأَنصِتُوا لَعَلَّكُمْ تُرْحَمُونَ              </p>
+                <p >سورة الأعراف: 204
+
+                </p>
+
 
               </p>
 
-            </p>
-
-            {/* <br />
-            <p className="text-2xl text-[#252f0b] ml-32 mr-32 flex justify-end ">
-              اِحْرِصْ عَلَى تَجْدِيدِ نِيَّتِكَ دَائِمًا
-              <Icon icon="iconoir:system-restart" className="mx-4" />
-            </p> */}
 
 
 
+            </div>
           </div>
-        </div>
+        </section>
+        <Image className="justify-center h-52 w-52" src={zakaref} />
+
       </section>
+
+      <div className="text-3xl text-[#252f0b] flex justify-center   ">
+        <div>
+          <h1 className="border-[#252f0b]  border-b-solid border-b-2 p-2 px-6">
+            مَقَاطِع صَوْتِيَّةٍ
+          </h1>
+
+        </div>
+
+      </div>
+
+
+
 
 
       <div className="mt-2">
@@ -234,11 +257,15 @@ export default function Readerpage() {
         )}
       </div> */}
 
-
+      
 
 
 
       <Readervideos className="m-auto " />
+      <section className="flex justify-start">
+        <Image className="justify-center rotate-180 h-52 w-52" width={300} src={zakaref} />
+
+      </section>
     </div>
 
   );

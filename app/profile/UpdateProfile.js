@@ -108,9 +108,9 @@ export default function UpdateProfile({ isOpen, close, id,setUserData,userData }
                                 leaveFrom="opacity-100 translate-y-0 "
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 "
                             >
-                                <Dialog.Panel className="relative overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-2xl sm:my-8 sm:w-full sm:max-w-md">
+                                <Dialog.Panel className="relative overflow-hidden text-left transition-all transform rounded-lg shadow-2xl sm:my-8 sm:w-full sm:max-w-xl">
                                     {/* <div className="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4"> */}
-                                    <div className="w-full p-8 bg-white border-solid shadow-2xl rounded-3xl">
+                                    <div className="w-full p-8 bg-[#eff3e6] border-solid shadow-2xl rounded-3xl">
                                         <button
                                             onClick={close}
                                             className="float-left border-2 border-gray-400 border-solid rounded hover:border-3 hover:border-gray-700"
@@ -124,88 +124,88 @@ export default function UpdateProfile({ isOpen, close, id,setUserData,userData }
                                                     id="username"
                                                     name="username"
                                                     required
-                                                    className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 outline-none focus:border-green-400"
+                                                    className="flex-1 py-2 text-right bg-[#eff3e6] text-gray-600 border-b-2 border-gray-400 outline-none focus:border-green-400"
                                                     defaultValue={userData.username}
 
                                                 />
                                                 <label
-                                                    className="inline-block w-20 mr-6 font-bold text-right text-gray-600 "
+                                                    className="inline-block mx-3 font-bold text-right text-gray-600 w-36 "
                                                 >
                                                     اسم المستخدم
                                                 </label>
                                             </div>
 
-                                            <div className="flex items-center mb-10">
+                                            <div className="flex items-center mb-5">
                                                 <input
                                                     type="text"
                                                     id="first_name"
                                                     name="first_name"
                                                     required
-                                                    className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    className="flex-1 py-2 text-right bg-[#eff3e6] text-gray-600 border-b-2 border-gray-400 "
                                                     defaultValue={userData.first_name}
                                                 />
                                                 <label
-                                                    className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
+                                                    className="inline-block mx-2 font-bold text-right text-gray-600 w-36"
                                                 >
                                                     الإسم
                                                 </label>
                                             </div>
 
-                                            <div className="flex items-center mb-10">
+                                            <div className="flex items-center mb-5">
                                                 <input
                                                     type="text"
                                                     id="last_name"
                                                     name="last_name"
 
                                                     required
-                                                    className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    className="flex-1 py-2 text-right bg-[#eff3e6] text-gray-600 border-b-2 border-gray-400 "
                                                     defaultValue={userData.last_name}
 
                                                 />
                                                 <label
-                                                    className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
+                                                    className="inline-block mx-3 font-bold text-right text-gray-600 w-36"
                                                 >
 
                                                     العائلة
                                                 </label>
                                             </div>
-                                            <div className="flex items-center mb-10">
+                                            <div className="flex items-center mb-5">
                                                 <input
                                                     type="email"
                                                     id="email"
                                                     name="email"
 
                                                     required
-                                                    className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    className="flex-1 py-2 text-right bg-[#eff3e6] text-gray-600 border-b-2 border-gray-400 "
                                                     defaultValue={userData.email}
 
                                                 />
                                                 <label
-                                                    className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
+                                                    className="inline-block mx-2 font-bold text-right text-gray-600 w-36"
                                                 >
 
                                                     البريد الإلكتروني
                                                 </label>
                                             </div>
-                                            <div className="flex items-center mb-10">
+                                            <div className="flex items-center mb-5">
                                                 <input
                                                     type="number"
                                                     id="number"
                                                     name="number"
 
                                                     required
-                                                    className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    className="flex-1 py-2 text-right bg-[#eff3e6] text-gray-600 border-b-2 border-gray-400 "
                                                     defaultValue={userData.phone_number}
 
                                                 />
                                                 <label
-                                                    className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
+                                                    className="inline-block mx-2 font-bold text-right text-gray-600 w-36"
                                                 >
 
                                                     رقم الهاتف
                                                 </label>
                                             </div>
-                                            <div className="flex items-center mb-10">
+                                            <div className="flex items-center mb-5">
                                                 <input
                                                     type="date"
                                                     id="birthday"
@@ -214,41 +214,41 @@ export default function UpdateProfile({ isOpen, close, id,setUserData,userData }
                                                     max="2023-12-31"
 
                                                     required
-                                                    className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    className="flex-1 py-2 text-right bg-[#eff3e6] text-gray-600 border-b-2 border-gray-400 "
                                                     defaultValue={userData.birthday}
 
                                                 />
                                                 <label
-                                                    className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
+                                                    className="inline-block mx-2 font-bold text-right text-gray-600 w-36"
                                                 >
 
                                                     تاريخ الميلاد
                                                 </label>
                                             </div>
-                                            <div className="flex items-center mb-10">
+                                            <div className="flex items-center mb-5">
                                                 <input
                                                     type="text"
                                                     id="location"
                                                     name="location"
                                                     required
-                                                    className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                    className="flex-1 py-2 text-right bg-[#eff3e6] text-gray-600 border-b-2 border-gray-400 "
                                                     defaultValue={userData.location}
 
                                                 />
                                                 <label
-                                                    className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
+                                                    className="inline-block mx-2 font-bold text-right text-gray-600 w-36"
                                                 >
 
                                                     مكان الاقامة
                                                 </label>
                                             </div>
 
-                                            <div className="flex items-center mb-10">
+                                            <div className="flex items-center mb-5">
                                             <select
                                                 name="gender"
                                                 id="gender"
                                                 required
-                                                className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
+                                                className="flex-1 py-2 text-right bg-[#eff3e6] text-gray-600 border-b-2 border-gray-400 "
                                                 defaultValue={userData.gender}
 
                                             >
@@ -257,7 +257,7 @@ export default function UpdateProfile({ isOpen, close, id,setUserData,userData }
                                             </select>
 
                                                 <label
-                                                    className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
+                                                    className="inline-block mx-2 font-bold text-right text-gray-600 w-36"
                                                 >
 
                                                     الجنس

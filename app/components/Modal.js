@@ -25,7 +25,7 @@ export default function Example({ isopen, close, adkar, img, page }) {
     <>
 
       <Transition.Root show={isopen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+        <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={close}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -39,7 +39,7 @@ export default function Example({ isopen, close, adkar, img, page }) {
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <div className="flex items-end justify-center min-h-full p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -49,7 +49,7 @@ export default function Example({ isopen, close, adkar, img, page }) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <Dialog.Panel className="relative overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-lg">
                   <div className="bg-[#e5f2c4]  items-center px-4 pt-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <button
                       type="button"
@@ -64,16 +64,16 @@ export default function Example({ isopen, close, adkar, img, page }) {
                   <div className="bg-[#e5f2c4] px-4 pt--5 pb-4 sm:px-6 sm:pb-4 h-full">
                     <div className="sm:flex sm:items-start">
 
-                      <div className=" text-center sm:mt-0  sm:text-left">
+                      <div className="text-center  sm:mt-0 sm:text-left">
                         <h1 className='mb-6 text-center text-4xl text-[#252f0b]'>
                           {adkar.titel}
                         </h1>
 
-                        <div className="mt-2 w-full border-5xl border-black">
+                        <div className="w-full mt-2 border-black border-5xl">
                           <div className='flex justify-center'>
                           <Image className='rounded-md w-96' src={img} alt='' />
                           </div>
-                          <section className='flex justift-between mt-10 '>
+                          <section className='flex mt-10 justift-between '>
                             {numPageState > 1 && <button
                               type="button"
                               className={`w-8 h-24 bg-[#3a451c] rounded-md text-white text-3xl m-4`}
