@@ -43,9 +43,9 @@ export default function Header() {
               <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                 <span className="sr-only">Open main menu</span>
                 {open ? (
-                  <XMarkIcon className="block  w-6 h-6" aria-hidden="true" />
+                  <XMarkIcon className="block w-6 h-6" aria-hidden="true" />
                 ) : (
-                  <Bars3Icon className="block  w-6 h-6" aria-hidden="true" />
+                  <Bars3Icon className="block w-6 h-6" aria-hidden="true" />
                 )}
               </Disclosure.Button>
             </div>
@@ -57,8 +57,8 @@ export default function Header() {
                     <Menu.Button className="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="w-8 h-8 rounded-full"
-                        src="./assets/profile.jpg"
+                        className="w-11 h-11 rounded-full bg-[#778554] p-1"
+                        src="./assets/logogray.png"
                         alt="profile image"
                       />
                     </Menu.Button>
@@ -109,9 +109,9 @@ export default function Header() {
               )}
             </div>
 
-            <div className="h-full flex items-right justify-center sm:items-stretch sm:justify-start">
+            <div className="flex justify-center h-full items-right sm:items-stretch sm:justify-start">
 
-              <div className=" hidden sm:ml-6 sm:block mt-6 justify-center">
+              <div className="justify-center hidden mt-6 sm:ml-6 sm:block">
 
                 {navigation.map((item) => (
                   <Link
