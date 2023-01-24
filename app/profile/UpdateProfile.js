@@ -58,7 +58,7 @@ export default function UpdateProfile({ isOpen, close, id,setUserData,userData }
                 const res = err.response.data
                 console.log("updateprofile", err, typeof (res));
                 console.log(res.hasOwnProperty("username"));
-                if (res.hasOwnProperty("username")) {
+                if (res.hasOwnProperty("email")) {
                     Swal.fire({
                         icon: 'error',
                         text: `${res.email.email}`,
@@ -70,6 +70,7 @@ export default function UpdateProfile({ isOpen, close, id,setUserData,userData }
                         text: `${res.password}`,
                     });
                 }
+                
             });
         close();
 

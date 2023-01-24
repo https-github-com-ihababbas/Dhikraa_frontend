@@ -38,6 +38,13 @@ export default function UpdatePassword({ isOpen, close, id }) {
       .put(`${url}change_password/${id}/`, obj, config)
       .then((result) => {
         console.log(result.data);
+        Swal.fire({  
+          icon: 'error',  
+          icon: 'success',
+          title:`تم تغيير كلمة السر بنجاح `,
+          showConfirmButton: false,
+          timer: 1500
+       })
 
       })
       .catch((err) => {
@@ -107,7 +114,7 @@ export default function UpdatePassword({ isOpen, close, id }) {
                       <form action="" onSubmit={handleSubmit}>
                         <div className="flex items-center mb-5 ">
                           <input
-                            type="text"
+                            type="password"
                             id="old_password"
                             name="old_password"
                             required
@@ -123,7 +130,7 @@ export default function UpdatePassword({ isOpen, close, id }) {
 
                         <div className="flex items-center mb-10">
                           <input
-                            type="text"
+                            type="password"
                             id="password"
                             name="password"
                             required
@@ -138,7 +145,7 @@ export default function UpdatePassword({ isOpen, close, id }) {
 
                         <div className="flex items-center mb-10">
                           <input
-                            type="text"
+                            type="password"
                             id="password2"
                             name="password2"
 
