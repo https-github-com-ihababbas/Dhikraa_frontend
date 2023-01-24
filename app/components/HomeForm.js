@@ -18,7 +18,7 @@ export default function HomeForm() {
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
     let day = date.getDate()
-    
+
 
     const prayTimes = async () => {
         'this function give an opject of pray times from api'
@@ -35,7 +35,7 @@ export default function HomeForm() {
                 setDataTime(result.data.data);
             })
             .catch((err) => {
-                const x =err;
+                const x = err;
             });
         {
             dataTime != '' && dataTime.map(item => {

@@ -25,19 +25,13 @@ export default function Home_Image_card({ img1, title1, img2, title2 }) {
     const checkbox = isChecked ? img1 : img2;
 
     return (
-        // <div>
-        //     <div onClick={toggleCheck}>
-        //         <span><img alt={'svtp-Checkbox'} src={checkbox} /></span>
-        //     </div>
-        // </div>
         <div className=''>
             <div className="bg-[#3a451c] rounded-t-full">
-                <h5 className="text-center text-2xl">{totalTsbehState} </h5>
+                <h5 className="text-center text-2xl text-[#e5f2c4] border-b-2 border-[#e5f2c4] py-3">{totalTsbehState} </h5>
             </div>
             <div onClick={toggleCheck}>
-                <img className="rounded-b-full w-64" onClick={incrementNumOfTsbeh} alt={'svtp-Checkbox'} src={checkbox} />
+                <img className="rounded-b-full w-[12rem]" onClick={incrementNumOfTsbeh} alt={'svtp-Checkbox'} src={checkbox} />
             </div>
-            
         </div>
 
     )

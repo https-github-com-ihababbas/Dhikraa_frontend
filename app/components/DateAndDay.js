@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import style from '../styles/DateAndDay.module.css'
+import { type } from "os";
 
 
 export default function DateAndDay() {
@@ -52,6 +53,7 @@ export default function DateAndDay() {
         {
             dataTime != '' && dataTime.map(item => {
                 if (item.date.gregorian.day == day) {
+
                     SetPrayaddressState({
                         gregorian: item.date.gregorian.date,
                         hijri: item.date.hijri.date,
@@ -74,8 +76,8 @@ export default function DateAndDay() {
     }
     timeAndAdress()
     return (
-        <>
-            <section className="rounded-t-md text-2xl text-[#252f0b] bg-[#949e7b] mx-32 px-16 mt-14 ">
+        <section className=" pt-14">
+            <section className="rounded-t-md text-2xl text-[#252f0b] bg-[#949e7b] mx-32 px-16 ">
                 <div className="text-4xl pt-7 pb-2 text-center border-b-2">
                     {dateTimeString}
                 </div>
@@ -86,6 +88,6 @@ export default function DateAndDay() {
                     <h1 className="w-full py-1"><span className="text-lg">{prayClearaddressState.timezone} </span>: المكان</h1>
                 </section>
             </section>
-        </>
+        </section>
     )
 }

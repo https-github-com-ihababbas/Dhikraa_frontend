@@ -24,18 +24,19 @@ export default function ramdancountdown() {
 
     // Display the result in the element with id="demo"
     setcountDown("باقي لقدوم الشهر " + days + " يوم " + hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية ")
-
+    localStorage.setItem("time", seconds);
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
       //document.getElementById("demo").innerHTML = "EXPIRED";
     }
   }, 1000);
+  
 
 
   return (
     <section className="mt-24 mb-32">
-      <h1 className="text-5xl border-b-2 ml-[45%] mr-[10%] border-[#778554] justify-self-center text-center text-[#252f0b] dark:text-white mb-4 pb-2" > رمضان يدنو </h1>
+      <h1 className="text-5xl border-b-2 mx-[29%] border-[#778554] justify-self-center text-center text-[#252f0b] dark:text-white mb-4 pb-2" > رمضان يدنو </h1>
 
       <div className=" bg-[#949e7b] flex flex-right w-full h-full  justify-between px-32">
 

@@ -9,8 +9,9 @@ import line_img from "public/assets/line.png";
 export default function Counter_tsbeh() {
 
     return (
-        <section className="relative mb-32 ">
-            <section className='absolute mx-64'>
+        <section className="mb-32">
+            <section className='absolute mx-64 z-10'>
+                
                 <div className="text-5xl text-center justify-self-center text-center text-[#252f0b] mx-64 my-12 pb-3">
                     <h5> خاتم التسبيح </h5>
                     <Image className="" src={line_img} />
@@ -30,12 +31,13 @@ export default function Counter_tsbeh() {
                 </section>
             </section>
             <div
+            className="z-0"
                 style={{
-                    position: 'relative',
+                    // position: 'relative',
                     height: '60vh',
                     width: '100%',
                     clipPath: 'inset(0 0 0 0)',
-                    zIndex: -99,
+                    // zIndex: -1,
                 }}
             >
                 <div

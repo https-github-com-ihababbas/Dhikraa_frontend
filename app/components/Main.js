@@ -14,16 +14,15 @@ export default function Main() {
     return (
         <>
             <Hero />
-            
-            <DateAndDay />
-            <HomeForm />
-            <Ramdan />
-            <Counter_tsbeh />
+            <section className={`bg-[#e5f2c4] `}>
 
-            {/* <HomeModal /> */}
+                <DateAndDay />
+                <HomeForm />
+                <Ramdan />
+                <Counter_tsbeh />
+                <HomeModal />
 
-            
+            </section>
         </>
-
     )
 }
