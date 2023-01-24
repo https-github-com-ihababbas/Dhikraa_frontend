@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 import style from "../styles/quiz.module.css"
 import maca from "public/assets/maca.jpg";
 import { Icon } from '@iconify/react';
+import line_img from "public/assets/line.png";
+import zakaref from "public/assets/back44.png";
 
 
 
@@ -88,43 +90,55 @@ export default function PrayTime() {
 
 
   return (
-    <div className={styles.div1}>
-      <Image src={home_img} alt="Picture of the author" className={styles.image} />
-      
-      <section className="pt-6 ">
-        <h1 className="text-5xl font-bold text-center">
-        ❆  مَوَاقِيت اَلصَّلَاةِ  ❆
-        </h1>
+    <div className="bg-[#e5f2c4]">
 
-        <div className="flex justify-between h-full py-4 mb-8 ml-40 mr-40 rounded-md shadow-sm flex-right">
+      <section className="flex justify-between">
 
-          <div className="relative justify-center w-1/4 h-64 ">
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-            </div>
-            <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
-              <Image className="w-full h-64 rounded-3xl rad" src={maca} />
+        <section className="pt-6 ">
+          <div className="flex justify-end">
+
+            <div className="text-5xl  mr-[30%]   text-[#252f0b]   ">
+
+              <h1 className="pl-5">
+                مَوَاقِيت اَلصَّلَاةِ
+              </h1>
+              <Image className="justify-center" width={280} src={line_img} />
             </div>
           </div>
-          <div className="w-3/4">
-            <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
-            <br />
-            
-           
-              
-            <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
-   - أَقِمِ ٱلصَّلَوٰةَ لِدُلُوكِ ٱلشَّمۡسِ إِلَىٰ غَسَقِ ٱلَّیۡلِ وَقُرۡءَانَ ٱلۡفَجۡرِۖ إِنَّ قُرۡءَانَ ٱلۡفَجۡرِ كَانَ مَشۡهُودࣰا - سورة الاسراء : 78  
-              <Icon icon="iconoir:system-restart" className="mx-4" />
 
-            </h3>
-            <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
-          103 : فَإِذَا قَضَيْتُمُ الصَّلَاةَ فَاذْكُرُوا اللَّهَ قِيَامًا وَقُعُودًا وَعَلَى جُنُوبِكُمْ فَإِذَا اطْمَأْنَنْتُمْ فَأَقِيمُوا الصَّلَاةَ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا - سورة النساء              <Icon icon="iconoir:system-restart" className="mx-4" />
+          <div className="flex justify-between py-4 mb-4 ml-40 rounded-md shadow-md mr-16flex-right">
 
-            </h3>
+            <div className="relative justify-center w-1/4 h-56 ">
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+              </div>
+              <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
+                <Image className="w-[95%] h-56 rounded-3xl rad" src={maca} />
+              </div>
+            </div>
+            <div className="w-3/4">
+              <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
+              <br />
 
-        </div>
-    </div>
-       </section>
+
+
+              <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
+                - أَقِمِ ٱلصَّلَوٰةَ لِدُلُوكِ ٱلشَّمۡسِ إِلَىٰ غَسَقِ ٱلَّیۡلِ وَقُرۡءَانَ ٱلۡفَجۡرِۖ إِنَّ قُرۡءَانَ ٱلۡفَجۡرِ كَانَ مَشۡهُودࣰا - سورة الاسراء : 78
+                <Icon icon="iconoir:system-restart" className="mx-4" />
+
+              </h3>
+              <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
+                103 : فَإِذَا قَضَيْتُمُ الصَّلَاةَ فَاذْكُرُوا اللَّهَ قِيَامًا وَقُعُودًا وَعَلَى جُنُوبِكُمْ فَإِذَا اطْمَأْنَنْتُمْ فَأَقِيمُوا الصَّلَاةَ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا - سورة النساء              <Icon icon="iconoir:system-restart" className="mx-4" />
+
+              </h3>
+
+            </div>
+          </div>
+        </section>
+        <Image className="justify-center h-52 w-52" src={zakaref} />
+
+      </section>
+
 
 
 
@@ -197,17 +211,17 @@ export default function PrayTime() {
           <div className={styles.cardContainer}>
             <div className={styles.card}>
               <div className={styles.cardText}>
-              <button onClick={handleNext} className={styles.next}> 
-             
-              <Icon icon="material-symbols:arrow-back-rounded" />
-              </button>
+                <button onClick={handleNext} className={styles.next}>
+
+                  <Icon icon="material-symbols:arrow-back-rounded" />
+                </button>
                 <div>
-               
+
                   <h2 className={styles.h1}>{hadiths[currentIndex].hadith}</h2>
                 </div>
               </div>
               <button onClick={handlePrev} className={styles.prev}>
-              <Icon icon="material-symbols:arrow-forward-rounded" />
+                <Icon icon="material-symbols:arrow-forward-rounded" />
 
               </button>
               <div className={styles.cardImage}>
@@ -216,6 +230,10 @@ export default function PrayTime() {
             </div>
           </div>
         </div>
+      </section>
+      <section className="flex justify-start">
+        <Image className="justify-center rotate-180 h-52 w-52" width={300} src={zakaref} />
+
       </section>
     </div>
   );

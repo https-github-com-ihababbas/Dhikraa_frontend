@@ -12,6 +12,8 @@ import todo from "public/assets/todo.png";
 import { Icon } from '@iconify/react';
 import home_img from 'public/assets/back2.png';
 
+import line_img from "public/assets/line.png";
+import zakaref from "public/assets/back44.png";
 
 
 export default function Todo() {
@@ -129,65 +131,58 @@ export default function Todo() {
   }
 
   return (
-    <section className={style.div1}>
-            <Image src={home_img} alt="Picture of the author" className={style.image} />
+    <section className="bg-[#e5f2c4]">
+      {/* <Image src={home_img} alt="Picture of the author" className={style.image} /> */}
+      <section className="flex justify-between">
 
-      {/* <div className={style.wp_caption} >
-        <Image
-          src={image}
-          alt="background"
-          width={9999}
-          height={300}
-          className={style.demo} >
+        <section className="pt-6 ">
+          <div className="flex justify-end">
 
-        </Image>
-        <div className={style.wp_caption_text}>
+            <div className="text-5xl mr-[35%]  text-[#252f0b]   ">
 
-          <h1 className="relative pb-4 text-5xl">المهام  </h1>
-          <p >
-            يأتي الشعور بالإنجاز عندما تكمل مهام الأهداف التي حددتها لنفسك لذا ابدأ معنا ببناء قائمة المهام خاصتك</p>
-
-        </div>
-      </div> */}
-      <section className="pt-6 ">
-        <h1 className="text-5xl font-bold text-center ">
-        {/* <Icon icon="iconoir:system-restart" className="mx-4" /> */}
-           اَلْمَهَامُّ 
-           {/* <Icon icon="iconoir:system-restart" className="mx-4" /> */}
-        </h1>
-
-        <div className="flex justify-between h-full py-4 mb-8 ml-40 mr-40 rounded-md shadow-sm flex-right">
-
-          <div className="relative justify-center w-1/4 h-64 ">
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-            </div>
-            <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
-              <Image className="w-full h-64 rounded-3xl rad" src={todo} />
+              <h1 className="pl-14">
+                اَلْمَهَامُّ
+              </h1>
+              <Image className="justify-center" width={200} src={line_img} />
             </div>
           </div>
-          <div className="w-3/4">
-            <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
-            <br />
-            
-           
-              
-            <p className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
-              يَأْتِي اَلشُّعُورُ بِالْإِنْجَازِ عِنْدَمَا تُكْمِلُ مَهَامَّ اَلْأَهْدَافِ اَلَّتِي حَدَّدَتْهَا لِنَفْسِكَ لِذَا اِبْدَأْ مَعَنَا بِبِنَاءِ قَائِمَةِ اَلْمَهَامِّ خَاصَّتُكَ
-              <Icon icon="iconoir:system-restart" className="mx-4" />
 
-            </p>
-            {/* <br />
+          <div className="flex justify-between py-4 mb-8 ml-40 mr-20 rounded-md shadow-sm flex-right">
+
+            <div className="relative justify-center w-1/4 h-52 ">
+              <div
+                className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+              </div>
+              <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
+                <Image className="w-full h-52 rounded-3xl rad" src={todo} />
+              </div>
+            </div>
+            <div className="w-3/4">
+              <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
+              <br />
+
+
+
+              <p className="text-2xl text-[#252f0b]  text-right ml-36  flex justify-between">
+                يَأْتِي اَلشُّعُورُ بِالْإِنْجَازِ عِنْدَمَا تُكْمِلُ مَهَامَّ اَلْأَهْدَافِ اَلَّتِي حَدَّدَتْهَا لِنَفْسِكَ لِذَا اِبْدَأْ مَعَنَا بِبِنَاءِ قَائِمَةِ اَلْمَهَامِّ خَاصَّتُكَ
+                <Icon icon="iconoir:system-restart" className="mx-4" />
+
+              </p>
+              {/* <br />
             <p className="text-2xl text-[#252f0b] ml-32 mr-32 flex justify-end ">
               اِحْرِصْ عَلَى تَجْدِيدِ نِيَّتِكَ دَائِمًا
               <Icon icon="iconoir:system-restart" className="mx-4" />
             </p> */}
 
-           
 
+
+            </div>
           </div>
-        </div>
+        </section>
+        <Image className="justify-center h-52 w-52" src={zakaref} />
+
       </section>
+
 
       <div >
 
@@ -388,6 +383,10 @@ export default function Todo() {
           setData={setData}
         />
       </div>
+      <section className="flex justify-start">
+        <Image className="justify-center rotate-180 h-52 w-52" width={300} src={zakaref} />
+
+      </section>
 
 
 
