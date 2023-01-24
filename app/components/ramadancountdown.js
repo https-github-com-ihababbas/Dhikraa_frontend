@@ -34,7 +34,7 @@ export default function ramdancountdown() {
 
 
   return (
-    <section className="my-24">
+    <section className="mt-24 mb-32">
       <h1 className="text-5xl border-b-2 ml-[45%] mr-[10%] border-[#778554] justify-self-center text-center text-[#252f0b] dark:text-white mb-4 pb-2" > رمضان يدنو </h1>
 
       <div className=" bg-[#949e7b] flex flex-right w-full h-full  justify-between px-32">

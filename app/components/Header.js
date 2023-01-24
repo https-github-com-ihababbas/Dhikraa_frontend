@@ -31,7 +31,7 @@ export default function Header() {
 
   const { tokens } = useContext(AuthContext);
   const { logout } = useContext(AuthContext);
-  const admin=localStorage.getItem("is_superuser")
+  const admin=localStorage.getItem("username")
   return (
     // bg-blue-900
     <Disclosure as="nav" className="bg-[#252f0b] ">
@@ -49,7 +49,7 @@ export default function Header() {
                 )}
               </Disclosure.Button>
             </div>
-            <div className="absolute w-1/6 inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               {/* Profile dropdown */}
               {tokens ? (
                 <Menu as="div" className="relative ml-3">
@@ -123,15 +123,8 @@ export default function Header() {
                     {item.name}
                   </Link>
                 ))}
-                {tokens && admin=='true'&& <Link
-                    key='admin'
-                    href='/admin'
-                    className='text-xl py-1 text-[#e5f2c4] h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-justify '
-                    
-                  >
-                    لوحة التحكم
-                  </Link>}
-                  {tokens && admin=='false'&&userNav.map((item) => (
+                
+                  {tokens &&userNav.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -141,6 +134,14 @@ export default function Header() {
                       {item.name}
                     </Link>
                   ))}
+                  {admin=='admin' && <Link
+                    key='admin'
+                    href='/admin'
+                    className='text-xl py-1 text-[#e5f2c4] h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-right '
+                    
+                  >
+                    الإدارة
+                  </Link>}
 
               </div>
 
