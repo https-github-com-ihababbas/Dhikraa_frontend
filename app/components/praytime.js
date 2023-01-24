@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from 'app/styles/styles.module.css';
 import Image from 'next/image';
-import home_img from 'public/assets/praypage.png'
+import home_img from 'public/assets/back2.png';
 import hadith from 'public/assets/hadith.png';
 import moment from 'moment';
 import { hadiths } from "./data/hadiths";
@@ -88,8 +88,8 @@ export default function PrayTime() {
 
 
   return (
-    <div className={style.back}>
-      {/* <Image src={home_img} alt="Picture of the author" className={styles.image} /> */}
+    <div className={styles.div1}>
+      <Image src={home_img} alt="Picture of the author" className={styles.image} />
       
       <section className="pt-6 ">
         <h1 className="text-5xl font-bold text-center">
