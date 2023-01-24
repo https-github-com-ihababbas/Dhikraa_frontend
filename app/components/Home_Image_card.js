@@ -30,13 +30,14 @@ export default function Home_Image_card({ img1, title1, img2, title2 }) {
         //         <span><img alt={'svtp-Checkbox'} src={checkbox} /></span>
         //     </div>
         // </div>
-        <div className="w-1/3 px-10 py-20 ">
-            <div>
-                <h5>{totalTsbehState} </h5>
+        <div className=''>
+            <div className="bg-[#3a451c] rounded-t-full">
+                <h5 className="text-center text-2xl">{totalTsbehState} </h5>
             </div>
             <div onClick={toggleCheck}>
-                <img className="rounded-full" onClick={incrementNumOfTsbeh} alt={'svtp-Checkbox'} src={checkbox} />
+                <img className="rounded-b-full w-64" onClick={incrementNumOfTsbeh} alt={'svtp-Checkbox'} src={checkbox} />
             </div>
+            
         </div>
 
     )

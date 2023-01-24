@@ -22,12 +22,7 @@ export default function Main() {
 
             {/* <HomeModal /> */}
 
-            {/* <section className={styleSection.container}>
-                <section className={styleSection.section1}>
-                </section>
-                <section className={styleSection.section2}>
-                </section>
-            </section> */}
+            
         </>
 
     )
