@@ -10,6 +10,8 @@ import style from "../styles/todo.module.css"
 import image from "public/assets/image.png";
 import todo from "public/assets/todo.png";
 import { Icon } from '@iconify/react';
+import home_img from 'public/assets/back2.png';
+
 
 
 export default function Todo() {
@@ -127,7 +129,9 @@ export default function Todo() {
   }
 
   return (
-    <section className={style.back}>
+    <section className={style.div1}>
+            <Image src={home_img} alt="Picture of the author" className={style.image} />
+
       {/* <div className={style.wp_caption} >
         <Image
           src={image}
