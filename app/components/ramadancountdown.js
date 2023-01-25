@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 import React from "react";
 import { useState, useContext, useEffect } from "react";
@@ -24,7 +25,7 @@ export default function ramdancountdown() {
 
     // Display the result in the element with id="demo"
     setcountDown("باقي لقدوم الشهر " + days + " يوم " + hours + " ساعة " + minutes + " دقيقة " + seconds + " ثانية ")
-    localStorage.setItem("time", seconds);
+    // localStorage.setItem("time", seconds);
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
@@ -40,7 +41,7 @@ export default function ramdancountdown() {
 
       <div className=" bg-[#949e7b] flex flex-right w-full h-full  justify-between px-32">
 
-        <div className="relative w-1/4 justify-center h-64  ">
+        <div className="relative justify-center w-1/4 h-64 ">
           <div
             className="absolute inset-0 bg-gradient-to-r from-[#e5f2c4] to-[#252f0b] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
           </div>

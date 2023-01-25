@@ -1,3 +1,34 @@
+# Dhikraa_Froutend Project
+
+## Team member:
+* **Walaa' Atiyh**
+* **Amani M Al-Zoubi**
+* **Ihab Abbas**
+* **mohammad alghzawi**
+* **Bashar Telfah**
+
+## heroku link :<https://dhiker-api-v1.herokuapp.com/>
+
+## wireframe 
+
+![image](public/assets/wireframe.png)
+
+## Description
+
+**The Ramdan is coming so for that we decided to make a web site that will contain many kinds of pages that will engourge to do worshib in a good way and every user can make his plan on it to organize his time for that.**
+
+**The website can be help people to make his lifestyle organize with many useful activity that will improve his inner self and the out one.**
+
+
+
+## Useful Notes
+The backend functionalities can be divided into 2 categories, those that serve the frontend app (NEXT js), and those used for the administration of the store (which is different from the Django Admin).
+<br>
+
+
+<br>
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
