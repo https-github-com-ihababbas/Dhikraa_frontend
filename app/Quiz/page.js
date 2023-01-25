@@ -4,14 +4,11 @@
 import React from "react";
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/auth";
-import useSWR from 'swr'
 import axios from "axios";
 import Answer from "../components/answer";
 import Review from "./Review"
 import Image from "next/image";
 import quiz from "public/assets/quiz.png";
-import style from "../styles/quiz.module.css"
-import image from "public/assets/image.png";
 import { Icon } from '@iconify/react';
 import line_img from "public/assets/line.png";
 import zakaref from "public/assets/back44.png";
@@ -24,7 +21,8 @@ export default function Quiz() {
     const [Quistion, setQuistion] = useState([])      //to save the qustion that render to the user
     const [mark, setMark] = useState(0);    // to save the mark 
     const { tokens, refresh } = useContext(AuthContext)
-
+    const [numbertoview, setnumbertoview] = useState([])
+    
     const [refreshString, setRefreshString] = useState(null)
     const [accessString, setAccessString] = useState(null)
     const [configestate, setConfigeState] = useState(null)
@@ -45,91 +43,124 @@ export default function Quiz() {
         }
         setConfigeState(config)
 
+        console.log(2)
+
+        const chossen_id = new Set();
+        const number_to_view = []
+        const url = `https://dhiker-api-v1.herokuapp.com/api/v1/quiz/`;
+        axios
+            .get(url, config)
+            .then((result) => {
+                console.log(result.data)
+                const data=result.data
+                for (let i = 0; chossen_id.size < 10; i++) {
+                    chossen_id.add(Math.ceil(Math.random() * (49)))
+        
+                }
+        
+                chossen_id.forEach((item) => {
+                    number_to_view.push(data[item])
+            
+                })
+                setnumbertoview(number_to_view)
+                
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+
+        
+
+
     }, [])
 
-    console.log(2)
-
-    const url = `https://dhiker-api-v1.herokuapp.com/api/v1/quiz/`;
-
-    const fetcher = url => axios.get(url, configestate).then(res => res.data);
-
-    const { data, error, isLoading } = useSWR(url, fetcher);
-
-    if (error) return (
-        <div className="bg-[#e5f2c4]">
-
-            <section className="flex justify-between">
-
-
-                <section className="pt-6 ">
-
-                    <div className="flex justify-end">
-
-                        <div className="text-5xl mr-[30%]  text-[#252f0b]   ">
-
-                            <h1 className="pl-5">
-                                اِخْتَبَرَ مَعْلُومَاتِك
-                            </h1>
-                            <Image className="justify-center" width={280} src={line_img} />
-                        </div>
-                    </div>
-
-
-                    <div className="flex justify-between py-4 mb-4 ml-40 rounded-md shadow-md mr-16flex-right">
-
-                        <div className="relative justify-center w-1/4 h-56 ">
-                            <div
-                                className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-                            </div>
-                            <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
-                                <Image className="w-[95%] h-56 rounded-3xl rad" src={quiz} />
-                            </div>
-                        </div>
-                        <div className="w-3/4">
-                            <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
-                            <br />
-
-
-
-                            <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
-                                سَيَتَكَوَّنُ هَذَا اَلِاخْتِبَارِ مِنْ عَشَرَةِ اَسْلَة كُلَّ سُؤَالٍ مَعَ أَرْبَعِ خِيَارَاتٍ وَجَوَابٍ وَاحِدٍ هُوَ اَلصَّحِيحُ
-                                <Icon icon="iconoir:system-restart" className="mx-4" />
-
-                            </h3>
-                            <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
-                                مَوَاضِيع اَلْأَسْئِلَةِ هِيَ اَلْقُرْآنُ اَلْكَرِيمُ اَلسِّيرَةَ اَلنَّبَوِيَّةَ مَعْلُومَاتٍ عَامَّةً وَالتَّجْوِيدُ
-                                <Icon icon="iconoir:system-restart" className="mx-4" />
-
-                            </h3>
-
-                        </div>
-
-                    </div>
-                </section>
-                <Image className="justify-center h-52 w-52" src={zakaref} />
-            </section>
-        </div>
-
-    )
-
-    if (isLoading) return <div>loading...</div>
-
-
-
-    const chossen_id = new Set();
-    for (let i = 0; chossen_id.size < 10; i++) {
-        chossen_id.add(Math.ceil(Math.random() * (49)))
-
-
-
-    }
-    //console.log(chossen_id)
-    const number_to_view = []
-    chossen_id.forEach((item) => {
-        number_to_view.push(data[item])
-
-    })
     console.log(3)
+
+
+
+    // const url = `https://dhiker-api-v1.herokuapp.com/api/v1/quiz/`;
+    // console.log(configestate)
+
+
+    // const fetcher = url => axios.get(url, configestate).then(res => res.data);
+
+    // const { data, error, isLoading } = useSWR(url, fetcher);
+
+    // if (error) return (
+    //     <div className="bg-[#e5f2c4]">
+
+    //         <section className="flex justify-between">
+
+
+    //             <section className="pt-6 ">
+
+    //                 <div className="flex justify-end">
+
+    //                     <div className="text-5xl mr-[30%]  text-[#252f0b]   ">
+
+    //                         <h1 className="pl-5">
+    //                             hhhhhh اِخْتَبَرَ مَعْلُومَاتِك
+    //                         </h1>
+    //                         <Image className="justify-center" width={280} src={line_img} />
+    //                     </div>
+    //                 </div>
+
+
+    //                 <div className="flex justify-between py-4 mb-4 ml-40 rounded-md shadow-md mr-16flex-right">
+
+    //                     <div className="relative justify-center w-1/4 h-56 ">
+    //                         <div
+    //                             className="absolute inset-0 bg-gradient-to-r from-[#949e7b] to-[#778554] shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+    //                         </div>
+    //                         <div className="relative shadow-lg sm:rounded-3xl sm:p-1 ">
+    //                             <Image className="w-[95%] h-56 rounded-3xl rad" src={quiz} />
+    //                         </div>
+    //                     </div>
+    //                     <div className="w-3/4">
+    //                         <h1 className="mt-10 text-4xl justify-self-center text-right text-[#252f0b] dark:text-white" ></h1>
+    //                         <br />
+
+
+
+    //                         <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
+    //                             سَيَتَكَوَّنُ هَذَا اَلِاخْتِبَارِ مِنْ عَشَرَةِ اَسْلَة كُلَّ سُؤَالٍ مَعَ أَرْبَعِ خِيَارَاتٍ وَجَوَابٍ وَاحِدٍ هُوَ اَلصَّحِيحُ
+    //                             <Icon icon="iconoir:system-restart" className="mx-4" />
+
+    //                         </h3>
+    //                         <h3 className="text-2xl text-[#252f0b]  text-right ml-32 mr-32 flex justify-between">
+    //                             مَوَاضِيع اَلْأَسْئِلَةِ هِيَ اَلْقُرْآنُ اَلْكَرِيمُ اَلسِّيرَةَ اَلنَّبَوِيَّةَ مَعْلُومَاتٍ عَامَّةً وَالتَّجْوِيدُ
+    //                             <Icon icon="iconoir:system-restart" className="mx-4" />
+
+    //                         </h3>
+
+    //                     </div>
+
+    //                 </div>
+    //             </section>
+    //             <Image className="justify-center h-52 w-52" src={zakaref} />
+    //         </section>
+    //     </div>
+
+    // )
+
+    // if (isLoading) return <div>loading...</div>
+
+
+
+    // const chossen_id = new Set();
+    // for (let i = 0; chossen_id.size < 10; i++) {
+    //     chossen_id.add(Math.ceil(Math.random() * (49)))
+
+    // }
+    
+    //console.log(chossen_id)
+    // const number_to_view = []
+    // chossen_id.forEach((item) => {
+    //     number_to_view.push(data[item])
+
+    // })
+   
     // console.log(number_to_view)
 
     function startQuiz() {
@@ -155,7 +186,7 @@ export default function Quiz() {
         setSubmittFlag(true)
         console.log(review)
         setReviwFlag(review)
-        setQuistion(number_to_view)
+        // setQuistion(numbertoview)
 
 
 
@@ -166,7 +197,7 @@ export default function Quiz() {
 
     const answeruser = (value, id) => {
         console.log(id, value)
-        if (value == number_to_view[id].choices.correct) {
+        if (value == numbertoview[id].choices.correct) {
             answer[id] = 1
         } else {
 
@@ -269,7 +300,7 @@ export default function Quiz() {
 
 
 
-                        {strtflag && number_to_view.map((item, i) => (
+                        {strtflag && numbertoview.map((item, i) => (
 
 
 
@@ -319,7 +350,7 @@ export default function Quiz() {
                                 }
 
                                 <Review
-                                    number_to_view={Quistion}
+                                    number_to_view={numbertoview}
                                     startQuiz={startQuiz}
 
 

@@ -124,9 +124,7 @@ export default function UpdateQus({ isOpen, close, quizInfo, setAllQuizzes }) {
                             name="question"
                             defaultValue={quizInfo.question}
                             required
-                            className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 bg-[#e5f2c4] 
-                      text-[#252f0b]
-                      outline-none text-right"
+                            className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 bg-[#e5f2c4] text-[#252f0b] outline-none text-right "
                           />
                           <label
                             className="inline-block w-20 mr-6 text-right 
