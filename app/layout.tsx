@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AuthWrapper from "./contexts/auth";
-import ThemeWeapper from "./contexts/theme";
 
 export default function RootLayout({
   children,
@@ -19,7 +18,6 @@ export default function RootLayout({
       */}
       <head />
       <AuthWrapper>
-        {/* <ThemeWeapper> */}
           <body>
             {/* Header */}
             <Header />
@@ -31,7 +29,6 @@ export default function RootLayout({
             {/* Footer */}
             <Footer />
           </body>
-        {/* </ThemeWeapper> */}
       </AuthWrapper>
     </html>
   );
