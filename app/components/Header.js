@@ -34,13 +34,7 @@ export default function Header() {
     return classes.filter(Boolean).join(" ");
   }
   
-  
-  // useEffect(() => {
-    
-  //   const admin = localStorage.getItem("username")
-  //   setUsername(admin)
-
-  // }, [])
+ 
 
   return (
     // bg-blue-900

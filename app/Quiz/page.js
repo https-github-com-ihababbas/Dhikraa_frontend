@@ -25,9 +25,9 @@ export default function Quiz() {
     const [mark, setMark] = useState(0);    // to save the mark 
     const { tokens, refresh } = useContext(AuthContext)
 
-    const [refreshString, setRefreshString] = useState("")
-    const [accessString, setAccessString] = useState("")
-    const [configestate, setConfigeState] = useState("")
+    const [refreshString, setRefreshString] = useState(null)
+    const [accessString, setAccessString] = useState(null)
+    const [configestate, setConfigeState] = useState(null)
 
     useEffect(() => {
         console.log(1)

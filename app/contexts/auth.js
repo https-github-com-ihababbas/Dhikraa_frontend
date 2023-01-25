@@ -4,7 +4,7 @@ import axios from 'axios';
 export const AuthContext = createContext();
 
 export default function AuthWrapper({ children }) {
-    const [globalState, setGlobalState] = useState({})
+    const [globalState, setGlobalState] = useState(null)
 
 
 

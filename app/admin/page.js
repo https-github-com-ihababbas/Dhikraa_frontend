@@ -8,9 +8,9 @@ import LoginForm from "../login/page";
 export default function AdminPanel() {
   const { tokens, refresh } = useContext(AuthContext);
 
-  const [refreshString, setRefreshString] = useState("")
-  const [accessString, setAccessString] = useState("")
-  const [usernameString, setUsername] = useState("")
+  const [refreshString, setRefreshString] = useState(null)
+  const [accessString, setAccessString] = useState(null)
+  const [usernameString, setUsername] = useState(null)
 
   useEffect(() => {
     const refresh_string = localStorage.getItem("refresh");

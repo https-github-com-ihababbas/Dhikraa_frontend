@@ -7,9 +7,9 @@ export default function UpdateQus({ isOpen, close, quizInfo, setAllQuizzes }) {
   const { tokens, refresh } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
-  const [refreshString, setRefreshString] = useState("")
-  const [accessString, setAccessString] = useState("")
-  const [userId, setUserId] = useState(0)
+  const [refreshString, setRefreshString] = useState(null)
+  const [accessString, setAccessString] = useState(null)
+  const [userId, setUserId] = useState(null)
 
   useEffect(() => {
     const refresh_string = localStorage.getItem("refresh");

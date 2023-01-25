@@ -10,8 +10,8 @@ export default function UpdatePassword({ isOpen, close, id }) {
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
 
-  const [refreshString, setRefreshString] = useState("")
-  const [accessString, setAccessString] = useState("")
+  const [refreshString, setRefreshString] = useState(null)
+  const [accessString, setAccessString] = useState(null)
 
   
   

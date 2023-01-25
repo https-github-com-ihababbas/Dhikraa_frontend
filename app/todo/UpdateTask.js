@@ -7,9 +7,9 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
   const { tokens, refresh } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
-  const [refreshString, setRefreshString] = useState("")
-  const [accessString, setAccessString] = useState("")
-  const [userid, setUserId] = useState(0)
+  const [refreshString, setRefreshString] = useState(null)
+  const [accessString, setAccessString] = useState(null)
+  const [userid, setUserId] = useState(null)
 
   
  

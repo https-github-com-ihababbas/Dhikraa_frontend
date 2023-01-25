@@ -11,9 +11,9 @@ import LoginForm from "../../login/page";
 
 export default function Quizzes() {
   const { tokens, refresh } = useContext(AuthContext);
-  const [refreshString, setRefreshString] = useState("")
-  const [accessString, setAccessString] = useState("")
-  const [userId, setUserId] = useState("")
+  const [refreshString, setRefreshString] = useState(null)
+  const [accessString, setAccessString] = useState(null)
+  const [userId, setUserId] = useState(null)
   const [allQuizzes, setAllQuizzes] = useState([]);
   const [someOfQ, setSomeOfQ] = useState([]);
   const [moduleFlag, setModuleFlag] = useState(false);
