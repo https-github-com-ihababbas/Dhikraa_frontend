@@ -23,23 +23,35 @@ export default function Quiz() {
     const [reviewflag, setReviwFlag] = useState({})    // to open the review page
     const [Quistion, setQuistion] = useState([])      //to save the qustion that render to the user
     const [mark, setMark] = useState(0);    // to save the mark 
-
-    const x = localStorage.getItem("username")
     const { tokens, refresh } = useContext(AuthContext)
-    const refresh_string = localStorage.getItem("refresh")
-    refresh(refresh_string)
 
-    //Data Fetching part
-    const access = localStorage.getItem("access")
+    const [refreshString, setRefreshString] = useState("")
+    const [accessString, setAccessString] = useState("")
+    const [configestate, setConfigeState] = useState("")
 
-    const config = {
-        headers: {
-            'Authorization': `Bearer ${access}`
+    useEffect(() => {
+        console.log(1)
+        const refresh_string = localStorage.getItem("refresh");
+        setRefreshString(refresh_string)
+
+        const access = localStorage.getItem("access");
+        setAccessString(access)
+        refresh(refresh_string);
+
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${access}`
+            }
         }
-    }
+        setConfigeState(config)
+
+    }, [])
+
+    console.log(2)
+
     const url = `https://dhiker-api-v1.herokuapp.com/api/v1/quiz/`;
 
-    const fetcher = url => axios.get(url, config).then(res => res.data);
+    const fetcher = url => axios.get(url, configestate).then(res => res.data);
 
     const { data, error, isLoading } = useSWR(url, fetcher);
 
@@ -117,6 +129,7 @@ export default function Quiz() {
         number_to_view.push(data[item])
 
     })
+    console.log(3)
     // console.log(number_to_view)
 
     function startQuiz() {

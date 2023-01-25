@@ -12,23 +12,29 @@ import home_img from 'public/assets/Home_img1.png';
 import logo from 'public/assets/logogray.png';
 
 export default function Profile() {
-  const x = localStorage.getItem("username") // get the username from the local storage 
   const [changePasswordFlag, setchangePasswordFlag] = useState(false);    // to chang password
   const [userData, setUserData] = useState({});    // to save the data 
   const [changeProfileFlag, setchangeProfileFlag] = useState(false);    // to edit profile information
+  const { tokens,  username ,refresh} = useContext(AuthContext);
+  const [accessString, setAccessString] = useState("")
+  const [refreshString, setRefreshString] = useState("")
 
-  //Data Fetching part
-  const { tokens, logout } = useContext(AuthContext);
-  const access = localStorage.getItem("access")
-  const config = {
-    headers: {
-      'Authorization': `Bearer ${access}`
-    }
-  }
-  const url = `https://dhiker-api-v1.herokuapp.com/api/accounts/users/${x}`;
-
-
+  
   useEffect(() => {
+    const refresh_string = localStorage.getItem("refresh");
+    setRefreshString(refresh_string)
+    const access = localStorage.getItem("access");
+    setAccessString(access)
+    refresh(refresh_string);
+ 
+    const config = {
+      headers: {
+        'Authorization': `Bearer ${access}`
+      }
+    }
+    
+    const url = `https://dhiker-api-v1.herokuapp.com/api/accounts/users/${username}`;
+    
     axios
       .get(url, config)
       .then((result) => {

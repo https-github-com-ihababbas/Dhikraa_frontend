@@ -11,14 +11,9 @@ import LoginForm from "../../login/page";
 
 export default function Quizzes() {
   const { tokens, refresh } = useContext(AuthContext);
-  const refresh_string = localStorage.getItem("refresh");
-  refresh(refresh_string);
-  const access = localStorage.getItem("access");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access}`,
-    },
-  };
+  const [refreshString, setRefreshString] = useState("")
+  const [accessString, setAccessString] = useState("")
+  const [userId, setUserId] = useState("")
   const [allQuizzes, setAllQuizzes] = useState([]);
   const [someOfQ, setSomeOfQ] = useState([]);
   const [moduleFlag, setModuleFlag] = useState(false);
@@ -33,7 +28,25 @@ export default function Quizzes() {
     Ciera: "أسئلة في السيرة النبوية",
   };
   const url = `https://dhiker-api-v1.herokuapp.com/api/v1/quiz/`;
+  
   useEffect(() => {
+    const refresh_string = localStorage.getItem("refresh");
+    setRefreshString(refresh_string)
+    
+    const access = localStorage.getItem("access");
+    setAccessString(access)
+    const admin = localStorage.getItem("userId")
+    setUserId(admin)
+    
+    
+    refresh(refresh_string);
+    
+    const config = {
+      headers: {
+        Authorization: `Bearer ${access}`,
+      },
+    };
+
     axios
       .get(url, config)
       .then((result) => {
@@ -71,6 +84,14 @@ export default function Quizzes() {
 
   const deleteQue = (id) => {
     console.log(`${url}${id}`);
+    refresh(refreshString);
+    
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessString}`,
+      },
+    };
+
     axios
       .delete(`${url}${id}`, config)
       .then((res) => {
@@ -87,12 +108,12 @@ export default function Quizzes() {
         console.log("deleteSide", err);
       });
   };
-  const admin=localStorage.getItem("username")
+ 
   return (
     <>
-    {tokens && admin=="admin" ?<div className={`${style.back} py-10`}>
+    {tokens && userId==1 ?<div className={`${style.back} py-10`}>
       <Link href='/admin' className="flex w-[14%] px-8 py-2  ml-8 text-lg text-black   shadow-l rounded-3xl hover:text-[#e5f2c4] hover:bg-[#3a451c]   text-center bg-[#949e7b]"> عودة لصفحة الرئيسية</Link>
-      <div className=" justify-center px-6 md:flex w-full gap-8 pt-10 ">
+      <div className="justify-center w-full gap-8 px-6 pt-10 md:flex">
         {someOfQ.length > 0 &&
         <div className={`h-screen shadow-md   overflow-scroll ${style.tbody} w-1/2 dark:bg-gray-900 bg-[#e5f2c4]`}>
           {someOfQ.length > 0 ? (
@@ -105,14 +126,14 @@ export default function Quizzes() {
                   <div className="grid grid-cols-1 ">
                     <div className="flex flex-col ">
                       <div className="flex flex-col p-4 text-[#252f0b] flex items-center  ">
-                        <div className="flex flex-row text-2xl mt-2 text-center ">
+                        <div className="flex flex-row mt-2 text-2xl text-center ">
                           {item.question}
                         </div>
                       </div>
                       <div className="flex flex-col w-full pb-2">
                         <div className=" text-gray-500 dark:bg-transparent w-full items-center flex justify-center gap-20 bg-[#949e7b]">
                           <button onClick={() => openUpdateModule(item)} className=" cursor-pointer uppercase text-lg flex flex-row items-center  justify-center font-semibold  w-1/4 mt-2 text-lg text-[#252f0b] bg-[#e5f2c4]   shadow-l rounded-3xl hover:bg-[#778554]  py-2 mb-2 ">
-                            <div className="mr-2 items-center justify-center">
+                            <div className="items-center justify-center mr-2">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 height="20px"
@@ -153,13 +174,13 @@ export default function Quizzes() {
               );
             })
           ) : (
-            <div className="dark:bg-gray-900 bg-teal-200"></div>
+            <div className="bg-teal-200 dark:bg-gray-900"></div>
           )}
         </div> }
         
-        <div className="rounded-lg w-1/2">
+        <div className="w-1/2 rounded-lg">
           <div className="justify-between mb-6 rounded-lg bg-[#949e7b] p-6   shadow-l sm:flex sm:justify-start hover:scale-105">
-            <div className="sm:ml-4 sm:flex w-full sm:justify-between ">
+            <div className="w-full sm:ml-4 sm:flex sm:justify-between ">
               <button
                 onClick={() => {
                   showQuestions("General");
@@ -180,7 +201,7 @@ export default function Quizzes() {
             </div>
           </div>
           <div className="justify-between mb-6 rounded-lg bg-[#949e7b] p-6   shadow-l sm:flex sm:justify-start hover:scale-105">
-            <div className="sm:ml-4 sm:flex w-full sm:justify-between">
+            <div className="w-full sm:ml-4 sm:flex sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Quran");
@@ -201,7 +222,7 @@ export default function Quizzes() {
             </div>
           </div>
           <div className="justify-between mb-6 rounded-lg bg-[#949e7b] p-6   shadow-l sm:flex sm:justify-start hover:scale-105">
-          <div className="sm:ml-4 sm:flex w-full sm:justify-between">
+          <div className="w-full sm:ml-4 sm:flex sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Tajweed");
@@ -222,7 +243,7 @@ export default function Quizzes() {
             </div>
           </div>
           <div className="justify-between mb-6 rounded-lg bg-[#949e7b] p-6   shadow-l sm:flex sm:justify-start hover:scale-105">
-          <div className="sm:ml-4 sm:flex w-full sm:justify-between">
+          <div className="w-full sm:ml-4 sm:flex sm:justify-between">
               <button
                 onClick={() => {
                   showQuestions("Ciera");

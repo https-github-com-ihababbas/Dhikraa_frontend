@@ -22,18 +22,32 @@ export default function Todo() {
   const [moduleFlag, setModuleFlag] = useState(false);
   const [taskInfo, setTaskInfo] = useState([]);
   const [data, setData] = useState([]);
-  const refresh_string = localStorage.getItem("refresh");
-  refresh(refresh_string);
-  const access = localStorage.getItem("access");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access}`,
-    },
-  };
+  
+  const [refreshString, setRefreshString] = useState("")
+  const [accessString, setAccessString] = useState("")
+  const [userid, setId] = useState(0)
 
+  
   const url = `https://dhiker-api-v1.herokuapp.com/api/v1/todo/`;
 
   useEffect(() => {
+    const refresh_string = localStorage.getItem("refresh");
+    setRefreshString(refresh_string)
+
+    const access = localStorage.getItem("access");
+    setAccessString(access)
+    
+    const id = localStorage.getItem("userId")
+    setId(id)
+
+
+    refresh(refresh_string);
+    const config = {
+      headers: {
+        Authorization: `Bearer ${access}`,
+      },
+    };
+
     axios
       .get(url, config)
       .then((result) => {
@@ -50,10 +64,15 @@ export default function Todo() {
   };
 
   const handleSubmit = (e) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessString}`,
+      },
+    };
     e.preventDefault();
     setFlagForm(false);
     const obj = {
-      owner: localStorage.getItem("userId"),
+      owner: userid,
       date: e.target.date.value,
       time: e.target.time.value,
       task: e.target.task.value,
@@ -85,6 +104,12 @@ export default function Todo() {
   };
 
   const deleteTask = (id) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessString}`,
+      },
+    };
+    
     console.log(`${url}${id}`);
     axios
       .delete(`${url}${id}`, config)

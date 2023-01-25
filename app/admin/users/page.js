@@ -6,20 +6,52 @@ import axios from "axios";
 import LoginForm from "../../login/page";
 export default function Users() {
   const { tokens, refresh } = useContext(AuthContext);
-  const refresh_string = localStorage.getItem("refresh");
-  refresh(refresh_string);
-  const access = localStorage.getItem("access");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access}`,
-    },
-  };
-
   const [female, setFemale] = useState(0);
   const [male, setMale] = useState(0);
   const [admin, setAdmin] = useState(0);
   const [percentMale, setPercentMale] = useState(0);
   const [percentFemale, setPercentFemale] = useState(0);
+  const [users, setUsers] = useState([]);
+  const [refreshString, setRefreshString] = useState("")
+  const [accessString, setAccessString] = useState("")
+  const [username, setUsername] = useState("")
+
+
+
+
+
+
+
+  const url = `https://dhiker-api-v1.herokuapp.com/api/accounts/users/`;
+  useEffect(() => {
+    const refresh_string = localStorage.getItem("refresh");
+    setRefreshString(refresh_string)
+    const access = localStorage.getItem("access");
+    setAccessString(access)
+    const admin = localStorage.getItem("username")
+    setUsername(admin)
+    refresh(refresh_string);
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${access}`,
+      },
+    };
+
+
+
+
+    axios
+      .get(url, config)
+      .then((result) => {
+        setUsers(result.data);
+        console.log(result.data);
+        femaleMale(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const femaleMale = (items) => {
     let female = 0,
@@ -40,24 +72,10 @@ export default function Users() {
     setAdmin(admin);
   };
 
-  const [users, setUsers] = useState([]);
-  const url = `https://dhiker-api-v1.herokuapp.com/api/accounts/users/`;
-  useEffect(() => {
-    axios
-      .get(url, config)
-      .then((result) => {
-        setUsers(result.data);
-        console.log(result.data);
-        femaleMale(result.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-  const adminUser = localStorage.getItem("username");
+
   return (
     <>{
-      tokens && adminUser=="admin" ?<div className="py-10 bg-[#e5f2c4]">
+      tokens && username == "admin" ? <div className="py-10 bg-[#e5f2c4]">
         <Link
           href="/admin"
           className="flex w-[14%] px-8 py-2 mb-4 ml-8 text-lg text-black shadow-2xl rounded-3xl hover:text-[#e5f2c4] hover:bg-[#3a451c] shadow-gray-500 text-center bg-[#949e7b] "
@@ -166,10 +184,10 @@ export default function Users() {
           </div>
         </div>
       </div>
-    :
-    <LoginForm/>
+        :
+        <LoginForm />
     }
-      
+
     </>
   );
 }

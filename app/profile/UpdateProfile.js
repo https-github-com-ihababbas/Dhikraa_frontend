@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState, useContext } from "react";
+import { Fragment, useRef, useState, useContext ,useEffect} from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { AuthContext } from "../contexts/auth";
 import axios from "axios";
@@ -8,20 +8,33 @@ export default function UpdateProfile({ isOpen, close, id,setUserData,userData }
     const { tokens, refresh, logout } = useContext(AuthContext);
     const [open, setOpen] = useState(true);
     const cancelButtonRef = useRef(null);
-    const refresh_string = localStorage.getItem("refresh");
-    refresh(refresh_string);
-    const access = localStorage.getItem("access");
+
+    const [refreshString, setRefreshString] = useState("")
+    const [accessString, setAccessString] = useState("")
+    
+
+    useEffect(() => {
+        const refresh_string = localStorage.getItem("refresh");
+        setRefreshString(refresh_string)
+    
+        const access = localStorage.getItem("access");
+        setAccessString(access)  
+      }, [])
+    
 
     //get data from backend
-    const config = {
-        headers: {
-            Authorization: `Bearer ${access}`,
-        },
-    };
+    
 
     const handleSubmit = (e) => {
-        console.log(`Submit`)
         e.preventDefault();
+        refresh(refreshString);
+        const config = {
+            headers: {
+                Authorization: `Bearer ${accessString}`,
+            },
+        };
+
+        console.log(`Submit`)
         console.log(e.target.username.value)
         console.log(e.target.first_name.value)
         console.log(e.target.last_name.value)

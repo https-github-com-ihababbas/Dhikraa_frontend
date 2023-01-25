@@ -11,6 +11,7 @@ export default function AuthWrapper({children}){
         login,
         logout,
         refresh,
+        username:localStorage.getItem("username"),
         
     })
 
@@ -25,6 +26,7 @@ export default function AuthWrapper({children}){
                 login,
                 logout,
                 refresh,
+                username:userInfo.username
                 
             })
             
@@ -46,6 +48,8 @@ export default function AuthWrapper({children}){
             login,
             logout,
             refresh,
+            username:null,
+            
            
         })
     

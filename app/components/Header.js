@@ -2,7 +2,7 @@
 "use client";
 import React from "react";
 import { Fragment } from "react";
-import { useContext } from "react";
+import { useContext ,useEffect,useState} from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -11,27 +11,37 @@ import style from "../styles/header.module.css";
 import Link from "next/link";
 import { AuthContext } from "../contexts/auth";
 
-const navigation = [
-  { name: " الرئيسية ", href: "/", current: true },
-  { name: " من نحن ", href: "/about", current: false },
-  { name: " مواقيت الصلاة ", href: "/praytime", current: false },
-  { name: " إستمع للقرآن ", href: "/reader", current: false },
-];
 
-const userNav = [
-  { name: " المهام ", href: "/todo", current: false },
-  { name: " إختبـــر معلوماتك ", href: "/Quiz", current: false },
-];
-
-function linkHanldle(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 export default function Header() {
-  // const { isDarkTheme,toggleThemeHandler } = useContext(ThemeContext);
-
+  // const [username, setUsername] = useState("")
   const { tokens } = useContext(AuthContext);
   const { logout } = useContext(AuthContext);
-  const admin=localStorage.getItem("username")
+  const { username } = useContext(AuthContext);
+  
+  const navigation = [
+    { name: " الرئيسية ", href: "/", current: true },
+    { name: " من نحن ", href: "/about", current: false },
+    { name: " مواقيت الصلاة ", href: "/praytime", current: false },
+    { name: " إستمع للقرآن ", href: "/reader", current: false },
+  ];
+  
+  const userNav = [
+    { name: " المهام ", href: "/todo", current: false },
+    { name: " إختبـــر معلوماتك ", href: "/Quiz", current: false },
+  ];
+  
+  function linkHanldle(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
+  
+  
+  // useEffect(() => {
+    
+  //   const admin = localStorage.getItem("username")
+  //   setUsername(admin)
+
+  // }, [])
+
   return (
     // bg-blue-900
     <Disclosure as="nav" className="bg-[#252f0b] ">
@@ -134,7 +144,7 @@ export default function Header() {
                       {item.name}
                     </Link>
                   ))}
-                  {admin=='admin' && <Link
+                  {username=='admin' && <Link
                     key='admin'
                     href='/admin'
                     className='text-xl py-1 text-[#e5f2c4] h-full mx-8 hover:text-[#949e7b] hover:border-b hover:delay-100 hover:border-[#949e7b] text-right '
@@ -142,6 +152,7 @@ export default function Header() {
                   >
                     الإدارة
                   </Link>}
+                    {console.log(username)}
 
               </div>
 
@@ -163,24 +174,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* <Disclosure.Panel className="sm:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {navigation.map((item) => (
-                  <Disclosure.Button
-                    key={item.name}
-                    as="a"
-                    href={item.href}
-                    className={linkHanldle(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'block px-3 py-2 rounded-md text-base font-medium'
-                    )}
-                    aria-current={item.current ? 'page' : undefined}
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                ))}
-              </div>
-            </Disclosure.Panel> */}
+         
         </>
       )}
     </Disclosure>

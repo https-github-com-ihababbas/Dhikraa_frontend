@@ -13,7 +13,7 @@ export default function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { tokens, login } = useContext(AuthContext);
-  const x = localStorage.getItem("username");
+  
 
   const usernameHandler = (e) => {
     setUsername(e.target.value);
