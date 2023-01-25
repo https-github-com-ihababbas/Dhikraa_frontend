@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState, useContext } from "react";
+import { Fragment, useRef, useState, useContext ,useEffect} from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { AuthContext } from "../contexts/auth";
 import axios from "axios";
@@ -7,17 +7,35 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
   const { tokens, refresh } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
+  const [refreshString, setRefreshString] = useState("")
+  const [accessString, setAccessString] = useState("")
+  const [userid, setUserId] = useState(0)
 
-  const refresh_string = localStorage.getItem("refresh");
-  refresh(refresh_string);
-  const access = localStorage.getItem("access");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access}`,
-    },
-  };
+  
+ 
 
+  useEffect(() => {
+    const refresh_string = localStorage.getItem("refresh");
+    setRefreshString(refresh_string)
+
+    const access = localStorage.getItem("access");
+    setAccessString(access)
+    const id = localStorage.getItem("userId")
+    setUserId(id)
+
+  }, [])
+
+
+
+
+  
   const handleSubmit = (e) => {
+    refresh(refreshString);
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessString}`,
+      },
+    };
     e.preventDefault();
     console.log(e.target.task.value)
     console.log(e.target.description.value)
@@ -25,7 +43,7 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
     console.log(e.target.time.value)
     const url = `https://dhiker-api-v1.herokuapp.com/api/v1/todo/`;
     const obj = {
-      owner: localStorage.getItem("userId"),
+      owner: userid,
       date:e.target.date.value,
       time:e.target.time.value,
       task:e.target.task.value,
@@ -70,11 +88,11 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+            <div className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" />
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 overflow-y-auto text-xl">
-            <div className="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
+            <div className="flex items-end justify-center min-h-full text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -84,12 +102,12 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                 leaveFrom="opacity-100 translate-y-0 "
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 "
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div className="bg-white p-8  w-full border-solid shadow-2xl rounded-3xl">
+                <Dialog.Panel className="relative overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:w-full sm:max-w-lg">
+                  <div className="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
+                    <div className="w-full p-8 bg-white border-solid shadow-2xl rounded-3xl">
                       <button
                         onClick={close}
-                        className="border-solid border-2 border-gray-400 rounded float-left  hover:border-3 hover:border-gray-700"
+                        className="float-left border-2 border-gray-400 border-solid rounded hover:border-3 hover:border-gray-700"
                       >
                         ❌
                       </button>
@@ -100,14 +118,11 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                             id="task"
                             name="task"
                             required
-                            className="flex-1 py-2 border-b-2 border-gray-400 focus:border-green-400 
-                      text-gray-600
-                      outline-none text-right"
+                            className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 outline-none focus:border-green-400"
                             defaultValue={taskInfo.task}
                           />
                           <label
-                            className="inline-block w-20 mr-6 text-right 
-                                 font-bold text-gray-600 "
+                            className="inline-block w-20 mr-6 font-bold text-right text-gray-600 "
                           >
                             المهمة
                           </label>
@@ -119,13 +134,11 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                             id="description"
                             name="description"
                             required
-                            className="flex-1 py-2 border-b-2 border-gray-400  
-                      text-gray-600 text-right "
+                            className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
                             defaultValue={taskInfo.description}
                           />
                           <label
-                            className="inline-block w-20 mr-6 text-right
-                                    font-bold text-gray-600"
+                            className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
                           >
                             الوصف
                           </label>
@@ -139,14 +152,11 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                             min="2023-01-01"
                             max="2050-12-31"
                             required
-                            className="flex-1 py-2 border-b-2 border-gray-400  
-                      text-gray-600 text-right
-                      "
+                            className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400 "
                             defaultValue={taskInfo.date}
                           />
                           <label
-                            className="inline-block w-20 mr-6 text-right
-                                    font-bold text-gray-600"
+                            className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
                           >
                             التاريخ
                           </label>
@@ -160,20 +170,18 @@ export default function UpdateTask({ isOpen, close, taskInfo,setData }) {
                             min="00:00:00"
                             max="23:59:59"
                             required
-                            className="flex-1 py-2 border-b-2 border-gray-400  
-                      text-gray-600 text-right"
+                            className="flex-1 py-2 text-right text-gray-600 border-b-2 border-gray-400"
                             defaultValue={taskInfo.time}
                           />
                           <label
-                            className="inline-block w-20 mr-6 text-right
-                                    font-bold text-gray-600"
+                            className="inline-block w-20 mr-6 font-bold text-right text-gray-600"
                           >
                             الوقت
                           </label>
                         </div>
 
                         <div className="text-left">
-                          <button className="py-3 px-8 bg-teal-600 text-white font-bold rounded-3xl hover:bg-teal-800 shadow-2xl">
+                          <button className="px-8 py-3 font-bold text-white bg-teal-600 shadow-2xl rounded-3xl hover:bg-teal-800">
                             تعديل
                           </button>
                         </div>

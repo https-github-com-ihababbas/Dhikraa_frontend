@@ -1,23 +1,36 @@
-import { Fragment, useRef, useState, useContext } from "react";
+import { Fragment, useRef, useState, useContext ,useEffect} from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { AuthContext } from "../contexts/auth";
 import axios from "axios";
 import Swal from 'sweetalert2'
 
 export default function UpdatePassword({ isOpen, close, id }) {
+
   const { tokens, refresh,logout } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
-  const refresh_string = localStorage.getItem("refresh");
-  refresh(refresh_string);
-  const access = localStorage.getItem("access");
+
+  const [refreshString, setRefreshString] = useState("")
+  const [accessString, setAccessString] = useState("")
+
+  
+  
 
   //get data from backend
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access}`,
-    },
-  };
+
+  useEffect(() => {
+    const refresh_string = localStorage.getItem("refresh");
+    setRefreshString(refresh_string)
+
+    const access = localStorage.getItem("access");
+    setAccessString(access)
+   
+
+    
+    
+
+  }, [])
+
 
   const handleSubmit = (e) => {
     console.log(`Submit`)
@@ -25,6 +38,13 @@ export default function UpdatePassword({ isOpen, close, id }) {
     console.log(e.target.password.value)
     console.log(e.target.password2.value)
     console.log(e.target.old_password.value)
+    
+    refresh(refreshString);
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessString}`,
+      },
+    };
 
     const url = `https://dhiker-api-v1.herokuapp.com/api/accounts/`;
     const obj = {

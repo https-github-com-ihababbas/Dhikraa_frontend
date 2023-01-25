@@ -13,7 +13,6 @@ import logo from 'public/assets/logogray.png';
 
 export default function SignUP() {
 
-    const refresh_string = localStorage.getItem("refresh");
 
 
     const handleSubmit = (e) => {

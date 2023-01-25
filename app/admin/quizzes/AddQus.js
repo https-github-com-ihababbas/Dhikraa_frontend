@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState, useContext } from "react";
+import { Fragment, useRef, useState, useContext, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { AuthContext } from "app/contexts/auth.js";
 import axios from "axios";
@@ -6,26 +6,47 @@ import axios from "axios";
 export default function AddQus({ isOpen, close, quizType, setAllQuizzes }) {
   const { tokens, refresh } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
+  const [refreshString, setRefreshString] = useState("")
+  const [accessString, setAccessString] = useState("")
+  const [ownerstring, setOwner] = useState(0)
   const cancelButtonRef = useRef(null);
 
-  const refresh_string = localStorage.getItem("refresh");
-  refresh(refresh_string);
-  const access = localStorage.getItem("access");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${access}`,
-    },
-  };
+  useEffect(() => {
+    const refresh_string = localStorage.getItem("refresh");
+    setRefreshString(refresh_string)
+
+    const access = localStorage.getItem("access");
+    setAccessString(access)
+    const admin = localStorage.getItem("userId")
+    setOwner(admin)
+
+
+   
+
+  }, [])
+
+
+ 
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+  refresh(refreshString);
+  const config = {
+    headers: {
+      Authorization: `Bearer ${accessString}`,
+    },
+  };
+
+ 
     const url = `https://dhiker-api-v1.herokuapp.com/api/v1/quiz/`;
     const correct = e.target.correct.value;
     const wrong1 = e.target.wrong1.value;
     const wrong2 = e.target.wrong2.value;
     const wrong3 = e.target.wrong3.value;
     const obj = {
-      owner: localStorage.getItem("userId"),
+      owner: ownerstring,
       question: e.target.question.value,
       choices: JSON.stringify({
         correct: correct,
@@ -77,7 +98,7 @@ export default function AddQus({ isOpen, close, quizType, setAllQuizzes }) {
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 overflow-y-auto text-xl">
-            <div className="flex min-h-full items-end justify-center text-center sm:items-center sm:p-0">
+            <div className="flex items-end justify-center min-h-full text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -90,7 +111,7 @@ export default function AddQus({ isOpen, close, quizType, setAllQuizzes }) {
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg text-left bg-[#949e7b]  shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg ">
                   <button
                     onClick={close}
-                    className="border-solid border-2 mb-16 border-gray-400 rounded float-left  hover:border-3 hover:border-gray-700"
+                    className="float-left mb-16 border-2 border-gray-400 border-solid rounded hover:border-3 hover:border-gray-700"
                   >
                     ❌
                   </button>
@@ -184,7 +205,7 @@ export default function AddQus({ isOpen, close, quizType, setAllQuizzes }) {
                       </div>
 
                       <div className="text-left">
-                        <button className="py-3 px-8 bg-teal-800 text-white font-bold rounded-3xl hover:bg-teal-600 shadow-2xl">
+                        <button className="px-8 py-3 font-bold text-white bg-teal-800 shadow-2xl rounded-3xl hover:bg-teal-600">
                           إضافة
                         </button>
                       </div>
