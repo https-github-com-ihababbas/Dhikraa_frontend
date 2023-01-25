@@ -23,9 +23,9 @@ export default function Todo() {
   const [taskInfo, setTaskInfo] = useState([]);
   const [data, setData] = useState([]);
   
-  const [refreshString, setRefreshString] = useState("")
-  const [accessString, setAccessString] = useState("")
-  const [userid, setId] = useState(0)
+  const [refreshString, setRefreshString] = useState(null)
+  const [accessString, setAccessString] = useState(null)
+  const [userid, setId] = useState(null)
 
   
   const url = `https://dhiker-api-v1.herokuapp.com/api/v1/todo/`;

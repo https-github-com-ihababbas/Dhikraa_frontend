@@ -6,9 +6,9 @@ import axios from "axios";
 export default function AddQus({ isOpen, close, quizType, setAllQuizzes }) {
   const { tokens, refresh } = useContext(AuthContext);
   const [open, setOpen] = useState(true);
-  const [refreshString, setRefreshString] = useState("")
-  const [accessString, setAccessString] = useState("")
-  const [ownerstring, setOwner] = useState(0)
+  const [refreshString, setRefreshString] = useState(null)
+  const [accessString, setAccessString] = useState(null)
+  const [ownerstring, setOwner] = useState(null)
   const cancelButtonRef = useRef(null);
 
   useEffect(() => {

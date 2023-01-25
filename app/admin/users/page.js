@@ -12,9 +12,9 @@ export default function Users() {
   const [percentMale, setPercentMale] = useState(0);
   const [percentFemale, setPercentFemale] = useState(0);
   const [users, setUsers] = useState([]);
-  const [refreshString, setRefreshString] = useState("")
-  const [accessString, setAccessString] = useState("")
-  const [username, setUsername] = useState("")
+  const [refreshString, setRefreshString] = useState(null)
+  const [accessString, setAccessString] = useState(null)
+  const [username, setUsername] = useState(null)
 
 
 

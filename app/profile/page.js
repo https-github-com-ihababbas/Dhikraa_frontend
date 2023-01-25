@@ -16,8 +16,8 @@ export default function Profile() {
   const [userData, setUserData] = useState({});    // to save the data 
   const [changeProfileFlag, setchangeProfileFlag] = useState(false);    // to edit profile information
   const { tokens,  username ,refresh} = useContext(AuthContext);
-  const [accessString, setAccessString] = useState("")
-  const [refreshString, setRefreshString] = useState("")
+  const [accessString, setAccessString] = useState(null)
+  const [refreshString, setRefreshString] = useState(null)
 
   
   useEffect(() => {
