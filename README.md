@@ -7,7 +7,7 @@
 * **mohammad alghzawi**
 * **Bashar Telfah**
 
-## heroku link :<https://dhiker-api-v1.herokuapp.com/>
+## Vercel link :<https://dhikraa-frontend-83f5-njo2zr71y-dhikraa-frontend.vercel.app/>
 
 ## wireframe 
 
